@@ -15,7 +15,7 @@ export default function Home(){
         initial="initial"
         animate="animate"
         exit="exit"
-        className="relative min-h-screen flex lg:flex-row flex-col items-center justify-center">
+        className="relative h-screen overflow-hidden flex lg:flex-row flex-col items-center justify-center">
             <m.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -30,8 +30,8 @@ export default function Home(){
                     <h1 className="text-5xl md:text-7xl">Hii.. I am</h1>
                     <h2 className="text-3xl md:text-5xl mt-2">Aam Hermansyah <br/>Developer & Designer</h2>
                 </m.div>
-                <div className="mt-6 overflow-hidden z-[5]">
-                    <p className="font-primary">I can help you for build your web application. So, let's talk!</p>
+                <div className="mt-6 overflow-hidden z-[5] text-lg">
+                    <p className="font-primary">I can help you for design and build your web application. So, let&apos;s talk!</p>
                     <m.div
                     initial={{ y: "100%" }}
                     animate={{ y: "0%" }}
@@ -47,26 +47,26 @@ export default function Home(){
                 </div>
             </m.div>
             <div 
-            className="absolute lg:static top-[50%]  lg:flex-[1.5] w-full max-w-[600px] lg:max-w-full lg:mt-0 grid grid-cols-2 p-4 self-end lg:self-center">
+            className="absolute lg:static top-[50%] md:top-[45%]  lg:flex-[1.5] w-full max-w-[600px] lg:max-w-full lg:mt-0 grid grid-cols-2 p-4 self-end lg:self-center">
                 <m.div 
                 variants={itemTranslate({}, { x: '10%', y: '20%' }, .3)}
                 className="relative aspect-video border-2 border-white z-[1]">
-                    <Image src={banner1} layout="fill" objectFit="cover" alt="banner photo" />
+                    <Image src={banner1} layout="fill" objectFit="cover" alt="banner photo" priority />
                 </m.div>
                 <m.div 
                 variants={itemTranslate({}, { x: '-15%', y: '-10%' }, .3)}
                 className="relative aspect-video border-2 border-white">
-                    <Image src={banner2} layout="fill" objectFit="cover"  alt="banner photo" />
+                    <Image src={banner2} layout="fill" objectFit="cover"  alt="banner photo" priority />
                 </m.div>
                 <m.div 
                 variants={itemTranslate({ x: '5%', y: '5%'}, {x: "0%", y: "0%"}, .3)}
                 className="relative aspect-video border-2 border-white">
-                    <Image src={banner3} layout="fill" objectFit="cover"  alt="banner photo" />
+                    <Image src={banner3} layout="fill" objectFit="cover"  alt="banner photo" priority />
                 </m.div>
                 <m.div 
                 variants={itemTranslate({}, { x: '0%', y: '-15%'}, .3)}
                 className="relative -top-[20%] aspect-video border-2 border-white">
-                    <Image src={banner4} layout="fill" objectFit="cover"  alt="banner photo" />
+                    <Image src={banner4} layout="fill" objectFit="cover"  alt="banner photo" priority />
                 </m.div>
             </div>
         </m.section>

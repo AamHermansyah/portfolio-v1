@@ -4,6 +4,7 @@ import { IoLogoCss3, IoMdBrush } from "react-icons/io"
 import { TbSquaresFilled, TbVector } from "react-icons/tb"
 import { BiGitBranch } from "react-icons/bi"
 import { FaNode } from "react-icons/fa"
+import { FiFramer } from "react-icons/fi"
 
 export const servicesDevelopment = [
     { 
@@ -50,6 +51,11 @@ export const servicesDevelopment = [
         title: 'NPM',
         description: '1.5 Years',
         icon: <RiNpmjsLine />
+    },
+    { 
+        title: 'Framer Motion',
+        description: '3 Months',
+        icon: <FiFramer />
     }
 ]
 
@@ -80,7 +86,7 @@ export const navigations = [
     { title: 'Home', href: '/' },
     { title: 'Services', href: '/service' },
     { title: 'Portfolio', href: '/portfolio' },
-    { title: 'Tastymonials', href: '/testimonial' },
+    { title: 'Clients', href: '/client' },
     { title: 'About', href: '/about' },
     { title: 'Contact Me', href: '/contact' },
 

@@ -5,8 +5,10 @@ export const containerShow = {
     animate: {
         opacity: 1,
         transition: {
+            duration: 1,
             delayChildren: .5,
-            staggerChildren: .3
+            staggerChildren: .3,
+            ease: 'linear'
         }
     },
     exit: {

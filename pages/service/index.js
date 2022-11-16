@@ -25,8 +25,9 @@ export default function Service(){
                     <m.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: .3, delay: .4 }}>
-                        Let's see for my experience about skills and services.
+                    transition={{ duration: .3, delay: .4 }}
+                    className="text-center text-lg sm:text-xl">
+                        Let&apos;s see for my experience about skills and services.
                     </m.p>
                 </div>
                 <m.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1 }} className="mt-20">
@@ -40,19 +41,19 @@ export default function Service(){
                 initial="initial"
                 whileInView="animate">
                     <h1 className="text-2xl font-bold mb-1 text-center text-gray-700">Development</h1>
-                    <div className="flex flex-wrap justify-center items-center">
+                    <div className="flex flex-wrap justify-center items-center gap-4">
                         {servicesDevelopment.map(service => (
                             <m.div
                             variants={itemShow(.3)}
                             key={service.title}
-                            className="w-[150px] p-4 text-center flex flex-col items-center hover:bg-green-300 bg-opacity-50 transition-colors duration-150 rounded-md cursor-pointer">
+                            className="w-[150px] p-4 text-center flex flex-col items-center hover:bg-green-200 bg-opacity-50 transition-colors duration-150 rounded-md cursor-pointer group">
                                 <div className="w-16 h-16 rounded-md bg-gradient-to-br from-[#02AABD] to-[#00CDAC] p-2">
                                     <div className="w-full h-full bg-white rounded-full text-[#02AABD] flex items-center justify-center text-4xl">
                                         {service.icon}
                                     </div>
                                 </div>
                                 <h3 className="text-md md:text-xl pt-3 font-bold text-gray-700">{service.title}</h3>
-                                <p className="text-sm md:text-base text-gray-500 font-bold transition-colors duration-150">{service.description}</p>
+                                <p className="text-sm md:text-base text-gray-500 font-bold transition-colors duration-150 group-hover:text-gray-700">{service.description}</p>
                             </m.div>
                         ))}
                     </div>
@@ -63,19 +64,19 @@ export default function Service(){
                 whileInView="animate"
                 className="mt-5">
                     <h1 className="text-2xl font-bold mb-1 text-center text-gray-700">Design</h1>
-                    <div className="flex flex-wrap justify-center items-center">
+                    <div className="flex flex-wrap justify-center items-center gap-4">
                         {servicesDesign.map(service => (
                             <m.div
                             variants={itemShow(.3)}
                             key={service.title}
-                            className="w-[150px] p-4 text-center flex flex-col items-center hover:bg-green-300 transition-colors duration-150 rounded-md cursor-pointer">
+                            className="w-[150px] p-4 text-center flex flex-col items-center hover:bg-green-300 transition-colors duration-150 rounded-md cursor-pointer group">
                                 <div className="w-16 h-16 rounded-md bg-gradient-to-br from-[#02AABD] to-[#00CDAC] p-2">
                                     <div className="w-full h-full bg-white rounded-full text-[#02AABD] flex items-center justify-center text-4xl">
                                         {service.icon}
                                     </div>
                                 </div>
                                 <h3 className="text-md md:text-xl pt-3 font-bold text-gray-700">{service.title}</h3>
-                                <p className="text-sm md:text-base text-gray-500 font-bold transition-colors duration-150">{service.description}</p>
+                                <p className="text-sm md:text-base text-gray-500 font-bold transition-colors duration-150 group-hover:text-gray-700">{service.description}</p>
                             </m.div>
                         ))}
                     </div>

@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         'rubik': ['"Rubik Moonrocks"', 'sans-serif'],
-        'primary': ['"Open Sans"', 'sans-serif']
+        'primary': ['"Josefin Sans"', 'sans-serif']
       },
       colors: {
         primary: "#1660E7"
