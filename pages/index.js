@@ -30,8 +30,8 @@ export default function Home(){
                     <h1 className="text-5xl md:text-7xl">Hii.. I am</h1>
                     <h2 className="text-3xl md:text-5xl mt-2">Aam Hermansyah <br/>Developer & Designer</h2>
                 </m.div>
-                <div className="mt-6 overflow-hidden z-[5] text-lg">
-                    <p className="font-primary">I can help you for design and build your web application. So, let&apos;s talk!</p>
+                <div className="mt-6 overflow-hidden z-[5]">
+                    <p className="font-primary">I can help you for build your web application. So, let&apos;s talk!</p>
                     <m.div
                     initial={{ y: "100%" }}
                     animate={{ y: "0%" }}

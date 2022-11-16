@@ -25,9 +25,8 @@ export default function Service(){
                     <m.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: .3, delay: .4 }}
-                    className="text-center text-lg sm:text-xl">
-                        Let&apos;s see for my experience about skills and services.
+                    transition={{ duration: .3, delay: .4 }}>
+                        Let's see for my experience about skills and services.
                     </m.p>
                 </div>
                 <m.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1 }} className="mt-20">
