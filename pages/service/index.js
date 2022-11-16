@@ -12,7 +12,7 @@ export default function Service(){
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.75, ease: 'easeOut' }}
-            className="text-white h-screen px-6 flex justify-center items-center flex-col lg:flex-1 w-full md:mb-32 mb-24 tracking-wider bg-[#38EF7D]">
+            className="text-white h-screen px-6 flex justify-center items-center flex-col lg:flex-1 w-full md:mb-28 mb-20 tracking-wider bg-[#38EF7D]">
                 <div
                 className="font-rubik">
                     <m.h1
@@ -25,15 +25,19 @@ export default function Service(){
                     <m.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: .3, delay: .4 }}>
-                        Let's see for my experience about skills and services.
+                    transition={{ duration: .3, delay: .4 }}
+                    className="text-lg sm:text-xl text-center">
+                        Let&apos;s see for my experience about skills and services.
                     </m.p>
                 </div>
-                <m.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1 }} className="mt-20">
+                <m.div onClick={() => document.getElementById('skills').scrollIntoView({ behavior: 'smooth' })}
+                animate={{ y: [0, 8, 0] }} 
+                transition={{ repeat: Infinity, duration: 1 }} 
+                className="mt-20 cursor-pointer">
                     <BsArrowDown fontSize={30} />
                 </m.div>
             </m.div>
-            <h1 className="text-4xl font-bold text-center text-gray-700">What can I do?</h1>
+            <h1 id="skills" className="text-4xl font-bold text-center text-gray-700 pt-4">What can I do?</h1>
             <div className="lg:flex-[2] w-full px-8 mb-10 mt-4">
                 <m.div
                 variants={containerShow}

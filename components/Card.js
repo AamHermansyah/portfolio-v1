@@ -9,12 +9,14 @@ function Card({data}) {
         height: 1
        });
     return (
-        <div className="w-full mb-4">
+        <m.div 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: .5, delay: .5 }}
+        className="w-full mb-4">
             <div className="relative overflow-hidden rounded-lg group cursor-pointer">
                 <m.div 
-                initial={{ opacity: 0 }}
                 transition={{ duration: .5 }}
-                whileInView={{ opacity: 1 }}
                 whileHover={{
                     scale: 1.2
                 }}>
@@ -46,7 +48,7 @@ function Card({data}) {
                 <p className="text-primary sm:text-lg font-bold">{data.title}</p>
                 <p className="text-gray-600 text-sm sm:text-base">{data.category}</p>
             </div>
-        </div>
+        </m.div>
     )
 }
 
