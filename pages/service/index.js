@@ -26,7 +26,7 @@ export default function Service(){
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: .3, delay: .4 }}>
-                        Let's see for my experience about skills and services.
+                        Let&apos;s see for my experience about skills and services.
                     </m.p>
                 </div>
                 <m.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1 }} className="mt-20">
