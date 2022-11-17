@@ -11,7 +11,7 @@ import banner4 from "../public/banner-4.jpg"
 export default function Home(){
     return (
         <m.section
-        variants={containerTranslate({x: "100%"}, {x: 0}, .3)}
+        variants={containerTranslate({y: "100%"}, { y: 0 }, .5)}
         initial="initial"
         animate="animate"
         exit="exit"
