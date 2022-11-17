@@ -25,13 +25,15 @@ function Navbar() {
     const [navigation, setNavigation] = useState(false);
 
     return (
-        <header className="fixed w-full top-0 flex items-center justify-between bg-white lg:bg-transparent py-4 px-6 sm:px-8 z-10">
-            <Link href="/" className="font-rubik tracking-wider text-gray-800 lg:text-white text-2xl">ATwoM H</Link>
+        <header className="fixed w-full top-0 flex items-center justify-between bg-white lg:bg-transparent lg:backdrop-blur-sm py-4 px-6 sm:px-8 z-10">
+            <Link href="/" className="font-rubik tracking-wider text-gray-800 text-2xl">ATwoM H</Link>
             <nav className="hidden lg:flex gap-6 ml-6 font-sans font-semibold">
                 {navigations.map(list => (
-                    <Link href={list.href} key={list.title} className={`${list.href === '/contact' ? 'bg-primary rounded-full text-white py-2 px-6' : 'p-2' }`} >
+                    <div onClick={() => document.getElementById(list.id).scrollIntoView({ behavior: "smooth" })}
+                    key={list.id} 
+                    className={`${list.id === 'contact' ? 'bg-primary rounded-full text-white py-2 px-6' : 'p-2' } cursor-pointer`} >
                         { list.title }
-                    </Link>
+                    </div>
                 ))}
             </nav>
             <div className="lg:hidden cursor-pointer" onClick={() => setNavigation(true)}>
@@ -48,12 +50,14 @@ function Navbar() {
                     <MdClose fontSize={28} />
                 </m.div>
                 {navigations.map(list => (
-                    <div className="overflow-hidden" key={list.title}>
-                        <m.div className={`${list.href === '/contact' ? 'bg-primary rounded-full text-white py-2 px-6 mt-4' : 'p-2' }`} key={list.title}
+                    <div className="overflow-hidden" key={list.id}>
+                        <m.div onClick={() => {
+                            setNavigation(false);
+                            document.getElementById(list.id).scrollIntoView({ behavior: "smooth" });
+                        }}
+                        className={`${list.id === 'contact' ? 'bg-primary rounded-full text-white py-2 px-6 mt-4' : 'p-2' } cursor-pointer`}
                         variants={itemTranslate({ y: "100%", x: 0 }, {y: "0%", x: 0}, .3)}>
-                            <Link href={list.href} >
-                                { list.title }
-                            </Link>
+                            { list.title }
                         </m.div>
                     </div>
                 ))}

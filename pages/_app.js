@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
 import { AnimatePresence } from 'framer-motion'
+import SocialMediaFixed from '../components/SocialMediaFixed'
 
 function MyApp({ Component, pageProps, router }) {
     return (
@@ -13,6 +14,7 @@ function MyApp({ Component, pageProps, router }) {
                 <meta name="author" content="Aam Hermansyah" />
             </Head>
             <AnimatePresence mode='wait'>
+                <SocialMediaFixed />
                 <Navbar />
                 <Component key={router.pathname} {...pageProps} />
             </AnimatePresence>
