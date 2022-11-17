@@ -56,7 +56,7 @@ function Navbar() {
                             document.getElementById(list.id).scrollIntoView({ behavior: "smooth" });
                         }}
                         className={`${list.id === 'contact' ? 'bg-primary rounded-full text-white py-2 px-6 mt-4' : 'p-2' } cursor-pointer`}
-                        variants={itemTranslate({ y: "100%", x: 0 }, {y: "0%", x: 0}, .3)}>
+                        variants={itemTranslate({ y: "105%", x: 0 }, {y: "0%", x: 0}, .3)}>
                             { list.title }
                         </m.div>
                     </div>

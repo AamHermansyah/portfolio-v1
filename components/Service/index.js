@@ -35,8 +35,8 @@ export default function Service(){
                 initial="initial"
                 whileInView="animate"
                 className="mt-5">
-                    <h1 className="text-2xl font-bold mb-1 text-gray-700">Experiences in Design</h1>
-                    <div className="flex flex-wrap gap-4">
+                    <h1 className="text-2xl font-bold mb-1 text-gray-700 text-right">Experiences in Design</h1>
+                    <div className="flex justify-end flex-wrap gap-4">
                         {servicesDesign.map(service => (
                             <m.div
                             variants={itemShow(.3)}

@@ -129,3 +129,49 @@ export const socialMedia = [
         icon: <RiWhatsappFill />
     }
 ]
+
+export const clients = [
+    {
+        title: "untitled.blend",
+        image_url: "https://source.unsplash.com/random/300x300/?jungle"
+    }
+]
+
+export const certifications = [
+    {
+        title: "Freecodecamp Javascript Algorithm Structure Data 300 Horus",
+        image_url: "https://source.unsplash.com/random/?girl"
+    },
+    {
+        title: "Next js bootcamp 30 Days from Sanbercode",
+        image_url: "https://source.unsplash.com/random/?woods"
+    }
+]
+
+export const portfolios = [
+    {
+        title: 'Zetro Website',
+        image_url: 'https://source.unsplash.com/random/?jungle',
+        category: 'Frontend Web App'
+    },
+    {
+        title: 'Fullstack application',
+        image_url: 'https://source.unsplash.com/random/?woods',
+        category: 'Fullstack Web App'
+    },
+    {
+        title: 'Me in vector',
+        image_url: 'https://source.unsplash.com/random/?river',
+        category: 'Vector Art'
+    },
+    {
+        title: 'Face with vector',
+        image_url: 'https://source.unsplash.com/random/?landscape',
+        category: 'Vector Art'
+    },
+    {
+        title: 'Landing page Zetro',
+        image_url: 'https://source.unsplash.com/random/?tree',
+        category: 'Next js template website'
+    },
+]
