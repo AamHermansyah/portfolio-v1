@@ -5,7 +5,7 @@ import { servicesDesign, servicesDevelopment } from "../../data";
 export default function Service(){
 
     return (
-        <section className="mt-32 px-8" id="service">
+        <section className="mt-14 px-8" id="service">
             <h1 className="text-4xl font-bold text-gray-700">What can I do?</h1>
             <div className="w-full mb-10 mt-4">
                 <m.div

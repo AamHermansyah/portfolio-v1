@@ -1,22 +1,56 @@
 import Image from 'next/legacy/image'
-import React from 'react'
-import { motion as m } from 'framer-motion'
+import React, { useEffect, useState } from 'react'
+import { motion as m, useAnimationControls } from 'framer-motion'
+import { borderAnimate, scaleAnimate } from '../../animates';
 
-function Card({image_url, title}) {
-  return (
-    <div className="w-full p-2 text-white">
-        <m.div 
-        whileHover={{ borderRadius: "20px" }}
-        className="overflow-hidden rounded-md cursor-pointer">
-          <m.div 
-          whileHover={{ scale: 1.2 }}
-          className="relative aspect-video w-full overflow-hidden">
-              <Image src={image_url} layout="fill" objectFit="cover" />
-          </m.div>
-        </m.div>
-        <p className="text-lg py-2">{title}</p>
-    </div>
-  )
+function Card({data}) {
+    const [imageSize, setSmageSize] = useState({
+        width: 1,
+        height: 1
+       });
+    const [onHoverDisplay, setOnHoverDisplay] = useState(false);
+    const controls = useAnimationControls();
+
+    useEffect(() => {
+      onHoverDisplay && controls.start("animate");
+      !onHoverDisplay && controls.start("initial");
+  }, [onHoverDisplay]);
+
+    return (
+        <div className="w-full mb-4">
+            <m.div 
+            onMouseEnter={() => setOnHoverDisplay(true)}
+            onMouseLeave={() => setOnHoverDisplay(false)}
+            variants={borderAnimate}
+            initial="initial"
+            animate={controls}
+            className="relative overflow-hidden group cursor-pointer">
+                <m.div 
+                variants={scaleAnimate}
+                initial="initial"
+                animate={controls}>
+                    <Image
+                    src={data.image_url}
+                    layout="responsive"
+                    objectFit="contain"
+                    alt={data.title}
+                    onLoadingComplete={target => {
+                        setSmageSize({
+                            width: target.naturalWidth,
+                            height: target.naturalHeight
+                        });
+                    }}
+                    width={imageSize.width}
+                    height={imageSize.height}
+                    className="w-full"/>
+                </m.div>
+            </m.div>
+            <div className="mt-2">
+                <p className="text-sky-500 text-sm sm:text-base">{data.from}</p> 
+                <p className="text-white sm:text-lg font-bold">{data.title}</p>
+            </div>
+        </div>
+    )
 }
 
 export default Card

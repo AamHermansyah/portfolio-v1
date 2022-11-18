@@ -26,7 +26,7 @@ function Portfolio() {
       <div>
         <h1 className="text-2xl sm:text-3xl mb-3 text-gray-700 font-bold">My Works</h1>
       </div>
-      <Masonry className="flex animate-slide-fwd gap-2 md:gap-4" breakpointCols={breakpoints}>
+      <Masonry className="flex gap-2 md:gap-4" breakpointCols={breakpoints}>
         {portfolios.map((portfolio, index) => (
           <Card data={portfolio} key={index} />
         ))}

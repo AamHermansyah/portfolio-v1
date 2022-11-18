@@ -10,6 +10,12 @@ const nextConfig = {
         port: '',
         pathname: '/random/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'drive.google.com',
+        port: '',
+        pathname: '/uc',
+      },
     ],
   }
 }

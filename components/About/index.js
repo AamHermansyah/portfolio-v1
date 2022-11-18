@@ -5,6 +5,16 @@ import { motion as m } from 'framer-motion'
 import { certifications, socialMedia } from '../../data'
 import Card from './Card'
 import { containerShow, itemShow, itemTranslate } from '../../animates'
+import Masonry from 'react-masonry-css'
+
+const breakpoints = {
+    default: 4,
+    3000: 5,
+    2000: 4,
+    1500: 3,
+    1000: 2,
+    750: 1
+  }
 
 function About() {
   return (
@@ -12,8 +22,8 @@ function About() {
         <div>
             <h1 className="text-3xl sm:text-4xl font-bold text-white">About Me</h1>
             <div className="flex flex-col md:flex-row gap-4 mt-3">
-                <div className="flex-1 relative w-full aspect-video md:aspect-square">
-                    <Image src="https://source.unsplash.com/random/?man" layout="fill" objectFit="cover" />
+                <div className="flex-1 relative w-full aspect-square">
+                    <Image src="https://drive.google.com/uc?export=view&id=17UNQW-_mYVUPrs3ltq68gnoN8oomwLgt" layout="fill" objectFit="cover" objectPosition="bottom center" />
                 </div>
                 <m.div 
                 variants={containerShow}
@@ -23,7 +33,7 @@ function About() {
                     <div>
                         <m.h1 variants={itemShow(.3)} className="text-2xl md:text-3xl font-bold">Aam Hermansyah</m.h1>
                         <m.h3 variants={itemShow(.3)} className="text-primary text-xl">Developer & Designer</m.h3>
-                        <m.p variants={itemShow(.3)} className="text-md mt-4">Hii there, introducing my name is Aam Hermansyah. I am Developer Javascript and Designer. I live in Indonesia especially from Garut, West Java. I am 19 Years old and still a student at Siliwangi University, Tasikmalaya. I have a lot of experience in development such as HTML, CSS, JS, Next Js, React Js, Web Animation and others. Besides that, I also have a hobby about designing especially in Vector and Pixel. So, here I can help you for build and design your project.</m.p>
+                        <m.p variants={itemShow(.3)} className="text-md mt-4">Hii there, introducing my name is Aam Hermansyah. I am Javascript Developer and Designer. I live in Indonesia from Garut, West Java. I am 19 Years old and still a student at Siliwangi University, Tasikmalaya. I have a lot of experience in development web application such as HTML, CSS, JS, Next Js, React Js, Web Animation and others. Besides that, I also have a hobby about designing especially in Vector and Pixel. So, here I can help you for build your web application and design your project.</m.p>
                         <div className="flex gap-2 mt-4">
                             {socialMedia.map(social => (
                                 <m.div variants={itemTranslate({ x: "100%", y: 0}, { x: 0, y: 0 }, .3)} key={social.title}>
@@ -46,11 +56,12 @@ function About() {
             <m.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: .5, delay: .5 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4">
-                { certifications.map((certification, index) => (
-                    <Card key={index} image_url={certification.image_url} title={certification.title} />
-                ))}
+            transition={{ duration: .5, delay: .5 }}>
+                <Masonry className="flex gap-2 md:gap-4" breakpointCols={breakpoints}>
+                    { certifications.map((certification, index) => (
+                        <Card key={index} data={certification} />
+                    ))}
+                </Masonry>
             </m.div>
         </div>
     </section>

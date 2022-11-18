@@ -21,7 +21,7 @@ export default function Home(){
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.75, ease: 'easeOut' }}
-                className="text-white h-screen px-6 flex lg:justify-center justify-start pt-28 lg:pt-0 flex-col lg:flex-1 w-full tracking-wider bg-[#1660E7]">
+                className="text-white h-screen px-6 flex lg:justify-center justify-start pt-28 lg:pt-0 flex-col lg:flex-1 w-full tracking-wider bg-gray-800">
                     <m.div 
                     initial={{ x: "-100%" }}
                     animate={{ x: "0%" }}
@@ -31,7 +31,7 @@ export default function Home(){
                         <h2 className="text-3xl md:text-5xl mt-2">Aam Hermansyah <br/>Developer & Designer</h2>
                     </m.div>
                     <div className="mt-6 overflow-hidden z-[5]">
-                        <p className="font-primary text-lg sm:text-xl">I can help you for build and design your project. So, let&apos;s talk!</p>
+                        <p className="font-primary text-lg sm:text-xl">I can help you for build your web application and design your project. So, let&apos;s talk!</p>
                         <m.div
                         initial={{ y: "100%" }}
                         animate={{ y: "0%" }}

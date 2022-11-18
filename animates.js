@@ -63,3 +63,27 @@ export const itemShow = (duration) => {
         }
     }
 }
+
+export const borderAnimate = {
+    initial: {
+      borderRadius: '8px'
+    },
+    animate: {
+      borderRadius: '20px'
+    },
+    transition: {
+      duration: .5
+    }
+  }
+
+export const scaleAnimate = {
+    initial: {
+      scale: 1
+    },
+    animate: {
+      scale: 1.2
+    },
+    transition: {
+      duration: .5
+    }
+  }

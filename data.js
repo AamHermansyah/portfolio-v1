@@ -139,39 +139,141 @@ export const clients = [
 
 export const certifications = [
     {
-        title: "Freecodecamp Javascript Algorithm Structure Data 300 Horus",
-        image_url: "https://source.unsplash.com/random/?girl"
+        from: "Progate",
+        title: "Basic Javascript",
+        image_url: "https://drive.google.com/uc?export=view&id=17JklFmydAi2WYR_T-ssLTMonj5R0aDVE"
     },
     {
-        title: "Next js bootcamp 30 Days from Sanbercode",
-        image_url: "https://source.unsplash.com/random/?woods"
+        from: "Progate",
+        title: "Basic Node Js",
+        image_url: "https://drive.google.com/uc?export=view&id=17KA3mp18aBgKFtvBbajFJg_qXnVddBLL"
+    },
+    {
+        from: "Freecodecamp",
+        title: "Javascript - Algorithms & Data Structures",
+        image_url: "https://drive.google.com/uc?export=view&id=17GxVR1Sxg_FPVa1m7_EIyUr__pZ6RpJx"
+    },
+    {
+        from: "Sanbercode",
+        title: "Next Js Bootcamp 30 Days",
+        image_url: "https://drive.google.com/uc?export=view&id=17O09tBGaJ_f-6PuQPYrHTYFdmaGUOby8"
     }
 ]
 
 export const portfolios = [
     {
-        title: 'Zetro Website',
-        image_url: 'https://source.unsplash.com/random/?jungle',
-        category: 'Frontend Web App'
+        title: 'Night Landscape #1',
+        image_url: 'https://drive.google.com/uc?export=view&id=16k_YSSqBPYmACOfPfD6K2mPUyIRtvURA',
+        category: 'Vector (Affinity Designer)'
     },
     {
-        title: 'Fullstack application',
-        image_url: 'https://source.unsplash.com/random/?woods',
-        category: 'Fullstack Web App'
+        title: 'She #1',
+        image_url: 'https://drive.google.com/uc?export=view&id=16d20F1y8sNUr-UfKiAlLam7_pLzkEtQe',
+        category: 'Vector (Infinity Design)'
     },
     {
-        title: 'Me in vector',
-        image_url: 'https://source.unsplash.com/random/?river',
-        category: 'Vector Art'
+        title: 'Skin In Free Fire',
+        image_url: 'https://drive.google.com/uc?export=view&id=16rl3Sio0WkbghjYnTRHNoOPrST2fYA7T',
+        category: 'Vector (Infinity Design)'
     },
     {
-        title: 'Face with vector',
-        image_url: 'https://source.unsplash.com/random/?landscape',
-        category: 'Vector Art'
+        title: 'She #2',
+        image_url: 'https://drive.google.com/uc?export=view&id=16oBflUZ2FIMgTmfRLRLyVMjnUPt0KBfA',
+        category: 'Vector (Infinity Design)'
     },
     {
-        title: 'Landing page Zetro',
-        image_url: 'https://source.unsplash.com/random/?tree',
-        category: 'Next js template website'
+        title: 'Me #1',
+        image_url: 'https://drive.google.com/uc?export=view&id=16Znz77pDTrTj0zmUBNHAQSVV5u6HH1Hd',
+        category: 'Vector (Infinity Design)'
+    },
+    {
+        title: 'She #3',
+        image_url: 'https://drive.google.com/uc?export=view&id=16XI5hbpSFFFK-QfsaDNu1iXUqz85PsEE',
+        category: 'Vector (Infinity Design)'
+    },
+    {
+        title: 'Me #2',
+        image_url: 'https://drive.google.com/uc?export=view&id=16eiokatfwR-9PLkA382e62w0uPHYyLTe',
+        category: 'Vector (Infinity Design)'
+    },
+    {
+        title: 'She #4',
+        image_url: 'https://drive.google.com/uc?export=view&id=16XJSsHWt8zWXvvgKetQ7GyovN8ILWeCD',
+        category: 'Vector (Infinity Design)'
+    },
+    {
+        title: 'Man #1',
+        image_url: 'https://drive.google.com/uc?export=view&id=17fKv9-xCpaUPmtWx6R8N3ODSuPotx-M3',
+        category: 'Pixel Art'
+    },
+    {
+        title: 'Kraken #1',
+        image_url: 'https://drive.google.com/uc?export=view&id=17hU0nG4hWdyURseYgyho14qUlIeH25Ew',
+        category: 'Pixel Art'
+    },
+    {
+        title: 'Landscape city #1',
+        image_url: 'https://drive.google.com/uc?export=view&id=17zTaAzDDw1AuopEJjZC18eQZ3RP7mmg-',
+        category: 'Pixel Art'
+    },
+    {
+        title: 'Shark',
+        image_url: 'https://drive.google.com/uc?export=view&id=17qGqDJe1TS3tc3BEoN4P1fQ2xNeEH78R',
+        category: 'Pixel Art'
+    },
+    {
+        title: 'Landscape night city #1',
+        image_url: 'https://drive.google.com/uc?export=view&id=17zcVPUPWSPqK7a7rY_cRsy-sj_wTyfrP',
+        category: 'Pixel Art'
+    },
+    {
+        title: 'Bulldog',
+        image_url: 'https://drive.google.com/uc?export=view&id=17zh3RLluuXEzwakZPZ_iMOB28hI-dYCU',
+        category: 'Pixel Art'
+    },
+    {
+        title: 'Driver',
+        image_url: 'https://drive.google.com/uc?export=view&id=18-QHEih0pd7O8d_fczAObvqt3cz10kqp',
+        category: 'Pixel Art'
+    },
+    {
+        title: 'Arabic Man',
+        image_url: 'https://drive.google.com/uc?export=view&id=18-ZvyTk_Z9APrzy_AgPNj4VMIyGy9woV',
+        category: 'Pixel Art'
+    },
+    {
+        title: 'Pilot',
+        image_url: 'https://drive.google.com/uc?export=view&id=1809Ja5iqquVlmn3aD9skfu9rTY129Hpy',
+        category: 'Pixel Art'
+    },
+    {
+        title: 'Angry man',
+        image_url: 'https://drive.google.com/uc?export=view&id=185IezhHN0NEu8i1D2HU8BerdxDq6627w',
+        category: 'Pixel Art'
+    },
+    {
+        title: 'Man with hat',
+        image_url: 'https://drive.google.com/uc?export=view&id=18AXRZYZMQVuOKmap8ImMG2AIPbtyRSwM',
+        category: 'Pixel Art'
+    },
+    {
+        title: 'Cowboy',
+        image_url: 'https://drive.google.com/uc?export=view&id=18AnydWi1BDYBcZBtCsbRuLmz6CrHwOHe',
+        category: 'Pixel Art'
+    },
+    {
+        title: 'Zombie Woman',
+        image_url: 'https://drive.google.com/uc?export=view&id=18EpjW678FCRT-i5OmunKoicQKEZ32NeY',
+        category: 'Pixel Art'
+    },
+    {
+        title: 'Man #2',
+        image_url: 'https://drive.google.com/uc?export=view&id=17gzAgPp9MnfIY6r3t3GI4oM8OZib3l10',
+        category: 'Pixel Art'
+    },
+    {
+        title: 'Me #3',
+        image_url: 'https://drive.google.com/uc?export=view&id=18RiAH7ikb06xXJOskEFvlDHWxLssiiWh',
+        category: 'Pixel Art'
     },
 ]

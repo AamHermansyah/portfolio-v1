@@ -12,12 +12,12 @@ function Client() {
     animate="animate"
     exit="exit"
     className="px-4 sm:px-6 mt-10 pb-10">
-        <h1 className="text-2xl sm:text-3xl text-gray-700 font-bold text-right">Clients</h1>
+        <h1 className="text-2xl sm:text-3xl text-gray-700 font-bold text-center">Clients</h1>
         <m.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: .5, delay: .5 }}
-        className="w-full flex flex-wrap items-center justify-center md:justify-end gap-4 sm:gap-6 mt-4 text-white">
+        className="w-full flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-4 text-white">
           {clients.map((client, index) => (
             <Card key={index} title={client.title} image_url={client.image_url} />
           ))}
