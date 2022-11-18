@@ -32,7 +32,7 @@ function Card({data}) {
                 initial="initial"
                 animate={controls}>
                     <Image
-                    src={data.image_url}
+                    src={`/api/imageproxy?url=${encodeURIComponent(data.image_url)}`}
                     layout="responsive"
                     objectFit="contain"
                     alt={data.title}
