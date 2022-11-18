@@ -26,9 +26,10 @@ export default function Home(){
                     initial={{ x: "-100%" }}
                     animate={{ x: "0%" }}
                     transition={{ duration: .3, delay: .2 }}
-                    className="font-rubik">
+                    className="font-extrabold">
                         <h1 className="text-5xl md:text-7xl">Hii.. I am</h1>
-                        <h2 className="text-3xl md:text-5xl mt-2">Aam Hermansyah <br/>Developer & Designer</h2>
+                        <h2 className="text-4xl md:text-5xl mt-2">Aam Hermansyah</h2>
+                        <h2 className="text-3xl md:text-5xl mt-2 md:mt-4 text-primary">Developer & Designer</h2>
                     </m.div>
                     <div className="mt-6 overflow-hidden z-[5]">
                         <p className="font-primary text-lg sm:text-xl">I can help you for build your web application and design your project. So, let&apos;s talk!</p>

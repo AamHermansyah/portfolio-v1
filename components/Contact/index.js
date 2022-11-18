@@ -3,6 +3,7 @@ import { FcInvite, FcPhoneAndroid } from "react-icons/fc"
 import { MdContentCopy, MdLibraryAddCheck } from "react-icons/md"
 import { AiFillWarning, AiOutlineLoading3Quarters } from "react-icons/ai"
 import emailjs from "@emailjs/browser"
+import { emailjs_config } from '../../mailjs_config'
 
 function Contact() {
     const [isErrorCopyTextStatus, setIsErrorCopyTextStatus] = useState(false);
@@ -30,10 +31,10 @@ function Contact() {
     }
 
     const sendMessage = () => {
-        const username = usernameRef.current.value;
-        const email = emailRef.current.value;
-        const message = messageRef.current.value;
-        const subject = subjectRef.current.value;
+        const username = usernameRef.current.value.trim();
+        const email = emailRef.current.value.trim();
+        const message = messageRef.current.value.trim();
+        const subject = subjectRef.current.value.trim();
 
         if(username.length < 3){
             return setErrorMessageField('Please input your name with correctly (min. 3 letter).');
@@ -56,10 +57,10 @@ function Contact() {
         setSendMessageStatus(true);
 
         emailjs.send(
-            process.env.EMAIL_JS_SERVICE_ID, 
-            process.env.EMAIL_JS_TEMPLATE_ID, 
+            emailjs_config.service_key, 
+            emailjs_config.template_key, 
             { subject, from_name: username, from_email: email, message }, 
-            process.env.EMAIL_JS_PUBLIC_KEY)
+            emailjs_config.public_key)
             .then(result => {
                 setMessageAlertDisplay({
                     status: 'success',
@@ -77,6 +78,7 @@ function Contact() {
                 usernameRef.current.value = '';
                 emailRef.current.value = '';
                 messageRef.current.value = '';
+                subjectRef.current.value = '';
             });
     }
 
@@ -96,7 +98,7 @@ function Contact() {
                 status: 'idle',
                 message: ''
             })
-        }, 3000);
+        }, 5000);
 
         return () => {
             clearTimeout(timeout);

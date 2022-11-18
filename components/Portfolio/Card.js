@@ -46,14 +46,14 @@ function Card({data}) {
                     height={imageSize.height}
                     className="w-full"/>
                 </m.div>
-                <div className="hidden group-hover:flex absolute bottom-0 p-2 justify-between w-full text-sm">
+                <div className="hidden group-hover:flex absolute inset-0 bg-black bg-opacity-50 p-2 justify-between items-end w-full text-sm">
                     {data?.demo_url && (
-                        <Link href={data.demo_url} target="_blank" rel="noreferrer" className="py-1 px-4 bg-white text-gray-800 rounded-full opacity-70 hover:opacity-100 transition-all duration-200">
+                        <Link href={data.demo_url} target="_blank" rel="noreferrer" className="py-1 px-4 bg-white text-gray-800 rounded-full">
                             Demo
                         </Link>
                     )}
                     {data?.code_url && (
-                        <Link href={data?.code_url} target="_blank" rel="noreferrer" className="py-1 px-4 bg-gradient-to-tr from-blue-500 to-violet-500 text-white rounded-full opacity-70 hover:opacity-100 transition-all duration-200">
+                        <Link href={data?.code_url} target="_blank" rel="noreferrer" className="py-1 px-4 bg-gradient-to-tr from-blue-500 to-violet-500 text-white rounded-full">
                             Code
                         </Link>
                     )}

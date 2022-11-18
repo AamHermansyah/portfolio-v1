@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Masonry from 'react-masonry-css'
 import Card from './Card'
 import { motion as m } from 'framer-motion'
-import { portfolios } from '../../data'
+import { getDocs, collection } from "firebase/firestore";
+import { db } from '../../firebase'
 
 const breakpoints = {
   default: 4,
@@ -15,6 +16,16 @@ const breakpoints = {
 }
 
 function Portfolio() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const getData = async () => {
+      const portfolioData = await getDocs(collection(db, "works"));
+      setData(portfolioData.docs.map(doc => ({...doc.data(), id: doc.id})))
+    }
+
+    getData();
+  }, []);
 
   return (
     <m.section id="portfolio"
@@ -27,7 +38,7 @@ function Portfolio() {
         <h1 className="text-2xl sm:text-3xl mb-3 text-gray-700 font-bold">My Works</h1>
       </div>
       <Masonry className="flex gap-2 md:gap-4" breakpointCols={breakpoints}>
-        {portfolios.map((portfolio, index) => (
+        {data && data.map((portfolio, index) => (
           <Card data={portfolio} key={index} />
         ))}
       </Masonry>
