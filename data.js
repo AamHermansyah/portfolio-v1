@@ -136,26 +136,3 @@ export const clients = [
         image_url: "https://source.unsplash.com/random/300x300/?jungle"
     }
 ]
-
-export const certifications = [
-    {
-        from: "Progate",
-        title: "Basic Javascript",
-        image_url: "https://drive.google.com/uc?export=view&id=17JklFmydAi2WYR_T-ssLTMonj5R0aDVE"
-    },
-    {
-        from: "Progate",
-        title: "Basic Node Js",
-        image_url: "https://drive.google.com/uc?export=view&id=17KA3mp18aBgKFtvBbajFJg_qXnVddBLL"
-    },
-    {
-        from: "Freecodecamp",
-        title: "Javascript - Algorithms & Data Structures",
-        image_url: "https://drive.google.com/uc?export=view&id=17GxVR1Sxg_FPVa1m7_EIyUr__pZ6RpJx"
-    },
-    {
-        from: "Sanbercode",
-        title: "Next Js Bootcamp 30 Days",
-        image_url: "https://drive.google.com/uc?export=view&id=17O09tBGaJ_f-6PuQPYrHTYFdmaGUOby8"
-    }
-]

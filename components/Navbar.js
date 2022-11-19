@@ -27,7 +27,7 @@ function Navbar() {
     return (
         <header className="fixed w-full top-0 flex items-center justify-between bg-white py-4 px-6 sm:px-8 z-10">
             <Link href="/" className="font-extrabold tracking-wider text-gray-800 text-2xl">ATwoM H</Link>
-            <nav className="hidden lg:flex gap-6 ml-6 font-sans font-semibold">
+            <nav className="hidden lg:flex gap-6 ml-6 font-sans font-semibold text-gray-800">
                 {navigations.map(list => (
                     <div onClick={() => document.getElementById(list.id).scrollIntoView({ behavior: "smooth" })}
                     key={list.id} 
