@@ -80,7 +80,7 @@ function Createportfolio() {
     }
 
     useEffect(() => {
-        !Cookies.get("user") || !Cookies.get("user_token") && router.push('/');
+        !Cookies.get("user_token") && router.push('/');
     }, []);
 
     return (

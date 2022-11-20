@@ -24,11 +24,11 @@ function Certifications() {
         <section className="p-6 sm:p-8 bg-gray-800" id="certification">
             <div className="flex gap-4 justify-center items-center w-full mt-10 mb-4">
                 <h1 className="text-xl sm:text-3xl font-bold text-white text-center">My Certifications</h1>
-                {/* {Cookies.get("user_token") && Cookies.get("user") && (
+                {!!Cookies.get("user_token") && (
                     <Link href="/create/testimonial" className="w-10 sm:w-12 h-10 sm:h-12 bg-primary text-white rounded-md flex items-center justify-center">
                         <AiOutlinePlus fontSize={24} />
                     </Link>
-                )} */}
+                )}
             </div>
             <m.div 
             initial={{ opacity: 0 }}

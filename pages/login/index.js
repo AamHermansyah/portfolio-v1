@@ -33,8 +33,8 @@ function Login() {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            Cookies.set("user", user.email);
-            Cookies.set("user_token", JSON.stringify(user.accessToken));
+            Cookies.set("user", user.email, { expires: 7 });
+            Cookies.set("user_token", JSON.stringify(user.accessToken), { expires: 7});
             router.push('/');
         })
         .catch((error) => {
@@ -50,7 +50,7 @@ function Login() {
     }
 
     useEffect(() => {
-        Cookies.get("user") && Cookies.get("user_token") && router.push('/');
+        !!Cookies.get("user_token") && router.push('/');
     }, []);
 
     return (
