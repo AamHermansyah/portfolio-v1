@@ -52,11 +52,15 @@ function Portfolio({isPage}) {
     className="mt-14 p-4 sm:p-8">
       {isPage && <h1 className="block sm:hidden text-xl font-bold text-gray-800 mt-4">This is my works</h1>}
       <div className={`${isPage ? 'justify-end' : 'justify-between'} flex items-center mb-3`}>
-        {!isPage && <h1 className="text-2xl sm:text-3xl text-gray-700 font-bold">My Works</h1>}
-        {Cookies.get("user_token") && Cookies.get("user") && (
-          <Link href="/create/portfolio" className="w-10 sm:w-12 h-10 sm:h-12 bg-primary text-white rounded-md flex items-center justify-center">
-            <AiOutlinePlus fontSize={24} />
-          </Link>
+        {!isPage && (
+          <>
+            <h1 className="text-2xl sm:text-3xl text-gray-700 font-bold">My Works</h1>
+            {/* {Cookies.get("user_token") && Cookies.get("user") && (
+              <Link href="/create/portfolio" className="w-10 sm:w-12 h-10 sm:h-12 bg-primary text-white rounded-md flex items-center justify-center">
+                <AiOutlinePlus fontSize={24} />
+              </Link>
+            )} */}
+          </>
         )}
       </div>
 

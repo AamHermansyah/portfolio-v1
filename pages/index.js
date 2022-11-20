@@ -1,6 +1,7 @@
 import { AnimatePresence } from 'framer-motion'
 import React from 'react'
 import About from '../components/About'
+import Certifications from '../components/Certifications'
 import Client from '../components/Client'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
@@ -9,6 +10,7 @@ import Navbar from '../components/Navbar'
 import Portfolio from '../components/Portfolio'
 import Service from '../components/Service'
 import SocialMediaFixed from '../components/SocialMediaFixed'
+import Testimonials from '../components/Testimonials.js'
 
 function HomePage() {
   return (
@@ -20,7 +22,9 @@ function HomePage() {
           <Service key={3} />
           <Portfolio key={4} />
           <Client key={5} />
-          <About key={6} />
+          <Testimonials key={6} />
+          <About key={7} />
+          <Certifications key={8} />
         </AnimatePresence>
         <Contact />
         <Footer />

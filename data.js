@@ -133,6 +133,6 @@ export const socialMedia = [
 export const clients = [
     {
         title: "untitled.blend",
-        image_url: "https://source.unsplash.com/random/300x300/?jungle"
+        image_url: "https://drive.google.com/uc?export=view&id=19VJmJBUfLgRLjJwWpQMVEnNWzv76mQ8O"
     }
 ]

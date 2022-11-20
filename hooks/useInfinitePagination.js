@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { collection, query, startAfter, limit, getDocs, where } from 'firebase/firestore'
 import { db } from "../firebase";
 
-export default function useInfinitePagination(collectionName, pageNumber, maxLimit = 10, whereQuery){
+export default function useInfinitePagination(collectionName, pageNumber = 1, maxLimit = 10, whereQuery = 'all'){
     const [data, setData] = useState([]);
     const [lastVisible, setLastVisible] = useState([]);
     const [isError, setIsError] = useState(false);

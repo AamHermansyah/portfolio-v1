@@ -7,7 +7,7 @@ import { db } from '../../firebase'
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
 
-function Createportfolio() {
+function CreateCertificate() {
     const [image_url, setImage_url] = useState('');
     const [cekImageStatus, setCekImageStatus] = useState(false);
     const [errorMessageCekImage, setErrorMessageCekImage] = useState('');
@@ -38,8 +38,8 @@ function Createportfolio() {
             return setErrorMessageField('Please input the link photo from google drive with correctly!');
         }
         
-        const title = titleRef.current.value;
-        const from = fromRef.current.value;
+        const title = titleRef.current.value.trim();
+        const from = fromRef.current.value.trim();
 
         if(title.length < 3){
             return setErrorMessageField('Title must be minimal 3 letters.');
@@ -60,7 +60,7 @@ function Createportfolio() {
 
         addDoc(collection(db, "certifications"), doc)
             .then(() => {
-                router.push('/create/portfolio');
+                router.push('/');
             })
             .catch((err) => {
                 setErrorMessageField(`${err.code}: ${err.message}`);
@@ -149,4 +149,4 @@ function Createportfolio() {
     )
 }
 
-export default Createportfolio
+export default CreateCertificate
