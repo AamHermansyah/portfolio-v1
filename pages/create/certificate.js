@@ -71,7 +71,7 @@ function Createportfolio() {
     }
 
     useEffect(() => {
-        !localStorage.getItem("user") || !localStorage.getItem("user_token") && router.push('/');
+        !Cookies.get("user") || !Cookies.get("user_token") && router.push('/');
     }, []);
 
     return (

@@ -7,6 +7,7 @@ import Cookies from 'js-cookie'
 import CardSkeleton from '../CardSkeleton'
 import Masonry from 'react-masonry-css'
 import Card from './Card'
+import Link from 'next/link'
 
 const breakpoints = {
     default: 4,
