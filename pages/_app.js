@@ -1,6 +1,5 @@
 import '../styles/globals.css'
 import Head from 'next/head'
-import meImage from '../public/banner-1.jpg'
 
 function MyApp({ Component, pageProps }) {
     return (
