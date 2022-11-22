@@ -5,7 +5,7 @@ function MyApp({ Component, pageProps }) {
     return (
         <>
             <Head>
-                <title>Aam Hermansyah | Developer & Development</title>
+                <title>Aam Hermansyah | Javascript Developer & Designer
                 <meta name="keywords" content="HTML, CSS, JavaScript, React, Next, Express, Sanity" />
                 <meta name="author" content="Aam Hermansyah" />
                 <meta name="copyright" content="aamhermansyah" />
