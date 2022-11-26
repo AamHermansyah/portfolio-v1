@@ -6,6 +6,7 @@ import banner1 from "../../public/banner-1.jpg"
 import banner2 from "../../public/banner-2.jpg"
 import banner3 from "../../public/banner-3.jpg"
 import banner4 from "../../public/banner-4.jpg"
+import Link from "next/link"
 
 export default function Home(){
     return (
@@ -38,13 +39,13 @@ export default function Home(){
                         animate={{ y: "0%" }}
                         transition={{ duration: .3, delay: .3 }}
                         >
-                            <button onClick={() => document.getElementById('contact').scrollIntoView({ behavior: "smooth" })}
+                            <Link href="https://drive.google.com/uc?export=view&id=1__Raa1j-zF4xxYqH_WpMn9CLtxr-GB1n" target="_blank" rel="noreferrer"
                             className="flex gap-2 items-center mt-4 py-3 px-6 bg-white text-black font-bold font-primary w-max rounded-full">
-                                Touch with me
+                                Download CV
                                 <m.div animate={{ x: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1 }}>
                                     <BsArrowRightShort fontSize={24} />
                                 </m.div>
-                            </button>
+                            </Link>
                         </m.div>
                     </div>
                 </m.div>
