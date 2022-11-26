@@ -22,7 +22,7 @@ export default function Home(){
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.75, ease: 'easeOut' }}
-                className="text-white h-screen px-6 flex lg:justify-center justify-start pt-28 lg:pt-0 flex-col lg:flex-1 w-full tracking-wider bg-gray-800">
+                className="text-white h-screen px-6 flex lg:justify-center justify-start pt-28 lg:pt-0 flex-col lg:flex-1 w-full tracking-wider bg-gray-800 translate-x-[100%]">
                     <m.div 
                     initial={{ x: "-100%" }}
                     animate={{ x: "0%" }}
@@ -39,7 +39,7 @@ export default function Home(){
                         animate={{ y: "0%" }}
                         transition={{ duration: .3, delay: .3 }}
                         >
-                            <Link href="https://drive.google.com/uc?export=view&id=1__Raa1j-zF4xxYqH_WpMn9CLtxr-GB1n" target="_blank" rel="noreferrer"
+                            <Link href="https://drive.google.com/uc?export=view&id=1HfNVvg0-uQk-hKoXjj-aV9HhIF5hRpQ0" target="_blank" rel="noreferrer"
                             className="flex gap-2 items-center mt-4 py-3 px-6 bg-white text-black font-bold font-primary w-max rounded-full">
                                 Download CV
                                 <m.div animate={{ x: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1 }}>
