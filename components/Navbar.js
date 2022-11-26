@@ -43,7 +43,7 @@ function Navbar() {
             <m.div
             variants={navAnimation}
             animate={navigation ? "animate" : "initial"}
-            className="lg:hidden fixed inset-0 p-10 font-bold flex flex-col items-end justify-center gap-y-1 bg-white">
+            className="lg:hidden fixed inset-0 p-10 font-bold flex flex-col items-end justify-center gap-y-1 bg-white translate-x-[100%]">
                 <m.div 
                 variants={itemShow(.3)}
                 className="absolute top-0 right-0 p-[22px] cursor-pointer" onClick={() => setNavigation(false)}>

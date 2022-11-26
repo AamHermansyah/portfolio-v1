@@ -22,7 +22,7 @@ export default function Home(){
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.75, ease: 'easeOut' }}
-                className="text-white h-screen px-6 flex lg:justify-center justify-start pt-28 lg:pt-0 flex-col lg:flex-1 w-full tracking-wider bg-gray-800 translate-x-[100%]">
+                className="text-white h-screen px-6 flex lg:justify-center justify-start pt-28 lg:pt-0 flex-col lg:flex-1 w-full tracking-wider bg-gray-800">
                     <m.div 
                     initial={{ x: "-100%" }}
                     animate={{ x: "0%" }}
