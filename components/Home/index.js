@@ -39,7 +39,7 @@ export default function Home(){
                         animate={{ y: "0%" }}
                         transition={{ duration: .3, delay: .3 }}
                         >
-                            <Link href="https://drive.google.com/uc?export=view&id=1HfNVvg0-uQk-hKoXjj-aV9HhIF5hRpQ0" target="_blank" rel="noreferrer"
+                            <Link href="https://drive.google.com/uc?export=view&id=1neDoNiIvIDs28XudPxK267cFb-4OSxUL" target="_blank" rel="noreferrer"
                             className="flex gap-2 items-center mt-4 py-3 px-6 bg-white text-black font-bold font-primary w-max rounded-full">
                                 Download CV
                                 <m.div animate={{ x: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1 }}>
