@@ -75,7 +75,7 @@ function CreateCertificate() {
     }, []);
 
     return (
-        <div className="flex flex-col justify-center items-center lg:h-4/5 p-2 min-h-screen">
+        <div className="flex flex-col justify-center items-center lg:h-4/5 px-2 py-6 min-h-screen">
             <h1 className="text-2xl font-bold text-gray-800">Create New Certification</h1>
             <div className="flex md:flex-row flex-col justify-center items-center lg:p-5 p-3 lg:w-4/5 w-full">
                 <div className="bg-secondaryColor md:pr-3 flex flex-[0.7] w-full self-start">

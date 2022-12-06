@@ -25,7 +25,7 @@ const breakpoints = {
 
 const LIMIT_PER_PAGE = 10;
 
-function Portfolio({isPage}) {
+function Portfolio({ isPage = false }) {
   const [pageNumber, setPageNumber] = useState(1);
   const [whereQuery, setWhereQuery] = useState(isPage ? 'all' : 'type == development');
   const { data, isError, isLastData, loading } = useInfinitePagination("works", pageNumber, LIMIT_PER_PAGE, whereQuery);
@@ -50,20 +50,19 @@ function Portfolio({isPage}) {
     exit={{ opacity: 0 }}
     transition={{ duration: .3}}
     className="mt-14 p-4 sm:p-8">
-      {isPage && <h1 className="block sm:hidden text-xl font-bold text-gray-800 mt-4">This is my works</h1>}
-      <div className={`${isPage ? 'justify-end' : 'justify-between'} flex items-center mb-3`}>
-        {!isPage && (
-          <>
-            <h1 className="text-2xl sm:text-3xl text-gray-700 font-bold">My Works</h1>
-            {!!Cookies.get("user_token") && (
+      <h1 className={`${isPage ? 'block sm:hidden' : 'hidden'} text-xl font-bold text-gray-800 mt-4`}>This is my works</h1>
+      {!isPage && (
+        <div className="justify-between flex items-center mb-3">
+          <h1 className="text-2xl sm:text-3xl text-gray-700 font-bold">My Works</h1>
+          {!!Cookies.get("user_token") !== undefined && (
+            <div>
               <Link href="/create/portfolio" className="w-10 sm:w-12 h-10 sm:h-12 bg-primary text-white rounded-md flex items-center justify-center">
                 <AiOutlinePlus fontSize={24} />
               </Link>
-            )}
-          </>
-        )}
-      </div>
-
+            </div>
+          )}
+        </div>
+      )}
       <div className="w-max flex gap-2 p-1 overflow-hidden border-2 border-gray-800 rounded-full font-bold mx-auto mb-3">
           {buttonFilters.map(button => (
               <button onClick={() => {
@@ -79,7 +78,7 @@ function Portfolio({isPage}) {
           ))}
       </div>
 
-      {!loading && !isError && data.length === 0 && <h1 className="text-lg text-gray-800 text-center mb-2">Portfolio is empty{":("}</h1>}
+      {(!loading && !isError && data.length === 0) && <h1 className="text-lg text-gray-800 text-center mb-2">Portfolio is empty{":("}</h1>}
 
       {isError && <h1 className="text-lg text-gray-800 text-center mb-2">Something is wrong... Error code: 500</h1>}
 
@@ -101,7 +100,7 @@ function Portfolio({isPage}) {
           {loading && <CardSkeleton key='loading-4' />}
           {loading && <CardSkeleton key='loading-5' />}
         </Masonry>
-        {!isPage && !loading && data.length > 0 && !isError && (
+        {(!isPage && !loading && data.length > 0 && !isError) && (
           <Link 
           href="/portfolio"
           className="block w-max mx-auto mt-4 py-2 px-4 rounded-md text-primary border-2 border-primary text-center disabled:cursor-not-allowed">

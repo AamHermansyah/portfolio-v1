@@ -6,6 +6,8 @@ import { collection, addDoc } from "firebase/firestore"
 import { db } from '../../firebase'
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
+import { categories, options } from '../../data'
+import Select from '../../components/Select'
 
 function Createportfolio() {
     const [image_url, setImage_url] = useState('');
@@ -13,6 +15,8 @@ function Createportfolio() {
     const [errorMessageCekImage, setErrorMessageCekImage] = useState('');
     const [loading, setLoading] = useState(false);
     const [errorMessageField, setErrorMessageField] = useState(false);
+    const [isInputDesignMode, setIsInputDesignMode] = useState(false);
+    const [technologies, setTechnologies] = useState([])
 
     // ref
     const titleRef = useRef(null);
@@ -43,9 +47,9 @@ function Createportfolio() {
         
         const title = titleRef.current.value.trim();
         const category = categoryRef.current.value.trim();
-        const demo_url = demoRef.current.value.trim();
-        const code_url = codeRef.current.value.trim();
         const type = typeRef.current.value.trim();
+        const demo_url = type === 'development' ? demoRef.current.value.trim() : '';
+        const code_url = type === 'development' ? codeRef.current.value.trim() : '';
 
         if(title.length < 3){
             return setErrorMessageField('Title must be minimal 3 letters.');
@@ -53,6 +57,10 @@ function Createportfolio() {
 
         if(category.length < 3){
             return setErrorMessageField('Category must be minimal 3 letters.');
+        }
+
+        if(technologies.length === 0){
+            return setErrorMessageField('Technologies field must be not empty.')
         }
 
         setErrorMessageField('');
@@ -64,7 +72,8 @@ function Createportfolio() {
             demo_url,
             code_url,
             type,
-            category
+            category,
+            technologies
         }
 
         addDoc(collection(db, "works"), doc)
@@ -84,7 +93,7 @@ function Createportfolio() {
     }, []);
 
     return (
-        <div className="flex flex-col justify-center items-center lg:h-4/5 p-2 min-h-screen">
+        <div className="flex flex-col justify-center items-center lg:h-4/5 px-2 py-6 min-h-screen">
             <h1 className="text-2xl font-bold text-gray-800">Create New Portfolio</h1>
             <div className="flex md:flex-row flex-col justify-center items-center lg:p-5 p-3 lg:w-4/5 w-full">
                 <div className="bg-secondaryColor md:pr-3 flex flex-[0.7] w-full self-start">
@@ -109,6 +118,7 @@ function Createportfolio() {
                         )}
                     </div>
                 </div>
+
                 <div className="flex flex-1 flex-col gap-6 lg:pl-5 mt-5 md:mt-0 w-full">
                     <input
                     type="text"
@@ -120,6 +130,7 @@ function Createportfolio() {
                     placeholder="Paste your link from Google Drive"
                     className="w-full bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
                     />
+
                     <input
                     ref={titleRef}
                     type="text"
@@ -128,36 +139,55 @@ function Createportfolio() {
                     placeholder="Title your portfolio"
                     className="w-full bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
                     />
-                    <input
-                    ref={categoryRef}
-                    type="text"
-                    name="category"
-                    id="category"
-                    placeholder="Category your portfolio?"
-                    className="w-full bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
-                    />
-                    <input
-                    ref={demoRef}
-                    type="text"
-                    name="demo"
-                    id="demo"
-                    placeholder="Demo url (optional)"
-                    className="w-full bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
-                    />
-                    <input
-                    ref={codeRef}
-                    type="text"
-                    name="code"
-                    id="code"
-                    placeholder="Code url source (optional)"
-                    className="w-full bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
-                    />
+
+                    {!isInputDesignMode && (
+                        <>
+                            <input
+                            ref={demoRef}
+                            type="text"
+                            name="demo"
+                            id="demo"
+                            placeholder="Demo url (optional)"
+                            className="w-full bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
+                            />
+                            <input
+                            ref={codeRef}
+                            type="text"
+                            name="code"
+                            id="code"
+                            placeholder="Code url source (optional)"
+                            className="w-full bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
+                            />
+                        </>
+                    )}
+
+                    <Select options={options} value={technologies} onChange={input => setTechnologies(input)} />
+
                     <div className="flex flex-col">
                         <div>
+                            <p className="mb-2 font-semibold text-lg sm:text-xl text-gray-800">Category</p>
+                            <select
+                            name="category"
+                            id="category"
+                            ref={categoryRef}
+                            className="outline-none w-full bg-gray-100 border border-gray-200 rounded py-3 px-4 block focus:outline-none text-gray-700 cursor-pointer"
+                            >
+                                {categories.map(category => (
+                                    <option key={category.value} value={category.value} className="bg-white">{category.label}</option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className="mt-6">
                             <p className="mb-2 font-semibold text-lg sm:text-xl text-gray-800">Select type your portfolio</p>
                             <select
+                            onChange={e => {
+                                if(e.target.value === 'development') setIsInputDesignMode(false);
+                                else setIsInputDesignMode(true);
+                            }}
                             ref={typeRef}
-                            className="outline-none w-4/5 bg-gray-100 border border-gray-200 rounded py-3 px-4 block focus:outline-none text-gray-700 cursor-pointer"
+                            name="type"
+                            id="type"
+                            className="outline-none w-full bg-gray-100 border border-gray-200 rounded py-3 px-4 block focus:outline-none text-gray-700 cursor-pointer"
                             >
                                 <option value="development" className="bg-white">Development</option>
                                 <option value="design" className="bg-white">Design</option>

@@ -60,8 +60,17 @@ function Card({data}) {
                 </div>
             </div>
             <div className="mt-2">
-                <p className="text-primary sm:text-lg font-bold">{data.title}</p>
-                <p className="text-gray-600 text-sm sm:text-base">{data.category}</p>
+                <div className="flex gap-[.5em] flex-1 flex-wrap py-2">
+                    {data.technologies.map(technology => (
+                        <div
+                        key={technology} 
+                        className="flex items-center gap-1 w-max text-sm bg-[#E30047] border-[1px] border-gray-300 rounded px-1.5 py-0.5 text-white overflow-y-hidden hover:bg-gray-800">
+                            <span className="relative top-0.5">{technology}</span>
+                        </div>
+                    ))}
+                </div>
+                <p className="text-primary sm:text-lg font-bold">{data.category}</p>
+                <p className="text-gray-600 text-sm sm:text-base">{data.title}</p>
             </div>
         </m.div>
     )

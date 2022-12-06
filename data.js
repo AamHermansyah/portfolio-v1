@@ -136,3 +136,26 @@ export const clients = [
         image_url: "https://drive.google.com/uc?export=view&id=19VJmJBUfLgRLjJwWpQMVEnNWzv76mQ8O"
     }
 ]
+
+export const options = [
+    { label: 'HTML', value: 'HTML'},
+    { label: 'CSS', value: 'CSS'},
+    { label: 'React.js', value: 'React.js'},
+    { label: 'Next.js', value: 'Next.js'},
+    { label: 'Tailwind', value: 'Tailwind'},
+    { label: 'Vite', value: 'Vite'},
+    { label: 'Sanity', value: 'Sanity'},
+    { label: 'Framer Motion', value: 'Framer Motion'},
+    { label: 'Redux Toolkit', value: 'Redux Toolkit'},
+    { label: 'Infinity Design', value: 'Infinity Design'},
+    { label: 'Affinity Design', value: 'Affinity Design'},
+    { label: 'Pixel Art App', value: 'Pixel Art App'},
+]
+
+export const categories = [
+    { label: 'Frontend', value: 'Frontend' },
+    { label: 'Backend', value: 'Backend' },
+    { label: 'Fullstack', value: 'Fullstack' },
+    { label: 'Pixel', value: 'Pixel' },
+    { label: 'Vector', value: 'Vector' },
+]

@@ -13,8 +13,8 @@ function MyApp({ Component, pageProps }) {
                 <meta property="og:title" content="Aam Hermansyah | Javascript Developer & Designer" />
                 <meta property="og:description" content="Welcome to my website, you can see my portfolio and hire me." />
                 <meta property="og:image" content="https://drive.google.com/uc?export=view&id=14kb7D-9SfWwYua6vyuU0amNeblOSZ00F"/>
-                <meta property="og:image" itemprop="image" content="https://drive.google.com/uc?export=view&id=14kb7D-9SfWwYua6vyuU0amNeblOSZ00F" />
-                <meta property="og:image:url" itemprop="image" content="https://drive.google.com/uc?export=view&id=14kb7D-9SfWwYua6vyuU0amNeblOSZ00F" />
+                <meta property="og:image" itemProp="image" content="https://drive.google.com/uc?export=view&id=14kb7D-9SfWwYua6vyuU0amNeblOSZ00F" />
+                <meta property="og:image:url" itemProp="image" content="https://drive.google.com/uc?export=view&id=14kb7D-9SfWwYua6vyuU0amNeblOSZ00F" />
                 <meta property="og:image:type" content="image/png" />
                 <meta property="og:image:width" content="300" />
                 <meta property="og:image:height" content="200" />

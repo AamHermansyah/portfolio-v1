@@ -18,13 +18,13 @@ function HomePage() {
       <SocialMediaFixed />
         <AnimatePresence mode='wait'>
           <Navbar key={1} />
-          <Home key={2} />
-          <Service key={3} />
+          {/* <Home key={2} />
+          <Service key={3} /> */}
           <Portfolio key={4} />
-          <Client key={5} />
+          {/* <Client key={5} />
           <Testimonials key={6} />
           <About key={7} />
-          <Certifications key={8} />
+          <Certifications key={8} /> */}
         </AnimatePresence>
         <Contact />
         <Footer />
