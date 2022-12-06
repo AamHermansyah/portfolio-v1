@@ -25,7 +25,7 @@ export default function Service(){
                                     </div>
                                 </div>
                                 <h3 className="text-md md:text-xl pt-3 font-bold text-gray-700">{service.title}</h3>
-                                <p className="text-sm md:text-base text-gray-500 font-bold transition-colors duration-150 group-hover:text-gray-700">{service.description}</p>
+                                <p className="text-sm md:text-base text-gray-500 font-bold transition-colors duration-150 group-hover:text-gray-700">{service.started_at}</p>
                             </m.div>
                         ))}
                     </div>
@@ -48,7 +48,7 @@ export default function Service(){
                                     </div>
                                 </div>
                                 <h3 className="text-md md:text-xl pt-3 font-bold text-gray-700">{service.title}</h3>
-                                <p className="text-sm md:text-base text-gray-500 font-bold transition-colors duration-150 group-hover:text-gray-700">{service.description}</p>
+                                <p className="text-sm md:text-base text-gray-500 font-bold transition-colors duration-150 group-hover:text-gray-700">{service.started_at}</p>
                             </m.div>
                         ))}
                     </div>

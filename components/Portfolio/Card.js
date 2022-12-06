@@ -64,7 +64,7 @@ function Card({data}) {
                     {data.technologies.map(technology => (
                         <div
                         key={technology} 
-                        className="flex items-center gap-1 w-max text-sm bg-[#E30047] border-[1px] border-gray-300 rounded px-1.5 py-0.5 text-white overflow-y-hidden hover:bg-gray-800">
+                        className="flex items-center gap-1 w-max text-sm bg-primary border-[1px] border-gray-300 rounded px-1.5 py-0.5 text-white overflow-y-hidden hover:bg-gray-800">
                             <span className="relative top-0.5">{technology}</span>
                         </div>
                     ))}

@@ -6,89 +6,90 @@ import { BiGitBranch } from "react-icons/bi"
 import { FaNode, FaTelegramPlane } from "react-icons/fa"
 import { FiFramer } from "react-icons/fi"
 import { AiFillGithub } from "react-icons/ai"
+import { convertDateFromMomentJs } from "./utils/formatDate"
 
 export const servicesDevelopment = [
-    { 
+    {
         title: 'Next Js',
-        description: '3 Months',
+        started_at: convertDateFromMomentJs("20220808"),
         icon: <SiNextdotjs color="black" fontSize={32} />
     },
-    { 
+    {
         title: 'React Js',
-        description: '1.5 Years',
+        started_at: convertDateFromMomentJs("20210614"),
         icon: <RiReactjsLine color="#61DAFB" fontSize={32} />
     },
-    { 
+    {
         title: 'Sanity',
-        description: '3 Months',
+        started_at: convertDateFromMomentJs("20220905"),
         icon: <SiSemanticuireact color="#F04939" fontSize={32} />
     },
-    { 
+    {
         title: 'HTML',
-        description: '2.5 Years',
+        started_at: convertDateFromMomentJs("20200619"),
         icon: <RiHtml5Fill color="#E34F26" fontSize={32} />
     },
-    { 
+    {
         title: 'CSS',
-        description: '2.5 Years',
+        started_at: convertDateFromMomentJs("20200713"),
         icon: <IoLogoCss3 color="#1B73BA" fontSize={32} />
     },
-    { 
+    {
         title: 'Tailwind CSS',
-        description: '1 Years',
+        started_at: convertDateFromMomentJs("20211206"),
         icon: <SiTailwindcss color="#06B6D4" fontSize={28} />
     },
-    { 
+    {
         title: 'Git',
-        description: '1 Years',
+        started_at: convertDateFromMomentJs("20211120"),
         icon: <BiGitBranch color="#DE4C36" fontSize={28} />
     },
-    { 
+    {
         title: 'Node js',
-        description: '1.5 Years',
+        started_at: convertDateFromMomentJs("20210506"),
         icon: <FaNode color="#4CAF50" fontSize={32} />
     },
-    { 
+    {
         title: 'NPM',
-        description: '1.5 Years',
+        started_at: convertDateFromMomentJs("20210614"),
         icon: <RiNpmjsLine color="#CC0000" fontSize={32} />
     },
-    { 
+    {
         title: 'Framer Motion',
-        description: '3 Months',
+        started_at: convertDateFromMomentJs("20220920"),
         icon: <FiFramer color="#BB4B96" fontSize={30} />
     },
-    { 
+    {
         title: 'Javascript',
-        description: '2 Years',
+        started_at: convertDateFromMomentJs("20201206"),
         icon: <IoLogoJavascript color="#F0DB4F" fontSize={28} />
     },
-    { 
+    {
         title: 'Redux Toolkit',
-        description: '6 Months',
+        started_at: convertDateFromMomentJs("20220407"),
         icon: <SiRedux color="#764ABC" fontSize={28} />
     }
 ]
 
 export const servicesDesign = [
-    { 
+    {
         title: 'Vector Art',
-        description: '1 Years',
+        started_at: convertDateFromMomentJs("20210729"),
         icon: <TbVector color="#374151" fontSize={30} />
     },
     {
         title: 'Pixel Art',
-        description: '6 Months',
+        started_at: convertDateFromMomentJs("20220601"),
         icon: <TbSquaresFilled color="#374151" fontSize={32} />
     },
     {
         title: 'Affinity Designer',
-        description: '6 Months',
+        started_at: convertDateFromMomentJs("20220325"),
         icon: <SiAffinity color="#51C7EE" fontSize={30} />
     },
     {
         title: 'Infinity Design',
-        description: '1 Years',
+        started_at: convertDateFromMomentJs("20210729"),
         icon: <IoMdBrush color="#3790D7" fontSize={30} />
     },
 ]
