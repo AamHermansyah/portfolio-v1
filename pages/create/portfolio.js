@@ -161,7 +161,7 @@ function Createportfolio() {
                         </>
                     )}
 
-                    <Select options={options} value={technologies} onChange={input => setTechnologies(input)} />
+                    <Select options={options} value={technologies} label="Select technology used" onChange={input => setTechnologies(input)} />
 
                     <div className="flex flex-col">
                         <div>

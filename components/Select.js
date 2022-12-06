@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { BsCaretDownFill } from 'react-icons/bs'
 import { MdClear } from 'react-icons/md'
 
-function Select({ value, onChange, options }) {
+function Select({ value, onChange, options, label }) {
     const [isOpen, setIsOpen] = useState(false)
 
     const removeOption = (option) => (e) => {
@@ -26,11 +26,11 @@ function Select({ value, onChange, options }) {
         tabIndex={0}
         onBlur={_ => setIsOpen(false)}
         onClick={_ => setIsOpen(prev => !prev)}
-        className="relative bg-gray-100 w-full min-h-[42px] py-2 px-4 border-[.05em] border-200 flex items-center gap-[.5em] p-[.5em] rounded outline-none cursor-pointer">
+        className="relative bg-gray-100 w-full min-h-[42px] p-2 pr-4 border-[.05em] border-200 flex items-center gap-[.5em] rounded outline-none cursor-pointer pointer-events-none">
             <div className="flex gap-[.5em] flex-1 flex-wrap">
-                {value.length === 0 && <span className="text-gray-400">Select technology used</span>}
+                {value.length === 0 && <span className="text-gray-400">{label}</span>}
                 {value.map(option => (
-                    <div 
+                    <div
                     onClick={removeOption(option)}
                     key={option} 
                     className="flex items-center gap-1 w-max text-sm border-[1px] border-gray-300 rounded px-1.5 py-0.5 text-gray-700 overflow-y-hidden hover:bg-red-400 hover:text-white">
