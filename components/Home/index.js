@@ -49,6 +49,7 @@ export default function Home(){
                         initial={{ y: "100%" }}
                         animate={{ y: "0%" }}
                         transition={{ duration: .3, delay: .3 }}
+                        className="mt-10"
                         >
                             <Link href="https://drive.google.com/uc?export=view&id=1neDoNiIvIDs28XudPxK267cFb-4OSxUL" target="_blank" rel="noreferrer"
                             className="flex gap-2 items-center mt-4 py-3 px-6 bg-primary text-white font-bold font-primary w-max rounded-full">

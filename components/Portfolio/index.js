@@ -7,6 +7,7 @@ import { AiOutlinePlus } from 'react-icons/ai'
 import Link from 'next/link'
 import Cookies from 'js-cookie'
 import useInfinitePagination from '../../hooks/useInfinitePagination'
+import useLoadingPageSettings from '../../hooks/useLoadingPageSettings'
 
 const buttonFilters = [
   { title: 'All', value: 'all'},
@@ -29,6 +30,9 @@ function Portfolio({ isPage = false }) {
   const [pageNumber, setPageNumber] = useState(1);
   const [whereQuery, setWhereQuery] = useState(isPage ? 'all' : 'type == development');
   const { data, isError, isLastData, loading } = useInfinitePagination("works", pageNumber, LIMIT_PER_PAGE, whereQuery);
+
+  // loading page settings
+  const { onEventClick } = useLoadingPageSettings()
 
   // observer ref
   const observer = useRef();
@@ -54,9 +58,9 @@ function Portfolio({ isPage = false }) {
       {!isPage && (
         <div className="justify-between flex items-center mb-3">
           <h1 className="text-2xl sm:text-3xl text-gray-800 dark:text-white font-bold">My Works</h1>
-          {!!Cookies.get("user_token") !== undefined && (
+          {Cookies.get("user_token") !== undefined && (
             <div>
-              <Link href="/create/portfolio" className="w-10 sm:w-12 h-10 sm:h-12 bg-primary text-white rounded-md flex items-center justify-center">
+              <Link onClick={onEventClick} href="/create/portfolio" className="w-10 sm:w-12 h-10 sm:h-12 bg-primary text-white rounded-md flex items-center justify-center">
                 <AiOutlinePlus fontSize={24} />
               </Link>
             </div>

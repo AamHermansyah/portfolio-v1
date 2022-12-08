@@ -10,8 +10,13 @@ import Portfolio from '../components/Portfolio'
 import Service from '../components/Service'
 import SocialMediaFixed from '../components/SocialMediaFixed'
 import Testimonials from '../components/Testimonials.js'
+import useLoadingPageSettings from '../hooks/useLoadingPageSettings'
 
 function HomePage() {
+  // loading page settings
+  const { loading } = useLoadingPageSettings()
+
+  if(loading) return null
 
   return (
       <>

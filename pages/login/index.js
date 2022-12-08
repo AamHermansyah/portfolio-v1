@@ -4,12 +4,16 @@ import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from '../../firebase'
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
+import useLoadingPageSettings from '../../hooks/useLoadingPageSettings'
 
 function Login() {
     const [loading, setLoading] = useState(false);
     const [errorMessageField, setErrorMessageField] = useState('');
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
+
+    // loading page settings
+    const { onEventClick, loading: loadingPage } = useLoadingPageSettings()
 
     const router = useRouter();
 
@@ -35,6 +39,7 @@ function Login() {
             const user = userCredential.user;
             Cookies.set("user", user.email, { expires: 7 });
             Cookies.set("user_token", JSON.stringify(user.accessToken), { expires: 7});
+            onEventClick()
             router.push('/');
         })
         .catch((error) => {
@@ -50,8 +55,13 @@ function Login() {
     }
 
     useEffect(() => {
-        !!Cookies.get("user_token") && router.push('/');
+        if(Cookies.get("user_token") === undefined){
+            onEventClick()
+            router.push('/')
+        }
     }, []);
+
+    if(loadingPage) return null
 
     return (
         <section className="flex flex-col items-center justify-center w-full h-screen min-h-[500px] p-6 max-w-[500px] mx-auto">

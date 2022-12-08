@@ -1,11 +1,12 @@
 import '../styles/globals.css'
 import Head from 'next/head'
 import { AnimatePresence } from 'framer-motion'
-import { ContextProvider } from '../hooks/context'
-import LoadingPage from '../components/LoadingPage'
 import { ThemeProvider } from 'next-themes'
+import { ContextProvider } from '../context/contextApp'
+import LoadingPage from '../components/LoadingPage'
 
 function MyApp({ Component, pageProps, router }) {
+    
     return (
         <>
             <Head>
@@ -23,14 +24,14 @@ function MyApp({ Component, pageProps, router }) {
                 <meta property="og:image:width" content="300" />
                 <meta property="og:image:height" content="200" />
             </Head>
-            <AnimatePresence mode="wait">
-                <ContextProvider>
-                    <ThemeProvider attribute="class" enableSystem={true} >
+            <ThemeProvider attribute="class" enableSystem={true} >
+                <AnimatePresence mode="wait">
+                    <ContextProvider>
                         <LoadingPage />
                         <Component {...pageProps} key={router.pathname} />
-                    </ThemeProvider>
-                </ContextProvider>
-            </AnimatePresence>
+                    </ContextProvider>
+                </AnimatePresence>
+            </ThemeProvider>
         </>
     )
   }

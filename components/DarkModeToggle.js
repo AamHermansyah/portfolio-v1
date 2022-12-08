@@ -17,7 +17,7 @@ const DarkModeToggle = () => {
             </span>
             <div className="relative inline-block w-10 align-middle select-none rounded-full">
                 <input 
-                onClick={handleDarkMode}
+                onChange={handleDarkMode}
                 checked={currentTheme === "dark"}
                 type="checkbox"
                 name="toggle" 

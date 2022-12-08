@@ -6,9 +6,13 @@ import { itemShow, itemTranslate, navAnimation } from "../animates"
 import { motion as m } from "framer-motion"
 import { navigations } from "../data"
 import DarkModeToggle from "./DarkModeToggle"
+import useLoadingPageSettings from "../hooks/useLoadingPageSettings"
 
 function Navbar() {
     const [navigation, setNavigation] = useState(false);
+
+    // loading page settings
+    const { onEventClick } = useLoadingPageSettings()
 
     return (
         <header className="fixed w-full top-0 flex items-center justify-between bg-white dark:bg-dark py-4 px-6 sm:px-8 z-10">
@@ -22,7 +26,7 @@ function Navbar() {
                         if(!list.isPage){
                             e.preventDefault()
                             document.getElementById(list.id).scrollIntoView({ behavior: "smooth" })
-                        }
+                        } else onEventClick()
                     }}
                     key={list.id} 
                     className={`${list.id === 'contact' ? 'bg-primary rounded-full text-white py-2 px-6' : 'p-2' } cursor-pointer`} >
@@ -54,7 +58,7 @@ function Navbar() {
                                 if(!list.isPage){
                                     e.preventDefault()
                                     document.getElementById(list.id).scrollIntoView({ behavior: "smooth" })
-                                }
+                                } else onEventClick()
                             }}>
                                 { list.title }
                             </Link>

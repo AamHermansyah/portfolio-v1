@@ -1,48 +1,48 @@
 import Typewriter from 'typewriter-effect'
 import { motion as m } from 'framer-motion'
+import { useRouter } from 'next/router'
 import { useContext, useEffect } from 'react'
-import { ContextApp } from '../hooks/context'
+import { ContextApp } from '../context/contextApp'
 
 function LoadingPage(){
-    const { state, handleFunction } = useContext(ContextApp)
-    const { setLoading } = handleFunction
-
-    const loadingAnimate = state.loading ? 
-        { initial: { opacity: 0, scaleY: 0 },
-            animate: { opacity: 1, scaleY: 1 } 
-        } : { animate: { opacity: 0, scaleY: 0 } }
+    const router = useRouter()
+    const context = useContext(ContextApp)
+    const { loading, setLoading, transitionStartLoading } = context
 
     useEffect(() => {
-        const timeout = setTimeout(() => {
-          setLoading(prev => false)
-        }, 2000);
-    
+        setTimeout(() => {
+            setLoading(false)
+        }, 3000)
+
         return () => {
-          clearTimeout(timeout)
-          setLoading(prev => true)
+            !loading && setLoading(true)
         }
-    }, [])
+    }, [router.pathname])
+
+    const loadingAnimate = loading ? 
+        { initial: { opacity: 0, scaleY: 0 },
+            animate: { opacity: 1, scaleY: 1, transition: { duration: transitionStartLoading } } 
+        } : { animate: { opacity: 0, scaleY: 0 } }
 
     return (
         <m.div
-        initial={state.loading ? { display: 'none' } : { display: 'block' }}
-        animate={state.loading ? { display: 'block'} : { 
+        initial={loading ? { display: 'none' } : { display: 'block' }}
+        animate={loading ? { display: 'block'} : { 
             display: 'none',
             transition: {
                 delay: .5
             }
-        }}
-        className="hidden">
+        }}>
             <m.div
             variants={loadingAnimate}
             initial="initial"
             animate="animate"
-            className="fixed bg-white dark:bg-dark inset-0 flex items-center justify-center z-50">
+            className="fixed bg-white text-gray-800 dark:bg-dark dark:text-white inset-0 flex items-center justify-center z-50">
                 <m.h2 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: .3 }}
-                className="text-2xl text-white">
+                className="text-2xl">
                     <Typewriter
                     options={{
                         loop: true,
