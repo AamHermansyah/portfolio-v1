@@ -5,7 +5,7 @@ import { AiOutlinePlus } from 'react-icons/ai'
 import Portfolio from '../../components/Portfolio'
 import { ContextLoadingApp } from '../../hooks/ContextLoading'
 
-function portfolioPage() {
+function ortfolioPage() {
     // loading context
     const { setLoading } = useContext(ContextLoadingApp)?.handleFunction
 
