@@ -18,7 +18,7 @@ function Testimonials() {
             <div className="flex gap-4 justify-center items-center w-full mt-10 mb-4">
                 <h1 className="text-3xl font-bold text-center text-white">Tastymonials</h1>
                 {Cookies.get("user_token") !== undefined && (
-                    <Link onClick={onEventClick} href="/create/testimonial" className="w-10 sm:w-12 h-10 sm:h-12 bg-white text-primary rounded-md flex items-center justify-center">
+                    <Link onClick={onEventClick} href="/create/testimonial" className="w-10 sm:w-12 h-10 sm:h-12 bg-primary text-white rounded-md flex items-center justify-center">
                         <AiOutlinePlus fontSize={24} />
                     </Link>
                 )}
