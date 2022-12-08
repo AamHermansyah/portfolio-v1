@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useContext, useRef, useState } from 'react'
 import Masonry from 'react-masonry-css'
 import Card from './Card'
 import { motion as m } from 'framer-motion'
@@ -7,6 +7,7 @@ import { AiOutlinePlus } from 'react-icons/ai'
 import Link from 'next/link'
 import Cookies from 'js-cookie'
 import useInfinitePagination from '../../hooks/useInfinitePagination'
+import { ContextLoadingApp } from '../../hooks/ContextLoading'
 
 const buttonFilters = [
   { title: 'All', value: 'all'},
@@ -29,6 +30,9 @@ function Portfolio({ isPage = false }) {
   const [pageNumber, setPageNumber] = useState(1);
   const [whereQuery, setWhereQuery] = useState(isPage ? 'all' : 'type == development');
   const { data, isError, isLastData, loading } = useInfinitePagination("works", pageNumber, LIMIT_PER_PAGE, whereQuery);
+
+  // loading context
+  const { setLoading } = useContext(ContextLoadingApp)?.handleFunction
 
   // observer ref
   const observer = useRef();
@@ -63,7 +67,7 @@ function Portfolio({ isPage = false }) {
           )}
         </div>
       )}
-      <div className="w-max flex gap-2 p-1 overflow-hidden border-2 border-gray-800 rounded-full font-bold mx-auto mb-3">
+      <div className="mt-6 w-max flex gap-2 p-1 overflow-hidden border-2 border-gray-800 rounded-full font-bold mx-auto mb-3">
           {buttonFilters.map(button => (
               <button onClick={() => {
                 setWhereQuery(button.value);
@@ -103,6 +107,7 @@ function Portfolio({ isPage = false }) {
         {(!isPage && !loading && data.length > 0 && !isError) && (
           <Link 
           href="/portfolio"
+          onClick={_ => setLoading(true)}
           className="block w-max mx-auto mt-4 py-2 px-4 rounded-md text-primary border-2 border-primary text-center disabled:cursor-not-allowed">
               See more
           </Link>

@@ -1,7 +1,10 @@
 import '../styles/globals.css'
 import Head from 'next/head'
+import { AnimatePresence } from 'framer-motion'
+import { ContextLoading } from '../hooks/ContextLoading'
+import LoadingPage from '../components/LoadingPage'
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
     return (
         <>
             <Head>
@@ -12,14 +15,19 @@ function MyApp({ Component, pageProps }) {
                 <meta name="description" content="Welcome to my website, you can see my portfolio and hire me." key="desc" />
                 <meta property="og:title" content="Aam Hermansyah | Javascript Developer & Designer" />
                 <meta property="og:description" content="Welcome to my website, you can see my portfolio and hire me." />
-                <meta property="og:image" content="https://drive.google.com/uc?export=view&id=14kb7D-9SfWwYua6vyuU0amNeblOSZ00F"/>
-                <meta property="og:image" itemProp="image" content="https://drive.google.com/uc?export=view&id=14kb7D-9SfWwYua6vyuU0amNeblOSZ00F" />
-                <meta property="og:image:url" itemProp="image" content="https://drive.google.com/uc?export=view&id=14kb7D-9SfWwYua6vyuU0amNeblOSZ00F" />
+                <meta property="og:image" content="/meta-image.png"/>
+                <meta property="og:image" itemProp="image" content="/meta-image.png" />
+                <meta property="og:image:url" itemProp="image" content="/meta-image.png" />
                 <meta property="og:image:type" content="image/png" />
                 <meta property="og:image:width" content="300" />
                 <meta property="og:image:height" content="200" />
             </Head>
-            <Component {...pageProps} />
+            <AnimatePresence mode="wait">
+                <ContextLoading>
+                    <LoadingPage />
+                    <Component {...pageProps} key={router.pathname} />
+                </ContextLoading>
+            </AnimatePresence>
         </>
     )
   }

@@ -12,7 +12,7 @@ function SocialMediaFixed() {
                     href={social.link} 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="flex items-center justify-center text-2xl w-12 h-12 rounded-full shadow-md bg-gray-800 text-white hover:bg-primary transition-all duration-200">
+                    className="flex items-center justify-center text-2xl w-12 h-12 rounded-full shadow-lg bg-primary text-white hover:bg-[#E30047] transition-all duration-200">
                         {social.icon}
                     </Link>
                 </div>

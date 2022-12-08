@@ -1,10 +1,25 @@
 import Cookies from 'js-cookie'
 import Link from 'next/link'
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
 import Portfolio from '../../components/Portfolio'
+import { ContextLoadingApp } from '../../hooks/ContextLoading'
 
 function portfolioPage() {
+    // loading context
+    const { setLoading } = useContext(ContextLoadingApp)?.handleFunction
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+          setLoading(prev => false)
+        }, 2000);
+    
+        return () => {
+          clearTimeout(timeout)
+          setLoading(prev => true)
+        }
+    }, [])
+
     return (
         <>
             <header className="fixed w-full top-0 flex items-center justify-between bg-white py-4 px-6 sm:px-8 z-10 shadow-md">
@@ -18,7 +33,7 @@ function portfolioPage() {
                     )}
                 </div>
             </header>
-            <Portfolio isPage={true} />
+            <Portfolio isPage={true} key="portfolio-page" />
         </>
     )
 }

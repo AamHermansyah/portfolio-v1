@@ -1,5 +1,4 @@
-import { AnimatePresence } from 'framer-motion'
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import About from '../components/About'
 import Certifications from '../components/Certifications'
 import Client from '../components/Client'
@@ -11,21 +10,34 @@ import Portfolio from '../components/Portfolio'
 import Service from '../components/Service'
 import SocialMediaFixed from '../components/SocialMediaFixed'
 import Testimonials from '../components/Testimonials.js'
+import { ContextLoadingApp } from '../hooks/ContextLoading'
 
 function HomePage() {
+  // loading context
+  const { setLoading } = useContext(ContextLoadingApp)?.handleFunction
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(prev => false)
+    }, 2000);
+
+    return () => {
+      clearTimeout(timeout)
+      setLoading(prev => true)
+    }
+  }, [])
+
   return (
       <>
         <SocialMediaFixed />
-        <AnimatePresence mode='wait'>
-          <Navbar key={1} />
-          <Home key={2} />
-          <Service key={3} />
-          <Portfolio key={4} />
-          <Client key={5} />
-          <Testimonials key={6} />
-          <About key={7} />
-          <Certifications key={8} />
-        </AnimatePresence>
+        <Navbar />
+        <Home />
+        <Service />
+        {/* <Portfolio /> */}
+        <Client />
+        {/* <Testimonials /> */}
+        <About />
+        {/* <Certifications /> */}
         <Contact />
         <Footer />
       </>

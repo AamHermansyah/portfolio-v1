@@ -5,6 +5,7 @@ import { motion as m } from 'framer-motion'
 import { socialMedia } from '../../data'
 import { containerShow, itemShow, itemTranslate } from '../../animates'
 import profileImage from '../../public/Profile.jpg'
+import { SmoothTypingText } from '../CustomText'
 
 function About() {
     return (
@@ -22,7 +23,9 @@ function About() {
                     <div>
                         <m.h1 variants={itemShow(.3)} className="text-2xl md:text-3xl font-bold">Aam Hermansyah</m.h1>
                         <m.h3 variants={itemShow(.3)} className="text-primary text-xl">Developer & Designer</m.h3>
-                        <m.p variants={itemShow(.3)} className="text-md mt-4">Hii there, introducing my name is Aam Hermansyah. I am Javascript Developer and Designer. I live in Indonesia from Garut, West Java. I am 19 Years old and still a student at Siliwangi University, Tasikmalaya. I started coding at 17 years old and I have a lot of experience in development web application such as HTML, CSS, JS, Next Js, React Js, Web Animation and others. Besides that, I also have a hobby about designing especially in Vector and Pixel. So, here I can help you for build your web application and design your project.</m.p>
+                        <SmoothTypingText stagger={0.03} textStyles="text-md mt-4">
+                            Hii there, introducing my name is Aam Hermansyah. I am Javascript Developer and Designer. I live in Indonesia from Garut, West Java. I am 19 Years old and still a student at Siliwangi University, Tasikmalaya. I started coding at 17 years old and I have a lot of experience in development web application such as HTML, CSS, JS, Next Js, React Js, Web Animation and others. Besides that, I also have a hobby about designing especially in Vector and Pixel. So, here I can help you for build your web application and design your project.
+                        </SmoothTypingText>
                         <div className="flex gap-2 mt-4">
                             {socialMedia.map(social => (
                                 <m.div variants={itemTranslate({ x: "100%", y: 0}, { x: 0, y: 0 }, .3)} key={social.title}>
