@@ -38,4 +38,4 @@ function PortfolioPage() {
     )
 }
 
-export default portfolioPage
+export default PortfolioPage
