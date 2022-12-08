@@ -1,8 +1,8 @@
 import { createContext, useState } from "react";
 
-export const ContextLoadingApp = createContext();
+export const ContextApp = createContext();
 
-export const ContextLoading = ({children}) => {
+export const ContextProvider = ({children}) => {
     const [loading, setLoading] = useState(true)
 
     const state = {
@@ -14,11 +14,11 @@ export const ContextLoading = ({children}) => {
     }
 
     return (
-        <ContextLoadingApp.Provider value={{
+        <ContextApp.Provider value={{
             state,
             handleFunction
         }}>
             {children}
-        </ContextLoadingApp.Provider>
+        </ContextApp.Provider>
     )
 }

@@ -9,17 +9,17 @@ import { SmoothTypingText } from '../CustomText'
 
 function About() {
     return (
-        <section className="p-6 sm:p-8 bg-gray-800" id="about">
-            <h1 className="text-3xl sm:text-4xl font-bold text-white">About Me</h1>
+        <section className="p-10" id="about">
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-white">About Me</h1>
             <div className="flex flex-col md:flex-row gap-4 mt-3">
-                <div className="flex-1 relative w-full aspect-square">
+                <div className="flex-1 relative w-full aspect-square rounded-2xl overflow-hidden">
                     <Image src={profileImage} layout="fill" objectFit="cover" objectPosition="bottom center" priority />
                 </div>
                 <m.div 
                 variants={containerShow}
                 initial="initial"
                 whileInView="animate"
-                className="flex-1 text-white lg:px-8 md:px-4 flex items-center">
+                className="flex-1 lg:px-8 md:px-4 flex items-center text-gray-800 dark:text-white">
                     <div>
                         <m.h1 variants={itemShow(.3)} className="text-2xl md:text-3xl font-bold">Aam Hermansyah</m.h1>
                         <m.h3 variants={itemShow(.3)} className="text-primary text-xl">Developer & Designer</m.h3>
@@ -33,7 +33,7 @@ function About() {
                                     href={social.link} 
                                     target="_blank" 
                                     rel="noreferrer"
-                                    className="flex items-center justify-center text-2xl w-10 h-10 rounded-full shadow-md bg-white text-gray-800 hover:bg-primary hover:text-white transition-all duration-200">
+                                    className="flex items-center justify-center text-2xl w-10 h-10 rounded-full shadow-md bg-gray-800 dark:bg-white text-white dark:text-gray-800 hover:bg-primary dark:hover:bg-primary hover:text-white dark:hover:text-white transition-all duration-200">
                                         {social.icon}
                                     </Link>
                                 </m.div>

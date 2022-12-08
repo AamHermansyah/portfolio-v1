@@ -109,18 +109,18 @@ function Contact() {
         <section className="mt-10 w-full p-4 max-w-[800px] mx-auto pb-10" id="contact">
             <div className="fixed bottom-0 left-0 flex flex-col gap-2 m-4">
                 {messageAlertDisplay.status !== 'idle' && (
-                    <div className="py-2 px-4 bg-white rounded-md shadow-md">
+                    <div className="py-2 px-4 bg-white rounded-md shadow-md text-gray-800">
                         {messageAlertDisplay.message}
                     </div>
                 )}
                 {copyTextAlertDisplay && !isErrorCopyTextStatus && (
-                    <div className="flex gap-2 items-center w-max py-2 px-4 bg-white rounded-md shadow-md">
+                    <div className="flex gap-2 items-center w-max py-2 px-4 bg-white text-gray-800 rounded-md shadow-md">
                         Success copied
                         <MdLibraryAddCheck fontSize={24} color="#43A047" />
                     </div>
                 )}
                 {copyTextAlertDisplay && isErrorCopyTextStatus && (
-                    <div className="flex gap-2 items-center w-max py-2 px-4 bg-white rounded-md shadow-md">
+                    <div className="flex gap-2 items-center w-max py-2 px-4 bg-white text-gray-800 rounded-md shadow-md">
                         Failed copied
                         <AiFillWarning fontSize={24} color="#F44336" />    
                     </div>
@@ -132,14 +132,14 @@ function Contact() {
             <div className="flex justify-center sm:justify-between flex-wrap mt-4 gap-4">
                 <div 
                 onClick={copyText('amzhermanzyah@gmail.com')}
-                className="flex gap-2 items-center py-3 px-4 bg-sky-100 rounded-md cursor-pointer">
+                className="flex gap-2 items-center py-3 px-4 bg-sky-100 text-gray-800 rounded-md cursor-pointer">
                     <FcInvite fontSize={24} />
                     amzhermanzyah@gmail.com
                     <MdContentCopy />
                 </div>
                 <div 
                 onClick={copyText('+6282316126449')}
-                className="flex gap-2 items-center py-3 px-4 bg-red-100 rounded-md cursor-pointer">
+                className="flex gap-2 items-center py-3 px-4 bg-red-100 text-gray-800 rounded-md cursor-pointer">
                     <FcPhoneAndroid fontSize={24} />
                     +62 - (82) 316 - 126 - 449
                     <MdContentCopy />

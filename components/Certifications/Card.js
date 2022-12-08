@@ -24,7 +24,7 @@ function Card({data}) {
             variants={borderAnimate}
             initial="initial"
             animate={controls}
-            className="relative overflow-hidden group cursor-pointer">
+            className="relative overflow-hidden group cursor-pointer border-[1px] border-gray-300 dark:border-none">
                 <m.div 
                 variants={scaleAnimate}
                 initial="initial"
@@ -47,7 +47,7 @@ function Card({data}) {
             </m.div>
             <div className="mt-2">
                 <p className="text-sky-500 text-sm sm:text-base">{data.from}</p> 
-                <p className="text-white sm:text-lg font-bold">{data.title}</p>
+                <p className="text-gray-800 dark:text-white sm:text-lg font-bold">{data.title}</p>
             </div>
         </div>
     )

@@ -56,7 +56,7 @@ function Select({ value, onChange, options, label }) {
                     <li 
                     onClick={selectOption(option)}
                     key={option.value} 
-                    className={`${value.includes(option.value) ? 'hidden' : ''} px-6 py-2 hover:bg-primary hover:text-white cursor-pointer`}>
+                    className={`${value.includes(option.value) ? 'hidden' : ''} px-6 py-2 hover:bg-primary hover:text-white cursor-pointer text-gray-800`}>
                         {option.label}
                     </li>
                 ))}

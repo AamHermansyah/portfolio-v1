@@ -76,7 +76,7 @@ function CreateCertificate() {
 
     return (
         <div className="flex flex-col justify-center items-center lg:h-4/5 px-2 py-6 min-h-screen">
-            <h1 className="text-2xl font-bold text-gray-800">Create New Certification</h1>
+            <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Create New Certification</h1>
             <div className="flex md:flex-row flex-col justify-center items-center lg:p-5 p-3 lg:w-4/5 w-full">
                 <div className="bg-secondaryColor md:pr-3 flex flex-[0.7] w-full self-start">
                     <div className="relative flex justify-center items-center flex-col border-2 border-dotted border-gray-300 p-3 w-full h-[300px] sm:h-420">
@@ -133,7 +133,7 @@ function CreateCertificate() {
                         type="button"
                         onClick={() => router.back()}
                         disabled={loading}
-                        className="w-[160px] mx-auto py-2 px-4 rounded-md text-primary border-2 border-primary text-center disabled:cursor-not-allowed">
+                        className="w-[160px] mx-auto py-2 px-4 rounded-md text-primary dark:text-white border-2 border-primary dark:border-white text-center disabled:cursor-not-allowed">
                             Back
                         </button>
                         <button 

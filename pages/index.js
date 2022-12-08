@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 import About from '../components/About'
 import Certifications from '../components/Certifications'
 import Client from '../components/Client'
@@ -10,22 +10,8 @@ import Portfolio from '../components/Portfolio'
 import Service from '../components/Service'
 import SocialMediaFixed from '../components/SocialMediaFixed'
 import Testimonials from '../components/Testimonials.js'
-import { ContextLoadingApp } from '../hooks/ContextLoading'
 
 function HomePage() {
-  // loading context
-  const { setLoading } = useContext(ContextLoadingApp)?.handleFunction
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setLoading(prev => false)
-    }, 2000);
-
-    return () => {
-      clearTimeout(timeout)
-      setLoading(prev => true)
-    }
-  }, [])
 
   return (
       <>
@@ -33,11 +19,11 @@ function HomePage() {
         <Navbar />
         <Home />
         <Service />
-        {/* <Portfolio /> */}
+        <Portfolio />
         <Client />
-        {/* <Testimonials /> */}
+        <Testimonials />
         <About />
-        {/* <Certifications /> */}
+        <Certifications />
         <Contact />
         <Footer />
       </>

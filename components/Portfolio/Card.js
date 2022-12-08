@@ -26,7 +26,7 @@ function Card({data}) {
             <div 
             onMouseEnter={() => setOnHoverDisplay(true)}
             onMouseLeave={() => setOnHoverDisplay(false)}
-            className="relative overflow-hidden rounded-lg group cursor-pointer">
+            className="relative overflow-hidden rounded-lg group cursor-pointer border-[1px] border-gray-300 dark:border-none">
                 <m.div 
                 variants={scaleAnimate}
                 initial="initial"
@@ -64,13 +64,13 @@ function Card({data}) {
                     {data.technologies.map(technology => (
                         <div
                         key={technology} 
-                        className="flex items-center gap-1 w-max text-sm bg-primary border-[1px] border-gray-300 rounded px-1.5 py-0.5 text-white overflow-y-hidden hover:bg-gray-800 cursor-pointer">
+                        className="flex items-center gap-1 w-max text-sm bg-primary border-[1px] border-gray-300 dark:border-primary rounded px-1.5 py-0.5 text-white overflow-y-hidden hover:bg-gray-800 cursor-pointer">
                             <span className="relative top-0.5">{technology}</span>
                         </div>
                     ))}
                 </div>
                 <p className="text-primary sm:text-lg font-bold">{data.category}</p>
-                <p className="text-gray-600 text-sm sm:text-base">{data.title}</p>
+                <p className="text-gray-600 dark:text-white text-sm sm:text-base">{data.title}</p>
             </div>
         </m.div>
     )

@@ -1,15 +1,27 @@
 import Typewriter from 'typewriter-effect'
 import { motion as m } from 'framer-motion'
-import { useContext } from 'react'
-import { ContextLoadingApp } from '../hooks/ContextLoading'
+import { useContext, useEffect } from 'react'
+import { ContextApp } from '../hooks/context'
 
 function LoadingPage(){
-    const { state, handleFunction } = useContext(ContextLoadingApp)
+    const { state, handleFunction } = useContext(ContextApp)
+    const { setLoading } = handleFunction
 
     const loadingAnimate = state.loading ? 
         { initial: { opacity: 0, scaleY: 0 },
             animate: { opacity: 1, scaleY: 1 } 
         } : { animate: { opacity: 0, scaleY: 0 } }
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+          setLoading(prev => false)
+        }, 2000);
+    
+        return () => {
+          clearTimeout(timeout)
+          setLoading(prev => true)
+        }
+    }, [])
 
     return (
         <m.div
@@ -25,7 +37,7 @@ function LoadingPage(){
             variants={loadingAnimate}
             initial="initial"
             animate="animate"
-            className="opacity-0 scale-y-0 fixed inset-0 bg-gray-800 flex items-center justify-center z-50">
+            className="fixed bg-white dark:bg-dark inset-0 flex items-center justify-center z-50">
                 <m.h2 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

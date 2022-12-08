@@ -1,8 +1,9 @@
 import '../styles/globals.css'
 import Head from 'next/head'
 import { AnimatePresence } from 'framer-motion'
-import { ContextLoading } from '../hooks/ContextLoading'
+import { ContextProvider } from '../hooks/context'
 import LoadingPage from '../components/LoadingPage'
+import { ThemeProvider } from 'next-themes'
 
 function MyApp({ Component, pageProps, router }) {
     return (
@@ -23,10 +24,12 @@ function MyApp({ Component, pageProps, router }) {
                 <meta property="og:image:height" content="200" />
             </Head>
             <AnimatePresence mode="wait">
-                <ContextLoading>
-                    <LoadingPage />
-                    <Component {...pageProps} key={router.pathname} />
-                </ContextLoading>
+                <ContextProvider>
+                    <ThemeProvider attribute="class" enableSystem={true} >
+                        <LoadingPage />
+                        <Component {...pageProps} key={router.pathname} />
+                    </ThemeProvider>
+                </ContextProvider>
             </AnimatePresence>
         </>
     )

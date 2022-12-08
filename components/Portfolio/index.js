@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useRef, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import Masonry from 'react-masonry-css'
 import Card from './Card'
 import { motion as m } from 'framer-motion'
@@ -7,7 +7,6 @@ import { AiOutlinePlus } from 'react-icons/ai'
 import Link from 'next/link'
 import Cookies from 'js-cookie'
 import useInfinitePagination from '../../hooks/useInfinitePagination'
-import { ContextLoadingApp } from '../../hooks/ContextLoading'
 
 const buttonFilters = [
   { title: 'All', value: 'all'},
@@ -31,9 +30,6 @@ function Portfolio({ isPage = false }) {
   const [whereQuery, setWhereQuery] = useState(isPage ? 'all' : 'type == development');
   const { data, isError, isLastData, loading } = useInfinitePagination("works", pageNumber, LIMIT_PER_PAGE, whereQuery);
 
-  // loading context
-  const { setLoading } = useContext(ContextLoadingApp)?.handleFunction
-
   // observer ref
   const observer = useRef();
   const lastDataElementRef = useCallback(node => {
@@ -54,10 +50,10 @@ function Portfolio({ isPage = false }) {
     exit={{ opacity: 0 }}
     transition={{ duration: .3}}
     className="mt-14 p-4 sm:p-8">
-      <h1 className={`${isPage ? 'block sm:hidden' : 'hidden'} text-xl font-bold text-gray-800 mt-4`}>This is my works</h1>
+      <h1 className={`${isPage ? 'block sm:hidden' : 'hidden'} text-xl font-bold text-gray-800 dark:text-white mt-4`}>This is my works</h1>
       {!isPage && (
         <div className="justify-between flex items-center mb-3">
-          <h1 className="text-2xl sm:text-3xl text-gray-700 font-bold">My Works</h1>
+          <h1 className="text-2xl sm:text-3xl text-gray-800 dark:text-white font-bold">My Works</h1>
           {!!Cookies.get("user_token") !== undefined && (
             <div>
               <Link href="/create/portfolio" className="w-10 sm:w-12 h-10 sm:h-12 bg-primary text-white rounded-md flex items-center justify-center">
@@ -67,7 +63,7 @@ function Portfolio({ isPage = false }) {
           )}
         </div>
       )}
-      <div className="mt-6 w-max flex gap-2 p-1 overflow-hidden border-2 border-gray-800 rounded-full font-bold mx-auto mb-3">
+      <div className="mt-6 w-max flex gap-2 p-1 overflow-hidden border-2 border-gray-800 dark:border-white rounded-full font-bold mx-auto mb-3">
           {buttonFilters.map(button => (
               <button onClick={() => {
                 setWhereQuery(button.value);
@@ -76,15 +72,15 @@ function Portfolio({ isPage = false }) {
               disabled={button.value === whereQuery}
               key={button.value}
               type="button" 
-              className={`${!isPage && button.value === 'all' ? 'hidden' : ''} ${whereQuery === button.value ? 'bg-primary text-white' : ''} rounded-full py-2 px-4 text-sm sm:text-base`}>
+              className={`${!isPage && button.value === 'all' ? 'hidden' : ''} ${whereQuery === button.value ? 'bg-primary text-white' : ''} dark:text-white rounded-full py-2 px-4 text-sm sm:text-base`}>
                   {button.title}
               </button>
           ))}
       </div>
 
-      {(!loading && !isError && data.length === 0) && <h1 className="text-lg text-gray-800 text-center mb-2">Portfolio is empty{":("}</h1>}
+      {(!loading && !isError && data.length === 0) && <h1 className="text-lg text-gray-800 dark:text-white text-center mb-2">Portfolio is empty{":("}</h1>}
 
-      {isError && <h1 className="text-lg text-gray-800 text-center mb-2">Something is wrong... Error code: 500</h1>}
+      {isError && <h1 className="text-lg text-gray-800 dark:text-white text-center mb-2">Something is wrong... Error code: 500</h1>}
 
       <div>
         <Masonry className="flex gap-2 md:gap-4" breakpointCols={breakpoints}>
@@ -107,8 +103,7 @@ function Portfolio({ isPage = false }) {
         {(!isPage && !loading && data.length > 0 && !isError) && (
           <Link 
           href="/portfolio"
-          onClick={_ => setLoading(true)}
-          className="block w-max mx-auto mt-4 py-2 px-4 rounded-md text-primary border-2 border-primary text-center disabled:cursor-not-allowed">
+          className="block w-max mx-auto mt-4 py-2 px-4 rounded-md text-primary dark:text-white border-2 border-primary dark:border-white text-center disabled:cursor-not-allowed">
               See more
           </Link>
         )}
