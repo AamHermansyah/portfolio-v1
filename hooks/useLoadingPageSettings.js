@@ -3,11 +3,11 @@ import { ContextApp } from "../context/contextApp"
 
 const useLoadingPageSettings = () => {
     const context = useContext(ContextApp)
-    const { loading, setLoading, transitionStartLoading, setTransitionStartLoading } = context
+    const { loading, setLoading, setTransitionStartLoading } = context
 
     const onEventClick = () => {
         setTransitionStartLoading(.5)
-        setLoading(true)
+        setLoading(prev => true)
     }
 
     return {

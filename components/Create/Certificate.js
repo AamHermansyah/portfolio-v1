@@ -76,7 +76,7 @@ function CreateCertificate() {
     }
 
     useEffect(() => {
-        if(!Cookies.get("user_token")){
+        if(Cookies.get("user_token") === undefined){
             onEventClick()
             router.push('/')
         }

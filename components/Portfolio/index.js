@@ -54,7 +54,7 @@ function Portfolio({ isPage = false }) {
     exit={{ opacity: 0 }}
     transition={{ duration: .3}}
     className="mt-14 p-4 sm:p-8">
-      <h1 className={`${isPage ? 'block sm:hidden' : 'hidden'} text-xl font-bold text-gray-800 dark:text-white mt-4`}>This is my works</h1>
+      {isPage && <h1 className="my-4 text-2xl font-bold">My Works</h1>}
       {!isPage && (
         <div className="justify-between flex items-center mb-3">
           <h1 className="text-2xl sm:text-3xl text-gray-800 dark:text-white font-bold">My Works</h1>
@@ -67,7 +67,7 @@ function Portfolio({ isPage = false }) {
           )}
         </div>
       )}
-      <div className="mt-6 w-max flex gap-2 p-1 overflow-hidden border-2 border-gray-800 dark:border-white rounded-full font-bold mx-auto mb-3">
+      <div className="mt-2 w-max flex gap-2 p-1 overflow-hidden border-2 border-gray-800 dark:border-white rounded-full font-bold mx-auto mb-3">
           {buttonFilters.map(button => (
               <button onClick={() => {
                 setWhereQuery(button.value);

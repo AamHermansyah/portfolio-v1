@@ -1,17 +1,16 @@
-import Cookies from 'js-cookie'
-import Link from 'next/link'
-import React from 'react'
-import { AiOutlinePlus } from 'react-icons/ai'
-import DarkModeToggle from '../../components/DarkModeToggle'
-import Portfolio from '../../components/Portfolio'
-import useLoadingPageSettings from '../../hooks/useLoadingPageSettings'
+import Cookies from "js-cookie"
+import Link from "next/link"
+import { AiOutlinePlus } from "react-icons/ai"
+import DarkModeToggle from "../../components/DarkModeToggle"
+import ListCode from "../../components/MyCode/ListCodes"
+import useLoadingPageSettings from "../../hooks/useLoadingPageSettings"
 
-function PortfolioPage() {
+const MyCodesPage = () => {
     // loading page settings
     const { loading, onEventClick } = useLoadingPageSettings()
 
     if(loading) return null
-    
+
     return (
         <>
             <header className="fixed w-full top-0 flex items-center justify-between bg-white dark:bg-dark py-4 px-6 sm:px-8 z-10 shadow-md">
@@ -19,17 +18,17 @@ function PortfolioPage() {
                     <Link onClick={onEventClick} href="/" className="font-extrabold tracking-wider text-gray-800 dark:text-primary text-2xl">ATwoM H</Link>
                     <DarkModeToggle />
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 text-gray-800 dark:text-white">
                     {Cookies.get("user_token") && Cookies.get("user") && (
-                        <Link href="/create/portfolio" className="w-10 sm:w-12 h-10 sm:h-12 bg-primary text-white rounded-md flex items-center justify-center">
+                        <Link href="/create/code" className="w-10 sm:w-12 h-10 sm:h-12 bg-primary text-white rounded-md flex items-center justify-center">
                             <AiOutlinePlus fontSize={24} />
                         </Link>
                     )}
                 </div>
             </header>
-            <Portfolio isPage={true} key="portfolio-page" />
+            <ListCode />
         </>
     )
 }
 
-export default PortfolioPage
+export default MyCodesPage

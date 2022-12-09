@@ -1,14 +1,15 @@
 import { motion as m } from 'framer-motion'
 import { letterAnimate, staggerContainer } from '../animates'
 
-export const SmoothTypingText = ({stagger = 0.1, children, textStyles}) => {
+export const SmoothTypingText = ({stagger = 0.1, text, textStyles}) => {
     return (
         <m.p
         variants={staggerContainer(stagger)}
         initial="initial"
         whileInView="animate"
+        viewport={{ once: true }}
         className={`${textStyles}`}>
-            {children.split("").map((letter, index) => (
+            {text.split("").map((letter, index) => (
                 <m.span
                 key={`${letter}-${index}`}
                 variants={letterAnimate()}

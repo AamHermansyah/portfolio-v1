@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'primary': ['"Josefin Sans"', 'sans-serif']
+        'primary': ['"Josefin Sans"', 'sans-serif'],
+        'firaCode': ['"Fira Code"', 'monospace']
       },
       colors: {
         primary: "#1660E7",

@@ -24,11 +24,11 @@ function HomePage() {
         <Navbar />
         <Home />
         <Service />
-        <Portfolio />
+        {/* <Portfolio /> */}
         <Client />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <About />
-        <Certifications />
+        {/* <Certifications /> */}
         <Contact />
         <Footer />
       </>

@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { BsCaretDownFill } from 'react-icons/bs'
 import { MdClear } from 'react-icons/md'
 
 function Select({ value, onChange, options, label }) {
     const [isOpen, setIsOpen] = useState(false)
+
+    const ref = useRef()
 
     const removeOption = (option) => (e) => {
         e.stopPropagation()
@@ -20,9 +22,24 @@ function Select({ value, onChange, options, label }) {
         setIsOpen(false)
     }
 
+    useEffect(() => {
+        const checkIfClickedOutside = e => {
+          if (isOpen && ref.current && !ref.current.contains(e.target) && !e.target.closest('#select')) {
+            setIsOpen(false)
+          }
+        }
+    
+        document.addEventListener("mousedown", checkIfClickedOutside)
+    
+        return () => {
+          document.removeEventListener("mousedown", checkIfClickedOutside)
+        }
+      }, [isOpen])
+
     return (
         <div className="relative">
             <div
+            id="select"
             onClick={_ => setIsOpen(prev => !prev)}
             className="bg-gray-100 w-full min-h-[42px] p-2 pr-4 border-[.05em] border-200 flex items-center gap-[.5em] rounded outline-none cursor-pointer">
                 <div className="flex gap-[.5em] flex-1 flex-wrap">
@@ -49,8 +66,7 @@ function Select({ value, onChange, options, label }) {
                 </div>
             </div>
             <ul 
-            tabIndex={0}
-            onBlur={_ => setIsOpen(false)}
+            ref={ref}
             className={`${isOpen ? '' : 'hidden'} absolute bg-gray-100 max-h-[15em] overflow-y-auto border-[.05em] border-gray-300 rounded w-full left-0 top-[110%] z-10`}>
                 {options.map(option => (
                     <li 
