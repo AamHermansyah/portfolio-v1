@@ -58,7 +58,8 @@ function Navbar() {
                                 if(!list.isPage){
                                     e.preventDefault()
                                     document.getElementById(list.id).scrollIntoView({ behavior: "smooth" })
-                                } else onEventClick()
+                                } else onEventClick();
+                                setNavigation(false)
                             }}>
                                 { list.title }
                             </Link>
