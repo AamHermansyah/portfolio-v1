@@ -163,17 +163,19 @@ const CodeDetail = () => {
                     placeholder="Title"
                     className="w-full bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
                     />
-                    <button
-                    type="button"
-                    disabled={!data?.id}
-                    onClick={e => {
-                        e.target.previousElementSibling.focus()
-                        setMode("edit")
-                    }}
-                    className="flex gap-1 w-max bg-primary py-2 px-4 rounded text-white">
-                        Edit
-                        <BsPencilSquare fontSize={24} className="ml-2" />
-                    </button>
+                    {Cookies.get("user_token") !== undefined && (
+                        <button
+                        type="button"
+                        disabled={!data?.id}
+                        onClick={e => {
+                            e.target.previousElementSibling.focus()
+                            setMode("edit")
+                        }}
+                        className="flex gap-1 w-max bg-primary py-2 px-4 rounded text-white">
+                            Edit
+                            <BsPencilSquare fontSize={24} className="ml-2" />
+                        </button>
+                    )}
                 </div>
                 <div className="relative w-full h-[1000px] flex text-[.8rem] border border-gray-200 font-firaCode rounded overflow-hidden">
                     {mode === "read" && (
