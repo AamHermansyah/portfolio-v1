@@ -21,7 +21,7 @@ const MyCodesDetailPage = () => {
                 </div>
                 <div className="flex items-center gap-4 text-gray-800 dark:text-white">
                     {Cookies.get("user_token") && Cookies.get("user") && (
-                        <Link href="/create/code" className="w-10 sm:w-12 h-10 sm:h-12 bg-primary text-white rounded-md flex items-center justify-center">
+                        <Link onClick={onEventClick} href="/create/code" className="w-10 sm:w-12 h-10 sm:h-12 bg-primary text-white rounded-md flex items-center justify-center">
                             <AiOutlinePlus fontSize={24} />
                         </Link>
                     )}

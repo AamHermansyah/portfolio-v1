@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 const SelectCustomInput = ({data, allow, onChange}) => {
     const [isError, setIsError] = useState(false)
@@ -19,6 +19,10 @@ const SelectCustomInput = ({data, allow, onChange}) => {
             setIsError(true)
         }
     }
+
+    useEffect(() => {
+        setIsError(false)
+    }, [data])
 
     return (
         <div className="w-full">
