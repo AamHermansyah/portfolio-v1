@@ -163,7 +163,7 @@ const CodeDetail = () => {
                     placeholder="Title"
                     className="w-full bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
                     />
-                    {Cookies.get("user_token") !== undefined && (
+                    {Cookies.get("user_token") && (
                         <button
                         type="button"
                         disabled={!data?.id}
