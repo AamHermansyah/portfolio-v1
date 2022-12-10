@@ -5,10 +5,12 @@ import Link from "next/link"
 import { containerTranslate } from "../../animates"
 
 import { BsArrowRightShort } from "react-icons/bs"
+import { GiAutoRepair } from "react-icons/gi"
+import { HiCode } from "react-icons/hi"
 
 export default function Home(){
     return (
-        <section id="home" className="overflow-hidden">
+        <section id="home" className="pt-24 lg:pt-10">
             <m.div 
             variants={containerTranslate({y: "100%"}, { y: 0 }, .5)}
             initial="initial"
@@ -20,14 +22,16 @@ export default function Home(){
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.75, ease: 'easeOut' }}
-                className="text-white lg:min-h-screen lg:max-h-[900px] h-max w-full px-6 flex lg:justify-center justify-start pt-28 lg:pt-0 flex-col lg:flex-1 tracking-wider">
+                className="text-white min-h-[400px] lg:min-h-screen lg:max-h-[900px] w-full px-6 flex justify-evenly lg:justify-center flex-col lg:flex-1 tracking-wider">
                     <m.div 
                     initial={{ x: "-100%" }}
                     animate={{ x: "0%" }}
                     transition={{ duration: .3, delay: .2 }}
                     className="font-extrabold text-gray-800 dark:text-white">
-                        <h1 className="text-5xl md:text-6xl">Hii.. I am</h1>
-                        <h2 className="text-4xl md:text-5xl mt-2">Aam Hermansyah</h2>
+                        <h1 className="text-5xl md:text-6xl">
+                            Hii.. I am <br/>
+                            <span className="text-4xl md:text-5xl mt-2">Aam Hermansyah</span>
+                        </h1>
                         <h2 className="text-3xl md:text-4xl mt-2 md:mt-4 text-primary">
                             <Typewriter 
                             options={{ loop: true }}
@@ -42,14 +46,14 @@ export default function Home(){
                                 .start()
                             }}/>
                         </h2>
+                        <p className="mt-6 font-primary text-lg sm:text-xl text-gray-800 dark:text-white">I can help you for build your web application and design your project. <br className="lg:hidden"/>So, let&apos;s talk!</p>
                     </m.div>
-                    <div className="my-6 overflow-hidden z-[5]">
-                        <p className="font-primary text-lg sm:text-xl text-gray-800 dark:text-white">I can help you for build your web application <br className="lg:hidden" />and design your project. So, let&apos;s talk!</p>
+                    <div className="overflow-hidden z-[5]">
                         <m.div
                         initial={{ y: "100%" }}
                         animate={{ y: "0%" }}
                         transition={{ duration: .3, delay: .3 }}
-                        className="mt-10"
+                        className="flex flex-wrap gap-x-4"
                         >
                             <Link href="https://drive.google.com/uc?export=view&id=1neDoNiIvIDs28XudPxK267cFb-4OSxUL" target="_blank" rel="noreferrer"
                             className="flex gap-2 items-center mt-4 py-3 px-6 bg-primary text-white font-bold font-primary w-max rounded-full">
@@ -58,10 +62,20 @@ export default function Home(){
                                     <BsArrowRightShort fontSize={24} />
                                 </m.div>
                             </Link>
+                            <Link href="/portfolio"
+                            className="flex gap-2 items-center mt-4 py-3 px-6 bg-secondary text-white font-bold font-primary w-max rounded-full">
+                                Check My Works
+                                <GiAutoRepair fontSize={24} />
+                            </Link>
+                            <Link href="/mycodes"
+                            className="flex gap-2 items-center mt-4 py-3 px-6 border border-white font-bold font-primary w-max rounded-full">
+                                My Library Codes
+                                <HiCode fontSize={24} />
+                            </Link>
                         </m.div>
                     </div>
                 </m.div>
-                <div className="lg:flex-[1.5] flex-1 w-full flex items-center justify-center p-6 pt-14">
+                <div className="lg:flex-[1.5] flex-1 w-full flex items-center justify-center p-6">
                     <div className="relative aspect-video w-full rounded-2xl overflow-hidden">
                         <Image src="/hero.jpg" layout="fill" objectFit="cover"  alt="hero" priority />
                     </div>

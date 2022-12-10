@@ -207,7 +207,7 @@ function CreatePortfolio() {
                             type="button"
                             onClick={() => {
                                 onEventClick()
-                                router.back()
+                                router.push('/portfolio')
                             }}
                             disabled={loading}
                             className="w-[160px] mx-auto py-2 px-4 rounded-md text-primary dark:text-white border-2 border-primary dark:border-white text-center disabled:cursor-not-allowed">

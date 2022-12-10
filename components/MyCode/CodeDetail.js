@@ -5,15 +5,15 @@ import { db } from '../../firebase'
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
 import useLoadingPageSettings from '../../hooks/useLoadingPageSettings'
-import { doc, getDoc } from 'firebase/firestore'
+import { doc, getDoc, updateDoc } from 'firebase/firestore'
 
 const CodeDetail = () => {
-    const [data, setData] = useState({title: 'Aam Hermansyah', description: "Hello world", code: "console.log('Hello World"})
+    const [data, setData] = useState({})
     const [inputData, setInputData] = useState({title: 'Loading...', description: "Loading...", code: "Loading..."})
-    const [fetchStatus, setFetchStatus] = useState(true)
     const [mode, setMode] = useState("read")
-    const [loading, setLoading] = useState(false);
-    const [errorMessageField, setErrorMessageField] = useState(false);
+    const [loading, setLoading] = useState(false)
+    const [errorMessageField, setErrorMessageField] = useState(false)
+    const [fetchEditMessage, setFetchEditMessage] = useState('idle')
     const router = useRouter()
 
     // query
@@ -23,21 +23,42 @@ const CodeDetail = () => {
     const { onEventClick } = useLoadingPageSettings()
 
     const postData = () => {
+        if(Cookies.get("user_token") === undefined && !data?.id) return
+
         const { title, description, code } = inputData
 
-        if(title.length < 3){
-            return setErrorMessageField('Title must be minimal 3 letters.');
-        }
-
-        if(description.split(" ").length < 5){
-            return setErrorMessageField('Descirption field must be minimal 5 words.');
-        }
-
-        if(code.length < 10){
-            return setErrorMessageField('Code must be minimal 10 characters.');
-        }
+        if(title.length < 3) return setErrorMessageField('Title must be minimal 3 letters.');
+        if(description.split(" ").length < 5) return setErrorMessageField('Descirption field must be minimal 5 words.');
+        if(code.length < 10) return setErrorMessageField('Code must be minimal 10 characters.');
 
         setErrorMessageField("")
+
+        if(!(data.title === inputData.title) || !(data.description === inputData.description) || !(data.code === inputData.code)){
+            setLoading(true)
+
+            const docRef = doc(db, "codes", data.id);
+
+            updateDoc(docRef, inputData)
+            .then(() => {
+                setData(inputData)
+                setMode("read")
+                setFetchEditMessage("Data changed successfully.")
+            })
+            .catch((err) => {
+                setFetchEditMessage(`${err.code}: ${err.message}`);
+            })
+            .finally(() => {
+                setLoading(false)
+                setTimeout(() => {
+                    setFetchEditMessage('idle')
+                }, 3000);
+            })
+        } else {
+            setFetchEditMessage("No data changed")
+            setTimeout(() => {
+                setFetchEditMessage('idle')
+            }, 3000);
+        }
     }
 
     const handleTabInput = (e) => {
@@ -66,14 +87,10 @@ const CodeDetail = () => {
           
         getDocument("codes", id)
             .then(res => {
-                console.log(res)
                 if(res){
-                    setData(res);
-                    setInputData(res)
+                    setData({...res, id});
+                    setInputData({...res, id})
                 }
-            })
-            .finally(() => {
-                setFetchStatus(false)
             })
             .catch(err => {
                 onEventClick()
@@ -81,12 +98,15 @@ const CodeDetail = () => {
             })
     }, [id]);
 
-    if(fetchStatus) return (
-        <div className="flex items-center justify-center">loading...</div>
-    )
-
     return (
         <section className="p-4 mt-14 md:mt-16">
+            {fetchEditMessage !== "idle" && (
+                <div className="fixed bottom-0 left-0 flex flex-col gap-2 m-4">
+                    <div className="py-2 px-4 bg-white rounded-md shadow-md text-gray-800">
+                        {fetchEditMessage}
+                    </div>
+                </div>
+            )}
             <div className="w-full flex flex-col gap-4 sm:p-4 my-4">
                 <div className="flex justify-between gap-4 items-center">
                     <input
@@ -101,7 +121,7 @@ const CodeDetail = () => {
                     />
                     <button
                     type="button"
-                    disabled={fetchStatus}
+                    disabled={!data?.id}
                     onClick={e => {
                         e.target.previousElementSibling.focus()
                         setMode("edit")
@@ -113,20 +133,20 @@ const CodeDetail = () => {
                 </div>
                 <div className="w-full h-[1000px] flex text-[.8rem] border border-gray-200 font-firaCode rounded overflow-hidden">
                     <textarea
-                    value={inputData.description}
-                    onChange={e => setInputData(prev => ({ ...prev, description: e.target.value }))}
+                    value={inputData.code}
+                    onChange={e => setInputData(prev => ({ ...prev, code: e.target.value }))}
                     readOnly={mode === "read"}
                     spellCheck={false}
                     onKeyDown={handleTabInput}                    
                     type="text"
                     name="code"
                     id="code"
-                    className="whitespace-nowrap w-full h-full bg-transparent resize-none focus:outline-none leading-4 p-3"
+                    className="whitespace-pre-wrap w-full h-full bg-transparent resize-none focus:outline-none leading-4 p-3"
                     />
                 </div>
                 <textarea
-                value={inputData.code}
-                onChange={e => setInputData(prev => ({ ...prev, code: e.target.value }))}
+                value={inputData.description}
+                onChange={e => setInputData(prev => ({ ...prev, description: e.target.value }))}
                 readOnly={mode === "read"}
                 type="text"
                 name="Description"

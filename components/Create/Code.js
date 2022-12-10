@@ -9,6 +9,7 @@ import useLoadingPageSettings from '../../hooks/useLoadingPageSettings'
 const CreateMyCode = () => {
     const [loading, setLoading] = useState(false);
     const [errorMessageField, setErrorMessageField] = useState(false);
+    const router = useRouter()
 
     // loading page settings
     const { onEventClick } = useLoadingPageSettings()
@@ -43,6 +44,25 @@ const CreateMyCode = () => {
         }
 
         setErrorMessageField("")
+        setLoading(true)
+
+        const doc = {
+            title,
+            description,
+            code
+        }
+
+        addDoc(collection(db, "codes"), doc)
+            .then(() => {
+                onEventClick()
+                router.push('/mycodes')
+            })
+            .catch((err) => {
+                setErrorMessageField(`${err.code}: ${err.message}`);
+            })
+            .finally(() => {
+                setLoading(false);
+            })
     }
 
     const handleTabInput = (e) => {
@@ -78,7 +98,7 @@ const CreateMyCode = () => {
                     type="text"
                     name="code"
                     id="code"
-                    className="whitespace-nowrap w-full h-full bg-transparent resize-none focus:outline-none leading-4 p-3"
+                    className="whitespace-pre-wrap w-full h-full bg-transparent resize-none focus:outline-none leading-4 p-3"
                     />
                 </div>
                 <textarea
