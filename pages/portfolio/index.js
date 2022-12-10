@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
 import DarkModeToggle from '../../components/DarkModeToggle'
+import Footer from '../../components/Footer'
 import Portfolio from '../../components/Portfolio'
 import useLoadingPageSettings from '../../hooks/useLoadingPageSettings'
 
@@ -28,6 +29,7 @@ function PortfolioPage() {
                 </div>
             </header>
             <Portfolio isPage={true} key="portfolio-page" />
+            <Footer />
         </>
     )
 }

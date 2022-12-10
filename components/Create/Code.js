@@ -5,10 +5,12 @@ import { db } from '../../firebase'
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
 import useLoadingPageSettings from '../../hooks/useLoadingPageSettings'
+import SelectCustomInput from '../SelectCustomInput'
 
 const CreateMyCode = () => {
     const [loading, setLoading] = useState(false);
     const [errorMessageField, setErrorMessageField] = useState(false);
+    const [tags, setTags] = useState([])
     const router = useRouter()
 
     // loading page settings
@@ -31,17 +33,10 @@ const CreateMyCode = () => {
         const description = descriptionRef.current.value.trim();
         const code = codeRef.current.value.trim();
 
-        if(title.length < 3){
-            return setErrorMessageField('Title must be minimal 3 letters.');
-        }
-
-        if(description.split(" ").length < 5){
-            return setErrorMessageField('Description field must be minimal 5 words.');
-        }
-
-        if(code.length < 10){
-            return setErrorMessageField('Code must be minimal 10 characters.');
-        }
+        if(title.length < 3) return setErrorMessageField('Title must be minimal 3 letters.');
+        if(code.length < 10) return setErrorMessageField('Code must be minimal 10 characters.');
+        if(tags.length === 0) return setErrorMessageField('Tags field  must be have one tag minimal.');
+        if(description.split(" ").length < 5) return setErrorMessageField('Description field must be minimal 5 words.');
 
         setErrorMessageField("")
         setLoading(true)
@@ -49,7 +44,8 @@ const CreateMyCode = () => {
         const doc = {
             title,
             description,
-            code
+            code,
+            tags
         }
 
         addDoc(collection(db, "codes"), doc)
@@ -98,9 +94,12 @@ const CreateMyCode = () => {
                     type="text"
                     name="code"
                     id="code"
-                    className="whitespace-pre-wrap w-full h-full bg-transparent resize-none focus:outline-none leading-4 p-3"
+                    className="whitespace-pre w-full h-full bg-transparent resize-none focus:outline-none leading-4 p-3"
                     />
                 </div>
+
+                <SelectCustomInput onChange={data => setTags(data)} data={tags} allow={true} />
+
                 <textarea
                 ref={descriptionRef}
                 type="text"

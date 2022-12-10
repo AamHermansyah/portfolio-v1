@@ -25,7 +25,7 @@ const ListCode = () => {
     return (
         <section className="p-4 mt-14 md:mt-16">
             <h1 className="my-4 text-2xl font-bold">My Library Codes</h1>
-            <div className="grid content-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            <div className="grid place-items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {!isError && data
             .map((code, index) => {
                 if(data.length === index + 1 && !isLastData) return (

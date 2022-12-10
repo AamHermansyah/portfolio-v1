@@ -2,6 +2,7 @@ import Cookies from "js-cookie"
 import Link from "next/link"
 import { AiOutlinePlus } from "react-icons/ai"
 import DarkModeToggle from "../../components/DarkModeToggle"
+import Footer from "../../components/Footer"
 import ListCode from "../../components/MyCode/ListCodes"
 import useLoadingPageSettings from "../../hooks/useLoadingPageSettings"
 
@@ -27,6 +28,7 @@ const MyCodesPage = () => {
                 </div>
             </header>
             <ListCode />
+            <Footer />
         </>
     )
 }

@@ -5,12 +5,13 @@ import { db } from '../../firebase'
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
 import useLoadingPageSettings from '../../hooks/useLoadingPageSettings'
-import { doc, getDoc, updateDoc } from 'firebase/firestore'
+import { doc, getDoc, setDoc } from 'firebase/firestore'
 import { MdLibraryAddCheck } from 'react-icons/md'
+import SelectCustomInput from '../SelectCustomInput'
 
 const CodeDetail = () => {
     const [data, setData] = useState({})
-    const [inputData, setInputData] = useState({title: 'Loading...', description: "Loading...", code: "Loading..."})
+    const [inputData, setInputData] = useState({title: 'Loading...', description: "Loading...", code: "Loading...", tags: []})
     const [mode, setMode] = useState("read")
     const [loading, setLoading] = useState(false)
     const [errorMessageField, setErrorMessageField] = useState(false)
@@ -46,20 +47,33 @@ const CodeDetail = () => {
     const postData = () => {
         if(Cookies.get("user_token") === undefined && !data?.id) return
 
-        const { title, description, code } = inputData
+        const title = inputData.title.trim()
+        const description = inputData.description.trim()
+        const code = inputData.code
+        const tags = inputData.tags
 
         if(title.length < 3) return setErrorMessageField('Title must be minimal 3 letters.');
-        if(description.split(" ").length < 5) return setErrorMessageField('Description field must be minimal 5 words.');
         if(code.length < 10) return setErrorMessageField('Code must be minimal 10 characters.');
+        if(tags.length === 0) return setErrorMessageField('Tags field  must be have one tag minimal.');
+        if(description.split(" ").length < 5) return setErrorMessageField('Description field must be minimal 5 words.');
 
         setErrorMessageField("")
+        const uniqueTagsLength = Array.from(new Set([...data.tags, ...inputData.tags]))
 
-        if(!(data.title === inputData.title) || !(data.description === inputData.description) || !(data.code === inputData.code)){
+        const isSameTags = (uniqueTagsLength.length === data.tags.length) && (uniqueTagsLength.length === inputData.tags.length)
+
+        if(
+            !(data.title === inputData.title) || 
+            !(data.description === inputData.description) || 
+            !(data.code === inputData.code) ||
+            !isSameTags
+        )
+        {
             setLoading(true)
 
             const docRef = doc(db, "codes", data.id);
 
-            updateDoc(docRef, inputData)
+            setDoc(docRef, inputData)
             .then(() => {
                 setData(inputData)
                 setMode("read")
@@ -168,7 +182,7 @@ const CodeDetail = () => {
                         type="button"
                         disabled={!data?.id}
                         onClick={e => {
-                            e.target.previousElementSibling.focus()
+                            document.getElementById("title").focus()
                             setMode("edit")
                         }}
                         className="flex gap-1 w-max bg-primary py-2 px-4 rounded text-white">
@@ -199,9 +213,15 @@ const CodeDetail = () => {
                     type="text"
                     name="code"
                     id="code"
-                    className="whitespace-pre-wrap w-full h-full bg-transparent resize-none focus:outline-none leading-4 p-3"
+                    className="whitespace-pre w-full h-full bg-transparent resize-none focus:outline-none leading-4 p-3"
                     />
                 </div>
+
+                <SelectCustomInput 
+                onChange={data => setInputData(prev => ({...prev, tags: data}))} 
+                data={inputData.tags} 
+                allow={mode === "edit"} />
+
                 <textarea
                 value={inputData.description}
                 onChange={e => setInputData(prev => ({ ...prev, description: e.target.value }))}
