@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { AiOutlineLoading3Quarters } from 'react-icons/ai'
-import { BsPencilSquare } from 'react-icons/bs'
+import { AiFillWarning, AiOutlineLoading3Quarters } from 'react-icons/ai'
+import { BsFileEarmarkCode, BsPencilSquare } from 'react-icons/bs'
 import { db } from '../../firebase'
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
 import useLoadingPageSettings from '../../hooks/useLoadingPageSettings'
 import { doc, getDoc, updateDoc } from 'firebase/firestore'
+import { MdLibraryAddCheck } from 'react-icons/md'
 
 const CodeDetail = () => {
     const [data, setData] = useState({})
@@ -14,6 +15,11 @@ const CodeDetail = () => {
     const [loading, setLoading] = useState(false)
     const [errorMessageField, setErrorMessageField] = useState(false)
     const [fetchEditMessage, setFetchEditMessage] = useState('idle')
+    // copy handle state
+    const [isErrorCopyTextStatus, setIsErrorCopyTextStatus] = useState(false)
+    const [copyTextAlertDisplay, setCopyTextAlertDisplay] = useState(false)
+    const [copying, setCopying] = useState(false)
+
     const router = useRouter()
 
     // query
@@ -22,13 +28,28 @@ const CodeDetail = () => {
     // loading page settings
     const { onEventClick } = useLoadingPageSettings()
 
+    const copyText = (str) => (event) => {
+        event.preventDefault()
+        setCopying(prev => true)
+        if(!copyTextAlertDisplay){
+            navigator.clipboard
+                .writeText(str)
+                .then(() => setIsErrorCopyTextStatus(false))
+                .catch(() => setIsErrorCopyTextStatus(true))
+                .finally(() => {
+                    setCopying(prev => false)
+                    setCopyTextAlertDisplay(true)
+                });
+        }
+    }
+
     const postData = () => {
         if(Cookies.get("user_token") === undefined && !data?.id) return
 
         const { title, description, code } = inputData
 
         if(title.length < 3) return setErrorMessageField('Title must be minimal 3 letters.');
-        if(description.split(" ").length < 5) return setErrorMessageField('Descirption field must be minimal 5 words.');
+        if(description.split(" ").length < 5) return setErrorMessageField('Description field must be minimal 5 words.');
         if(code.length < 10) return setErrorMessageField('Code must be minimal 10 characters.');
 
         setErrorMessageField("")
@@ -75,6 +96,16 @@ const CodeDetail = () => {
     }
 
     useEffect(() => {
+        const timeout = setTimeout(() => {
+            setCopyTextAlertDisplay(false);
+        }, 3000);
+
+        return () => {
+            clearTimeout(timeout);
+        }
+    }, [copyTextAlertDisplay]);
+
+    useEffect(() => {
         async function getDocument (coll, id) {
             const snap = await getDoc(doc(db, coll, id))
             if (snap.exists())
@@ -100,13 +131,26 @@ const CodeDetail = () => {
 
     return (
         <section className="p-4 mt-14 md:mt-16">
-            {fetchEditMessage !== "idle" && (
-                <div className="fixed bottom-0 left-0 flex flex-col gap-2 m-4">
-                    <div className="py-2 px-4 bg-white rounded-md shadow-md text-gray-800">
+            <div className="fixed bottom-0 left-0 flex flex-col gap-2 m-4 z-10">
+                {fetchEditMessage !== "idle" && (
+                    <div className="flex gap-2 items-center w-max py-2 px-4 bg-white text-gray-800 rounded-md shadow-md">
                         {fetchEditMessage}
+                        <MdLibraryAddCheck fontSize={24} color="#43A047" />
                     </div>
-                </div>
-            )}
+                )}
+                {copyTextAlertDisplay && !isErrorCopyTextStatus && (
+                    <div className="flex gap-2 items-center w-max py-2 px-4 bg-white text-gray-800 rounded-md shadow-md">
+                        Success copied
+                        <MdLibraryAddCheck fontSize={24} color="#43A047" />
+                    </div>
+                )}
+                {copyTextAlertDisplay && isErrorCopyTextStatus && (
+                    <div className="flex gap-2 items-center w-max py-2 px-4 bg-white text-gray-800 rounded-md shadow-md">
+                        Failed copied
+                        <AiFillWarning fontSize={24} color="#F44336" />    
+                    </div>
+                )}
+            </div>
             <div className="w-full flex flex-col gap-4 sm:p-4 my-4">
                 <div className="flex justify-between gap-4 items-center">
                     <input
@@ -131,7 +175,19 @@ const CodeDetail = () => {
                         <BsPencilSquare fontSize={24} className="ml-2" />
                     </button>
                 </div>
-                <div className="w-full h-[1000px] flex text-[.8rem] border border-gray-200 font-firaCode rounded overflow-hidden">
+                <div className="relative w-full h-[1000px] flex text-[.8rem] border border-gray-200 font-firaCode rounded overflow-hidden">
+                    {mode === "read" && (
+                        <button
+                        type="button"
+                        disabled={!data?.id || copying}
+                        onClick={copyText(data.code)}
+                        className="p-1 aspect-square absolute top-2 right-5 rounded-md text-white bg-gray-800 dark:text-gray-800 dark:bg-white">
+                            {copying ? 
+                                <AiOutlineLoading3Quarters fontSize={24} className="animate-spin mx-auto" />
+                                : <BsFileEarmarkCode fontSize={24} />
+                            }
+                        </button>
+                    )}
                     <textarea
                     value={inputData.code}
                     onChange={e => setInputData(prev => ({ ...prev, code: e.target.value }))}

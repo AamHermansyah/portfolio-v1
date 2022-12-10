@@ -7,8 +7,11 @@ import { containerTranslate } from "../../animates"
 import { BsArrowRightShort } from "react-icons/bs"
 import { GiAutoRepair } from "react-icons/gi"
 import { HiCode } from "react-icons/hi"
+import useLoadingPageSettings from "../../hooks/useLoadingPageSettings"
 
 export default function Home(){
+    const { onEventClick } = useLoadingPageSettings()
+
     return (
         <section id="home" className="pt-24 lg:pt-10">
             <m.div 
@@ -46,7 +49,7 @@ export default function Home(){
                                 .start()
                             }}/>
                         </h2>
-                        <p className="mt-6 text-lg sm:text-xl text-gray-800 dark:text-white">I can help you for build your web application and design your project. <br className="lg:hidden"/>So, let&apos;s talk!</p>
+                        <p className="mt-6 font-primary text-lg sm:text-xl text-gray-800 dark:text-white">I can help you for build your web application and design your project. <br className="lg:hidden"/>So, let&apos;s talk!</p>
                     </m.div>
                     <div className="overflow-hidden z-[5]">
                         <m.div
@@ -56,19 +59,21 @@ export default function Home(){
                         className="flex flex-wrap gap-x-4"
                         >
                             <Link href="https://drive.google.com/uc?export=view&id=1neDoNiIvIDs28XudPxK267cFb-4OSxUL" target="_blank" rel="noreferrer"
-                            className="flex gap-2 items-center mt-4 py-3 px-6 bg-primary text-white font-bold w-max rounded-full">
+                            className="flex gap-2 items-center mt-4 py-3 px-6 bg-primary text-white font-bold font-primary w-max rounded-full">
                                 Download CV
                                 <m.div animate={{ x: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1 }}>
                                     <BsArrowRightShort fontSize={24} />
                                 </m.div>
                             </Link>
                             <Link href="/portfolio"
-                            className="flex gap-2 items-center mt-4 py-3 px-6 bg-secondary text-white font-bold w-max rounded-full">
+                            onClick={onEventClick}
+                            className="flex gap-2 items-center mt-4 py-3 px-6 bg-secondary text-white font-bold font-primary w-max rounded-full">
                                 Check My Works
                                 <GiAutoRepair fontSize={24} />
                             </Link>
                             <Link href="/mycodes"
-                            className="flex gap-2 items-center mt-4 py-3 px-6 text-gray-800 dark:text-white border border-gray-800 dark:border-white font-bold w-max rounded-full">
+                            onClick={onEventClick}
+                            className="flex gap-2 items-center mt-4 py-3 px-6 text-white bg-gray-900 dark:bg-dark border border-gray-800 dark:border-white font-bold font-primary w-max rounded-full">
                                 My Library Codes
                                 <HiCode fontSize={24} />
                             </Link>
