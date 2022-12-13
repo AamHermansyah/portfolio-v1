@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps, router }) {
                 <AnimatePresence mode="wait">
                     <ContextProvider>
                         <LoadingPage />
-                        <div className="max-w-[1500px]">
+                        <div className="max-w-[1500px] dark:bg-dark">
                             <Component {...pageProps} key={router.pathname} />
                         </div>
                     </ContextProvider>
