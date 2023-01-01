@@ -55,7 +55,7 @@ function Login() {
     }
 
     useEffect(() => {
-        if(Cookies.get("user_token") === undefined){
+        if(Cookies.get("user_token")){
             onEventClick()
             router.push('/')
         }
