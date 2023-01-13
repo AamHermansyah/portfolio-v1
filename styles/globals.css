@@ -31,10 +31,10 @@
     position: absolute;
     width: 200px;
     height: 438px;
-    top: 50%;
-    left: 0px;
-    background: #7afba5;
-    filter: blur(190px);
+    top: 0px;
+    right: 0px;
+    background: #7afb96;
+    filter: blur(200px);
   }
 
   .gradient-02 {

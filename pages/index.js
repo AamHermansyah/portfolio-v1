@@ -22,14 +22,33 @@ function HomePage() {
       <>
         <SocialMediaFixed />
         <Navbar />
-        <Home />
+
+        <div className="relative">
+          <div className="dark:gradient-03 z-[0]" />
+          <Home />
+        </div>
+
         <Service />
-        <Portfolio />
+
+        <div className="relative">
+          <div className="dark:gradient-02 z-[0]" />
+          <Portfolio />
+        </div>
+
         <Client />
         <Testimonials />
         <About />
-        <Certifications />
-        <Contact />
+
+        <div className="relative">
+          <div className="dark:gradient-01 z-[0]" />
+          <Certifications />
+        </div>
+
+        <div className="relative">
+          <div className="dark:gradient-02 z-[0]" />
+          <Contact />
+        </div>
+        
         <Footer />
       </>
   )

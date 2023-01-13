@@ -53,13 +53,8 @@ function Portfolio({ isPage = false }) {
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
     transition={{ duration: .3}}
-    className="mt-14 p-4 sm:p-8 relative overflow-x-hidden">
-
-      {/* gradient */}
-      <div className="dark:gradient-02 z-[0]" />
-
-      <div className="z-[1]">
-        {isPage && <h1 className="my-4 text-2xl font-bold">My Works</h1>}
+    className="mt-14 p-4 sm:p-8 relative z-[1]">
+      {isPage && <h1 className="my-4 text-2xl font-bold">My Works</h1>}
         {!isPage && (
           <div className="justify-between flex items-center mb-3">
             <h1 className="text-2xl sm:text-3xl text-gray-800 dark:text-white font-bold">My Works</h1>
@@ -117,7 +112,6 @@ function Portfolio({ isPage = false }) {
             </Link>
           )}
         </div> 
-      </div>
     </m.section>
   )
 }

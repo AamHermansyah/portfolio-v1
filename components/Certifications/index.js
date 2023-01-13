@@ -25,7 +25,7 @@ function Certifications() {
     const { onEventClick } = useLoadingPageSettings()
 
     return (
-        <section className="p-6 sm:p-8" id="certification">
+        <section className="p-6 sm:p-8 relative z-[1]" id="certification">
             <div className="flex gap-4 justify-center items-center w-full mt-10 mb-4">
                 <h1 className="text-xl sm:text-3xl font-bold text-gray-800 dark:text-white text-center">My Certifications</h1>
                 {Cookies.get("user_token") !== undefined && (

@@ -13,28 +13,25 @@ export default function Home(){
     const { onEventClick } = useLoadingPageSettings()
 
     return (
-        <section id="home" className="pt-24 lg:pt-10 relative overflow-x-hidden">
-            {/* gradient */}
-            <div className="dark:gradient-03 z-[0]" />
-
+        <section id="home" className="pt-24 lg:pt-4 relative z-[1]">
             <m.div 
             variants={containerTranslate({y: "100%"}, { y: 0 }, .5)}
             initial="initial"
             animate="animate"
             exit="exit"
-            className="flex lg:flex-row flex-col items-center justify-center z-[1]">
+            className="flex lg:flex-row flex-col items-center justify-center">
                 <m.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.75, ease: 'easeOut' }}
-                className="text-white min-h-[400px] lg:min-h-screen lg:max-h-[900px] w-full px-6 flex justify-evenly lg:justify-center flex-col lg:flex-1 tracking-wider">
+                className="text-white min-h-[400px] lg:min-h-screen lg:max-h-[900px] w-full max-w-2xl px-6 flex justify-evenly lg:justify-center flex-col lg:flex-1 tracking-wider">
                     <m.div 
                     initial={{ x: "-100%" }}
                     animate={{ x: "0%" }}
                     transition={{ duration: .3, delay: .2 }}
                     className="font-extrabold text-gray-800 dark:text-white">
-                        <h1 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-l from-primary to-secondary">
+                        <h1 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-secondary to-primary">
                             Hii.. I am <br/>
                             <span className="text-4xl md:text-5xl mt-2">Aam Hermansyah</span>
                         </h1>
@@ -83,7 +80,7 @@ export default function Home(){
                         </m.div>
                     </div>
                 </m.div>
-                <div className="lg:flex-[1.5] flex-1 w-full flex items-center justify-center p-6">
+                <div className="lg:flex-[1.5] flex-1 w-full max-w-2xl flex items-center justify-center p-6">
                     <div className="relative aspect-video w-full rounded-2xl overflow-hidden">
                         <Image src="/hero.jpg" layout="fill" objectFit="cover"  alt="hero" priority />
                     </div>

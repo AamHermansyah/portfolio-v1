@@ -20,7 +20,7 @@ export default function Service(){
                             variants={itemShow(.3)}
                             key={service.title}
                             className="flex flex-col items-center justify-center relative cursor-pointer group">
-                                <span className="hidden group-hover:inline w-max absolute -bottom-[45px] p-2 bg-slate-400 text-white text-sm rounded z-[1]">
+                                <span className="hidden group-hover:inline w-max absolute -top-[45px] p-2 bg-slate-400 text-white text-sm rounded z-[1]">
                                     {service.title}
                                 </span>
                                 <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-2 shadow">
@@ -43,7 +43,7 @@ export default function Service(){
                             variants={itemShow(.3)}
                             key={service.title}
                             className="flex flex-col items-center justify-center relative cursor-pointer group">
-                                <span className="hidden group-hover:inline w-max absolute -bottom-[45px] p-2 bg-slate-400 text-white text-sm rounded z-[1]">
+                                <span className="hidden group-hover:inline w-max absolute -top-[45px] p-2 bg-slate-400 text-white text-sm rounded z-[1]">
                                     {service.title}
                                 </span>
                                 <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-2 shadow">
