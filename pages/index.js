@@ -23,15 +23,15 @@ function HomePage() {
         <SocialMediaFixed />
         <Navbar />
 
-        <div className="relative">
-          <div className="dark:gradient-03 z-[0]" />
+        <div className="relative overflow-x-clip">
+          <div className="hidden dark:block gradient-03 z-[0]" />
           <Home />
         </div>
 
         <Service />
 
-        <div className="relative">
-          <div className="dark:gradient-02 z-[0]" />
+        <div className="relative overflow-x-clip">
+          <div className="hidden dark:block gradient-02 z-[0]" />
           <Portfolio />
         </div>
 
@@ -39,13 +39,13 @@ function HomePage() {
         <Testimonials />
         <About />
 
-        <div className="relative">
-          <div className="dark:gradient-01 z-[0]" />
+        <div className="relative overflow-x-clip">
+          <div className="hidden dark:block gradient-01 z-[0]" />
           <Certifications />
         </div>
 
-        <div className="relative">
-          <div className="dark:gradient-02 z-[0]" />
+        <div className="relative overflow-x-clip">
+          <div className="hidden dark:block gradient-02 z-[0]" />
           <Contact />
         </div>
         
