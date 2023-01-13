@@ -1,5 +1,5 @@
 import Link from "next/link"
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { FiMenu } from "react-icons/fi"
 import { MdClose } from "react-icons/md"
 import { itemShow, itemTranslate, navAnimation } from "../animates"
@@ -14,8 +14,19 @@ function Navbar() {
     // loading page settings
     const { onEventClick } = useLoadingPageSettings()
 
+    const navbarRef = useRef(null)
+
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            const navbar = navbarRef.current
+            navbar.classList.toggle("navbar-toggle", window.scrollY > 0)
+        })
+    }, [])
+
     return (
-        <header className="fixed w-full top-0 flex items-center justify-between bg-white dark:bg-dark py-4 px-6 sm:px-8 z-10">
+        <header 
+        ref={navbarRef}
+        className="fixed w-full top-0 flex items-center justify-between py-4 px-6 sm:px-8 z-10 transition-colors duration-200 ease-in-out">
             <div className="flex gap-6 items-center">
                 <Link href="/" className="font-extrabold tracking-wider text-gray-800 dark:text-primary text-2xl">ATwoM H</Link>
                 <DarkModeToggle />
@@ -29,7 +40,7 @@ function Navbar() {
                         } else onEventClick()
                     }}
                     key={list.id} 
-                    className={`${list.id === 'contact' ? 'bg-primary rounded-full text-white py-2 px-6' : 'p-2' } cursor-pointer`} >
+                    className={`${list.id === 'contact' ? 'bg-gradient-to-tr from-[#CB00FF] to-[#fafe06] rounded-full text-white py-2 px-6' : 'p-2' } cursor-pointer`} >
                         { list.title }
                     </Link>
                 ))}

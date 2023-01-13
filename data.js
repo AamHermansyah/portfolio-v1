@@ -7,6 +7,8 @@ import { FaNode, FaTelegramPlane } from "react-icons/fa"
 import { FiFramer } from "react-icons/fi"
 import { AiFillGithub } from "react-icons/ai"
 import { convertDateFromMomentJs } from "./utils/formatDate"
+import { MdSchool } from "react-icons/md"
+import { GiAutoRepair } from "react-icons/gi"
 
 export const servicesDevelopment = [
     {
@@ -160,3 +162,62 @@ export const categories = [
     { label: 'Pixel', value: 'Pixel' },
     { label: 'Vector', value: 'Vector' },
 ]
+
+export const tabDataAbout = {
+    buttons: [
+        {
+            id: "tab-1",
+            title: "Educations",
+            icons: <MdSchool fontSize={24} />
+        },
+        {
+            id: "tab-2",
+            title: "Experiences",
+            icons: <GiAutoRepair fontSize={24} />
+        },
+    ],
+    educations: [
+        {
+            time: "2010 - 2016",
+            title: "Elementary school of SDN 2 Sukamaju",
+            description: "Student"
+        },
+        {
+            time: "2016 - May 2019",
+            title: "Junior high school of SMPN 1 Talegong KJ",
+            description: "Student Council Secretary (2017 - 2018)"
+        },
+        {
+            time: "Juny 2019 - May 2022",
+            title: "High school of SMAN 21 Garut",
+            description: "Head of the Student Council (November 2020 - January 2022)"
+        },
+        {
+            time: "Agust 2022 - Now",
+            title: "Univercity of Universitas Siliwangi",
+            description: "Student"
+        },
+    ],
+    experiences: [
+        {
+            time: "2017 - 2018",
+            title: "Student Council Secretary",
+            description: "Junior high school of SMPN 1 Talegong KJ"
+        },
+        {
+            time: "November 2020 - January 2022",
+            title: "Head of the Student Council",
+            description: "High school of SMAN 21 Garut"
+        },
+        {
+            time: "October 2020 - December 2021",
+            title: "Scout extracurricular",
+            description: "High school of SMAN 21 Garut"
+        },
+        {
+            time: "October 2022 - Now",
+            title: "Member",
+            description: "Siliwangi Code Developer (Sicodev) member"
+        }
+    ]
+}

@@ -53,65 +53,71 @@ function Portfolio({ isPage = false }) {
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
     transition={{ duration: .3}}
-    className="mt-14 p-4 sm:p-8">
-      {isPage && <h1 className="my-4 text-2xl font-bold">My Works</h1>}
-      {!isPage && (
-        <div className="justify-between flex items-center mb-3">
-          <h1 className="text-2xl sm:text-3xl text-gray-800 dark:text-white font-bold">My Works</h1>
-          {Cookies.get("user_token") !== undefined && (
-            <div>
-              <Link onClick={onEventClick} href="/create/portfolio" className="w-10 sm:w-12 h-10 sm:h-12 bg-primary text-white rounded-md flex items-center justify-center">
-                <AiOutlinePlus fontSize={24} />
-              </Link>
-            </div>
-          )}
-        </div>
-      )}
-      <div className="mt-2 w-max flex gap-2 p-1 overflow-hidden border-2 border-gray-800 dark:border-white rounded-full font-bold mx-auto mb-3">
-          {buttonFilters.map(button => (
-              <button onClick={() => {
-                setWhereQuery(button.value);
-                setPageNumber(prev => 1);
-              }}
-              disabled={button.value === whereQuery}
-              key={button.value}
-              type="button" 
-              className={`${!isPage && button.value === 'all' ? 'hidden' : ''} ${whereQuery === button.value ? 'bg-primary text-white' : ''} dark:text-white rounded-full py-2 px-4 text-sm sm:text-base`}>
-                  {button.title}
-              </button>
-          ))}
-      </div>
+    className="mt-14 p-4 sm:p-8 relative">
 
-      {(!loading && !isError && data.length === 0) && <h1 className="text-lg text-gray-800 dark:text-white text-center mb-2">Portfolio is empty{":("}</h1>}
+      {/* gradient */}
+      <div className="dark:gradient-02 z-[0]" />
 
-      {isError && <h1 className="text-lg text-gray-800 dark:text-white text-center mb-2">Something is wrong... Error code: 500</h1>}
-
-      <div>
-        <Masonry className="flex gap-2 md:gap-4" breakpointCols={breakpoints}>
-          {!isError && data
-          .map((portfolio, index) => {
-            if(data.length === index + 1 && !isLastData && isPage) return (
-              <div ref={lastDataElementRef}>
-                <Card key={index} data={portfolio} />
+      <div className="z-[1]">
+        {isPage && <h1 className="my-4 text-2xl font-bold">My Works</h1>}
+        {!isPage && (
+          <div className="justify-between flex items-center mb-3">
+            <h1 className="text-2xl sm:text-3xl text-gray-800 dark:text-white font-bold">My Works</h1>
+            {Cookies.get("user_token") !== undefined && (
+              <div>
+                <Link onClick={onEventClick} href="/create/portfolio" className="w-10 sm:w-12 h-10 sm:h-12 bg-primary text-white rounded-md flex items-center justify-center">
+                  <AiOutlinePlus fontSize={24} />
+                </Link>
               </div>
-            )
-            return <Card key={index} data={portfolio} />
-          })}
-
-          {loading && <CardSkeleton key='loading-1' />}
-          {loading && <CardSkeleton key='loading-2' />}
-          {loading && <CardSkeleton key='loading-3' />}
-          {loading && <CardSkeleton key='loading-4' />}
-          {loading && <CardSkeleton key='loading-5' />}
-        </Masonry>
-        {(!isPage && !loading && data.length > 0 && !isError) && (
-          <Link 
-          href="/portfolio"
-          className="block w-max mx-auto mt-4 py-2 px-4 rounded-md text-primary dark:text-white border-2 border-primary dark:border-white text-center disabled:cursor-not-allowed">
-              See more
-          </Link>
+            )}
+          </div>
         )}
-      </div> 
+        <div className="mt-2 w-max flex gap-2 p-1 overflow-hidden border-2 border-gray-800 dark:border-white rounded-full font-bold mx-auto mb-3">
+            {buttonFilters.map(button => (
+                <button onClick={() => {
+                  setWhereQuery(button.value);
+                  setPageNumber(prev => 1);
+                }}
+                disabled={button.value === whereQuery}
+                key={button.value}
+                type="button" 
+                className={`${!isPage && button.value === 'all' ? 'hidden' : ''} ${whereQuery === button.value ? 'bg-gradient-to-tr from-[#CB00FF] to-[#fafe06] text-white' : ''} dark:text-white rounded-full py-2 px-4 text-sm sm:text-base`}>
+                    {button.title}
+                </button>
+            ))}
+        </div>
+
+        {(!loading && !isError && data.length === 0) && <h1 className="text-lg text-gray-800 dark:text-white text-center mb-2">Portfolio is empty{":("}</h1>}
+
+        {isError && <h1 className="text-lg text-gray-800 dark:text-white text-center mb-2">Something is wrong... Error code: 500</h1>}
+
+        <div>
+          <Masonry className="flex gap-2 md:gap-4" breakpointCols={breakpoints}>
+            {!isError && data
+            .map((portfolio, index) => {
+              if(data.length === index + 1 && !isLastData && isPage) return (
+                <div ref={lastDataElementRef}>
+                  <Card key={index} data={portfolio} />
+                </div>
+              )
+              return <Card key={index} data={portfolio} />
+            })}
+
+            {loading && <CardSkeleton key='loading-1' />}
+            {loading && <CardSkeleton key='loading-2' />}
+            {loading && <CardSkeleton key='loading-3' />}
+            {loading && <CardSkeleton key='loading-4' />}
+            {loading && <CardSkeleton key='loading-5' />}
+          </Masonry>
+          {(!isPage && !loading && data.length > 0 && !isError) && (
+            <Link 
+            href="/portfolio"
+            className="block w-max mx-auto mt-4 py-2 px-4 rounded-md text-primary dark:text-white border-2 border-primary dark:border-white text-center disabled:cursor-not-allowed">
+                See more
+            </Link>
+          )}
+        </div> 
+      </div>
     </m.section>
   )
 }

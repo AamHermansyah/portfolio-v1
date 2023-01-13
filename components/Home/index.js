@@ -13,13 +13,16 @@ export default function Home(){
     const { onEventClick } = useLoadingPageSettings()
 
     return (
-        <section id="home" className="pt-24 lg:pt-10">
+        <section id="home" className="pt-24 lg:pt-10 relative">
+            {/* gradient */}
+            <div className="dark:gradient-03 z-[0]" />
+
             <m.div 
             variants={containerTranslate({y: "100%"}, { y: 0 }, .5)}
             initial="initial"
             animate="animate"
             exit="exit"
-            className="flex lg:flex-row flex-col items-center justify-center">
+            className="flex lg:flex-row flex-col items-center justify-center z-[1]">
                 <m.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -31,7 +34,7 @@ export default function Home(){
                     animate={{ x: "0%" }}
                     transition={{ duration: .3, delay: .2 }}
                     className="font-extrabold text-gray-800 dark:text-white">
-                        <h1 className="text-5xl md:text-6xl">
+                        <h1 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-l from-primary to-secondary">
                             Hii.. I am <br/>
                             <span className="text-4xl md:text-5xl mt-2">Aam Hermansyah</span>
                         </h1>

@@ -7,6 +7,57 @@
 
 @layer base {
     body {
-        @apply font-primary text-base overflow-x-hidden;
+        @apply font-primary text-base overflow-x-hidden -z-[1];
     }
+}
+
+@layer components {
+    /* For Webkit-based browsers (Chrome, Safari and Opera) */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* For IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .navbar-toggle {
+    @apply bg-light dark:bg-dark;
+  }
+
+  .gradient-01 {
+    position: absolute;
+    width: 200px;
+    height: 438px;
+    top: 50%;
+    left: 0px;
+    background: #7afba5;
+    filter: blur(190px);
+  }
+
+  .gradient-02 {
+    position: absolute;
+    width: 404px;
+    height: 800px;
+    left: 20%;
+    top: 5%;
+  
+    background: rgba(149, 66, 232, 0.35);
+    filter: blur(175px);
+    transform: rotate(-114.2deg);
+  }
+
+  .gradient-03 {
+    position: absolute;
+    width: 304px;
+    height: 100vh;
+    left: 30%;
+    top: 10%;
+  
+    background: rgba(45, 72, 152, 0.75);
+    filter: blur(200px);
+    transform: rotate(-53.13deg);
+  }
 }
