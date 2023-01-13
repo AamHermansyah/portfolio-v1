@@ -106,7 +106,7 @@ function Contact() {
     }, [messageAlertDisplay.status])
 
     return (
-        <section className="mt-10 w-full p-4 max-w-[800px] mx-auto pb-10 relative" id="contact">
+        <section className="mt-10 w-full p-4 max-w-[800px] mx-auto pb-10 relative overflow-hidden" id="contact">
 
             {/* gradient */}
             <div className="dark:gradient-02 z-[0]" />
