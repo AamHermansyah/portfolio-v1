@@ -53,7 +53,7 @@ function Portfolio({ isPage = false }) {
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
     transition={{ duration: .3}}
-    className="mt-14 p-4 sm:p-8 relative">
+    className="mt-14 p-4 sm:p-8 relative overflow-hidden">
 
       {/* gradient */}
       <div className="dark:gradient-02 z-[0]" />
