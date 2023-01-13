@@ -13,7 +13,7 @@ export default function Home(){
     const { onEventClick } = useLoadingPageSettings()
 
     return (
-        <section id="home" className="pt-24 lg:pt-10 relative">
+        <section id="home" className="pt-24 lg:pt-10 relative overflow-hidden">
             {/* gradient */}
             <div className="dark:gradient-03 z-[0]" />
 
