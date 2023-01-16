@@ -30,19 +30,19 @@ function HomePage() {
 
         <Service />
 
-        <div className="relative overflow-x-clip">
+        {/* <div className="relative overflow-x-clip">
           <div className="hidden dark:block gradient-02 z-[0]" />
           <Portfolio />
-        </div>
+        </div> */}
 
         <Client />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <About />
 
-        <div className="relative overflow-x-clip">
+        {/* <div className="relative overflow-x-clip">
           <div className="hidden dark:block gradient-01 z-[0]" />
           <Certifications />
-        </div>
+        </div> */}
 
         <div className="relative overflow-x-clip">
           <div className="hidden dark:block gradient-02 z-[0]" />

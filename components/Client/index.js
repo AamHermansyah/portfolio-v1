@@ -16,6 +16,7 @@ function Client() {
         <m.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
         transition={{ duration: .5, delay: .5 }}
         className="w-full flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-4 text-white">
           {clients.map((client, index) => (

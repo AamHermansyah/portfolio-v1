@@ -14,62 +14,85 @@ export const servicesDevelopment = [
     {
         title: 'Next Js',
         started_at: convertDateFromMomentJs("20220808"),
-        icon: <SiNextdotjs color="black" fontSize={32} />
+        icon: <SiNextdotjs color="black" fontSize={32} />,
+        progress: 75
     },
     {
         title: 'React Js',
         started_at: convertDateFromMomentJs("20210614"),
-        icon: <RiReactjsLine color="#61DAFB" fontSize={32} />
+        icon: <RiReactjsLine color="#61DAFB" fontSize={32} />,
+        progress: 90,
+        progressColor: "#61DAFB"
     },
     {
         title: 'Sanity',
         started_at: convertDateFromMomentJs("20220905"),
-        icon: <SiSemanticuireact color="#F04939" fontSize={32} />
+        icon: <SiSemanticuireact color="#F04939" fontSize={32} />,
+        progress: 40,
+        progressColor: "#F04939"
     },
     {
         title: 'HTML',
         started_at: convertDateFromMomentJs("20200619"),
-        icon: <RiHtml5Fill color="#E34F26" fontSize={32} />
+        icon: <RiHtml5Fill color="#E34F26" fontSize={32} />,
+        progress: 95,
+        progressColor: "#E34F26"
     },
     {
         title: 'CSS',
         started_at: convertDateFromMomentJs("20200713"),
-        icon: <IoLogoCss3 color="#1B73BA" fontSize={32} />
+        icon: <IoLogoCss3 color="#1B73BA" fontSize={32} />,
+        progress: 95,
+        progressColor: "#1B73BA"
     },
     {
         title: 'Tailwind CSS',
         started_at: convertDateFromMomentJs("20211206"),
-        icon: <SiTailwindcss color="#06B6D4" fontSize={28} />
+        icon: <SiTailwindcss color="#06B6D4" fontSize={28} />,
+        progress: 90,
+        progressColor: "#06B6D4"
     },
     {
         title: 'Git',
         started_at: convertDateFromMomentJs("20211120"),
-        icon: <BiGitBranch color="#DE4C36" fontSize={28} />
+        icon: <BiGitBranch color="#DE4C36" fontSize={28} />,
+        progress: 80,
+        progressColor: "#DE4C36"
     },
     {
         title: 'Node js',
         started_at: convertDateFromMomentJs("20210506"),
-        icon: <FaNode color="#4CAF50" fontSize={32} />
+        icon: <FaNode color="#4CAF50" fontSize={32} />,
+        progress: 80,
+        progressColor: "#4CAF50"
     },
     {
         title: 'NPM',
         started_at: convertDateFromMomentJs("20210614"),
-        icon: <RiNpmjsLine color="#CC0000" fontSize={32} />
+        icon: <RiNpmjsLine color="#CC0000" fontSize={32} />,
+        progress: 80,
+        progressColor: "#CC0000"
     },
     {
         title: 'Framer Motion',
         started_at: convertDateFromMomentJs("20220920"),
-        icon: <FiFramer color="#BB4B96" fontSize={30} />
+        icon: <FiFramer color="#BB4B96" fontSize={30} />,
+        progress: 50,
+        progressColor: "#BB4B96"
     },
     {
         title: 'Javascript',
         started_at: convertDateFromMomentJs("20201206"),
-        icon: <IoLogoJavascript color="#F0DB4F" fontSize={28} />
+        icon: <IoLogoJavascript color="#F0DB4F" fontSize={28} />,
+        progress: 90,
+        progressColor: "#F0DB4F"
     },
     {
         title: 'Redux Toolkit',
         started_at: convertDateFromMomentJs("20220407"),
-        icon: <SiRedux color="#764ABC" fontSize={28} />
+        icon: <SiRedux color="#764ABC" fontSize={28} />,
+        progress: 80,
+        progressColor: "#764ABC"
     }
 ]
 
@@ -77,22 +100,28 @@ export const servicesDesign = [
     {
         title: 'Vector Art',
         started_at: convertDateFromMomentJs("20210729"),
-        icon: <TbVector color="#374151" fontSize={30} />
+        icon: <TbVector color="#374151" fontSize={30} />,
+        progress: 70
     },
     {
         title: 'Pixel Art',
         started_at: convertDateFromMomentJs("20220601"),
-        icon: <TbSquaresFilled color="#374151" fontSize={32} />
+        icon: <TbSquaresFilled color="#374151" fontSize={32} />,
+        progress: 60
     },
     {
         title: 'Affinity Designer',
         started_at: convertDateFromMomentJs("20220325"),
-        icon: <SiAffinity color="#51C7EE" fontSize={30} />
+        icon: <SiAffinity color="#51C7EE" fontSize={30} />,
+        progress: 75,
+        progressColor: "#51C7EE"
     },
     {
         title: 'Infinity Design',
         started_at: convertDateFromMomentJs("20210729"),
-        icon: <IoMdBrush color="#3790D7" fontSize={30} />
+        icon: <IoMdBrush color="#3790D7" fontSize={30} />,
+        progress: 90,
+        progressColor: "#3790D7"
     },
 ]
 
