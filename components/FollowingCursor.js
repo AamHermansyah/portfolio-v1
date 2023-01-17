@@ -12,15 +12,13 @@ const FollowingCursor = () => {
     const [linkHovered, setLinkHovered] = useState(false);
     const [hidden, setHidden] = useState(false);
     const mouseRef = useRef(null)
-    
-    if (typeof navigator !== "undefined" && isMobile()) return null;
 
     useEffect(() => {
         addEventListeners();
         handleLinkHoverEvents();
         return () => removeEventListeners();
     }, []);
-
+    
     const addEventListeners = () => {
         document.addEventListener("mousemove", onMouseMove);
         document.addEventListener("mouseenter", onMouseEnter);
@@ -67,6 +65,8 @@ const FollowingCursor = () => {
             el.addEventListener("mouseout", () => setLinkHovered(false));
         });
     };
+    
+    if (typeof navigator !== "undefined" && isMobile()) return null;
 
     return (
         <m.div
