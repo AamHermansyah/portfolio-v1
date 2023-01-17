@@ -7,14 +7,13 @@ const isMobile = () => {
 };
 
 const FollowingCursor = () => {
-    if (typeof navigator !== "undefined" && isMobile()) return null;
-
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [clicked, setClicked] = useState(false);
     const [linkHovered, setLinkHovered] = useState(false);
     const [hidden, setHidden] = useState(false);
-
     const mouseRef = useRef(null)
+    
+    if (typeof navigator !== "undefined" && isMobile()) return null;
 
     useEffect(() => {
         addEventListeners();
