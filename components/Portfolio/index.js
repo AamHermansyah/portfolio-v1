@@ -107,7 +107,7 @@ function Portfolio({ isPage = false }) {
           {(!isPage && !loading && data.length > 0 && !isError) && (
             <Link 
             href="/portfolio"
-            className="block w-max mx-auto mt-4 py-2 px-4 rounded-md text-primary dark:text-white border-2 border-primary dark:border-white text-center disabled:cursor-not-allowed">
+            className="block w-max mx-auto mt-4 py-2 px-4 rounded-md bg-gradient-to-tr from-[#CB00FF] to-[#fafe06] text-white text-center disabled:cursor-not-allowed">
                 See more
             </Link>
           )}

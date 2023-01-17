@@ -16,11 +16,16 @@ function Navbar() {
 
     const navbarRef = useRef(null)
 
+    const handleEventNavbar = () => {
+        const navbar = navbarRef.current
+        navbar.classList.toggle("navbar-toggle", window.scrollY > 0)
+    }
+
     useEffect(() => {
-        window.addEventListener("scroll", () => {
-            const navbar = navbarRef.current
-            navbar.classList.toggle("navbar-toggle", window.scrollY > 0)
-        })
+        window.addEventListener("scroll", handleEventNavbar)
+        return () => {
+            window.removeEventListener("scroll", handleEventNavbar)
+        }
     }, [])
 
     return (
@@ -61,7 +66,7 @@ function Navbar() {
                 {navigations.map(list => (
                     <div className="overflow-hidden" key={list.id}>
                         <m.div
-                        className={`${list.id === 'contact' ? 'bg-primary rounded-full text-white py-2 px-6 mt-4' : 'p-2' } cursor-pointer`}
+                        className={`${list.id === 'contact' ? 'bg-gradient-to-tr from-[#CB00FF] to-[#fafe06] rounded-full text-white py-2 px-6 mt-4' : 'p-2' } cursor-pointer`}
                         variants={itemTranslate({ y: "105%", x: 0 }, {y: "0%", x: 0}, .3)}>
                             <Link 
                             href={list?.href ? list.href : '/'} 

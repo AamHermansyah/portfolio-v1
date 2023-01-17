@@ -3,6 +3,7 @@ import About from '../components/About'
 import Certifications from '../components/Certifications'
 import Client from '../components/Client'
 import Contact from '../components/Contact'
+import FollowingCursor from '../components/FollowingCursor'
 import Footer from '../components/Footer'
 import Home from '../components/Home'
 import Navbar from '../components/Navbar'
@@ -20,7 +21,9 @@ function HomePage() {
 
   return (
       <>
+        <FollowingCursor />
         <SocialMediaFixed />
+        
         <Navbar />
 
         <div className="relative overflow-x-clip">

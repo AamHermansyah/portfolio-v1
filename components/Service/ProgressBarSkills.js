@@ -1,4 +1,4 @@
-import { SiTailwindcss } from "react-icons/si"
+import { motion as m } from "framer-motion"
 
 const ProgressBarSkills = ({ data }) => {
     return (
@@ -20,8 +20,16 @@ const ProgressBarSkills = ({ data }) => {
                             </span>
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                            <div className="h-2.5 rounded-full" style={{ 
-                                width: `${item.progress}%`,
+                            <m.div
+                            layout
+                            initial={{ width: "0%" }}
+                            animate={{ width: `${item.progress}%` }}
+                            transition={{ 
+                                duration: 0.5, 
+                                ease: [0.17, 0.67, 0.83, 0.67], 
+                                type: "spring",
+                                mass: 0.5 }}
+                            className="h-2.5 rounded-full" style={{ 
                                 backgroundColor: item?.progressColor ? item.progressColor : "rgb(37,99,235)"
                             }} />
                         </div>
