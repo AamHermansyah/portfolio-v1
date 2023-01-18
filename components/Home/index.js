@@ -31,7 +31,7 @@ export default function Home(){
                     animate={{ x: "0%" }}
                     transition={{ duration: .3, delay: .2 }}
                     className="font-extrabold text-gray-800 dark:text-white">
-                        <h1 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-secondary to-primary">
+                        <h1 id="hero-title" className="w-max text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-secondary to-primary">
                             Hii.. I am <br/>
                             <span className="text-4xl md:text-5xl mt-2">Aam Hermansyah</span>
                         </h1>

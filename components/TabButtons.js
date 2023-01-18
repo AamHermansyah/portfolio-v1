@@ -9,7 +9,7 @@ const TabButtons = ({data, onChange, indexButtonActive = 0, direction = "left"})
     }
 
     return (
-        <div className="max-w-[500px] w-full border-b border-gray-200 dark:border-gray-700 mb-4">
+        <div className="w-full border-b border-gray-200 dark:border-gray-700 mb-4">
             <ul className={`${direction === "right" ? "justify-end" : ""} flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400`}>
                 {data.map((item, index) => (
                     <li 

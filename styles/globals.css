@@ -7,12 +7,12 @@
 
 @layer base {
     body {
-        @apply max-w-[1500px] font-primary text-base overflow-x-hidden mx-auto;
+        @apply bg-light dark:bg-dark max-w-[1500px] font-primary text-base overflow-x-hidden mx-auto;
     }
 }
 
 @layer components {
-    /* For Webkit-based browsers (Chrome, Safari and Opera) */
+  /* For Webkit-based browsers (Chrome, Safari and Opera) */
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }

@@ -60,7 +60,9 @@ const FollowingCursor = () => {
     };
 
     const handleLinkHoverEvents = () => {
-        document.querySelectorAll("a, p, button").forEach((el) => {
+        const elements = "a, p, button, #hero-title, .service, #email-copy, #number-copy"
+        document.querySelectorAll(elements)
+        .forEach((el) => {
             el.addEventListener("mouseover", () => setLinkHovered(true));
             el.addEventListener("mouseout", () => setLinkHovered(false));
         });
@@ -71,12 +73,12 @@ const FollowingCursor = () => {
     return (
         <m.div
         ref={mouseRef}
-        className={`${(clicked || linkHovered) ? "bg-[#fefefe]" : ""} w-[40px] h-[40px] border-2 border-gray-900 dark:border-[#fefefe] rounded-full fixed pointer-events-none z-[999] mix-blend-difference`}
+        className={`${(clicked || linkHovered) ? "bg-[#fefefe] border-[#fefefe]" : "border-dark dark:border-[#fefefe]"} w-[40px] h-[40px] border-2 rounded-full fixed pointer-events-none z-[999] mix-blend-difference`}
         animate={{
             x: position.x,
             y: position.y,
             opacity: hidden ? 0 : 1,
-            scale: (clicked || linkHovered) ? clicked ? 0.9 : 1.2 : 1
+            scale: (clicked || linkHovered) ? clicked ? 0.9 : 1.4 : 1
         }}
         transition={{
             type: "spring",
