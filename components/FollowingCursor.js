@@ -60,7 +60,7 @@ const FollowingCursor = () => {
     };
 
     const handleLinkHoverEvents = () => {
-        const elements = "a, p, button, #hero-title, .service, #email-copy, #number-copy"
+        const elements = "a, p, button, img, .animate-cursor-hovered"
         document.querySelectorAll(elements)
         .forEach((el) => {
             el.addEventListener("mouseover", () => setLinkHovered(true));

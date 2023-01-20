@@ -11,7 +11,7 @@ function Client() {
     initial="initial"
     animate="animate"
     exit="exit"
-    className="px-4 sm:px-6 mt-10 pb-10">
+    className="px-4 sm:px-6 pt-10 pb-10">
         <h1 className="text-2xl sm:text-3xl text-gray-800 dark:text-white font-bold text-center">Clients</h1>
         <m.div 
         initial={{ opacity: 0 }}

@@ -70,7 +70,7 @@ function Card({data}) {
                     ))}
                 </div>
                 <p className="text-primary sm:text-lg font-bold">{data.category}</p>
-                <p className="text-gray-600 dark:text-white text-sm sm:text-base">{data.title}</p>
+                <p className="animate-cursor-hovered text-gray-600 dark:text-white text-sm sm:text-base">{data.title}</p>
             </div>
         </m.div>
     )

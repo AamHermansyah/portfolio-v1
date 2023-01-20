@@ -6,9 +6,14 @@
 @tailwind variants;
 
 @layer base {
-    body {
-        @apply bg-light dark:bg-dark max-w-[1500px] font-primary text-base overflow-x-hidden mx-auto;
-    }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding: var(--scroll-padding, 5rem);
+  }
+
+  body {
+      @apply bg-light dark:bg-dark max-w-[1500px] font-primary text-base overflow-x-hidden mx-auto;
+  }
 }
 
 @layer components {

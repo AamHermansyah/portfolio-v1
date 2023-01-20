@@ -131,17 +131,15 @@ function Contact() {
             </div>
             <div className="flex justify-center sm:justify-between flex-wrap mt-4 gap-4">
                 <div 
-                id="email-copy"
                 onClick={copyText('amzhermanzyah@gmail.com')}
-                className="flex gap-2 items-center py-3 px-4 bg-sky-100 text-gray-800 rounded-md cursor-pointer">
+                className="animate-cursor-hovered flex gap-2 items-center py-3 px-4 bg-sky-100 text-gray-800 rounded-md cursor-pointer">
                     <FcInvite fontSize={24} />
                     amzhermanzyah@gmail.com
                     <MdContentCopy />
                 </div>
                 <div 
-                id="number-copy"
                 onClick={copyText('+6282316126449')}
-                className="flex gap-2 items-center py-3 px-4 bg-red-100 text-gray-800 rounded-md cursor-pointer">
+                className="animate-cursor-hovered flex gap-2 items-center py-3 px-4 bg-red-100 text-gray-800 rounded-md cursor-pointer">
                     <FcPhoneAndroid fontSize={24} />
                     +62 - (82) 316 - 126 - 449
                     <MdContentCopy />

@@ -16,13 +16,18 @@ function Navbar() {
 
     const navbarRef = useRef(null)
 
-    const handleEventNavbar = () => {
-        const navbar = navbarRef.current
-        navbar.classList.toggle("navbar-toggle", window.scrollY > 0)
-    }
-
     useEffect(() => {
+        const handleEventNavbar = () => {
+            const navbar = navbarRef.current
+            navbar.classList.toggle("navbar-toggle", window.scrollY > 0)
+        }
+
+        // Handle scroll padding using navbar height
+        const navHeight = navbarRef.current.offsetHeight
+        document.documentElement.style.setProperty("--scroll-padding", `${navHeight}px`)
+
         window.addEventListener("scroll", handleEventNavbar)
+
         return () => {
             window.removeEventListener("scroll", handleEventNavbar)
         }
@@ -37,19 +42,30 @@ function Navbar() {
                 <DarkModeToggle />
             </div>
             <nav className="hidden lg:flex gap-6 ml-6 font-sans font-semibold text-gray-800 dark:text-white">
-                {navigations.map(list => (
-                    <Link href={list?.href ? list.href : '/'} onClick={(e) => {
-                        if(!list.isPage){
-                            e.preventDefault()
-                            document.getElementById(list.id).scrollIntoView({ behavior: "smooth" })
-                        } else onEventClick()
-                    }}
-                    key={list.id} 
-                    className={`${list.id === 'contact' ? 'bg-gradient-to-tr from-[#CB00FF] to-[#fafe06] rounded-full text-white py-2 px-6' : 'p-2' } cursor-pointer`} >
-                        { list.title }
-                    </Link>
-                ))}
+                {navigations.map(list => {
+                    return list.isPage && list?.href ? 
+                    (
+                        <Link
+                        href={list.href}
+                        onClick={(e) => {
+                            onEventClick()
+                        }}
+                        key={list.id} 
+                        className={`${list.id === 'contact' ? 'bg-gradient-to-tr from-[#CB00FF] to-[#fafe06] rounded-full text-white py-2 px-6' : 'p-2' } cursor-pointer`}>
+                            { list.title }
+                        </Link>
+                    ) : 
+                    (
+                        <a 
+                        href={`#${list.id}`}
+                        key={list.id} 
+                        className={`${list.id === 'contact' ? 'bg-gradient-to-tr from-[#CB00FF] to-[#fafe06] rounded-full text-white py-2 px-6' : 'p-2' } cursor-pointer`}>
+                            { list.title }
+                        </a>
+                    )
+                })}
             </nav>
+
             <div className="lg:hidden cursor-pointer" onClick={() => setNavigation(true)}>
                 <FiMenu fontSize={26} />
             </div>
@@ -68,17 +84,26 @@ function Navbar() {
                         <m.div
                         className={`${list.id === 'contact' ? 'bg-gradient-to-tr from-[#CB00FF] to-[#fafe06] rounded-full text-white py-2 px-6 mt-4' : 'p-2' } cursor-pointer`}
                         variants={itemTranslate({ y: "105%", x: 0 }, {y: "0%", x: 0}, .3)}>
-                            <Link 
-                            href={list?.href ? list.href : '/'} 
-                            onClick={(e) => {
-                                if(!list.isPage){
-                                    e.preventDefault()
-                                    document.getElementById(list.id).scrollIntoView({ behavior: "smooth" })
-                                } else onEventClick()
-                                setNavigation(false)
-                            }}>
-                                { list.title }
-                            </Link>
+                            {list.isPage && list?.href ? 
+                            (
+                                <Link
+                                href={list.href}
+                                onClick={(e) => {
+                                    onEventClick()
+                                    setNavigation(false)
+                                }}>
+                                    { list.title }
+                                </Link>
+                            ) : 
+                            (
+                                <a 
+                                href={`#${list.id}`}
+                                onClick={(e) => {
+                                    setNavigation(false)
+                                }}>
+                                    { list.title }
+                                </a>
+                            )}
                         </m.div>
                     </div>
                 ))}

@@ -25,7 +25,7 @@ export default function Service(){
     const [designActiveTab, setDesignActiveTab] = useState(tabButtonsData[1].id)
 
     return (
-        <section className="mt-14 px-8" id="service">
+        <section className="mt-10 p-8" id="service">
             <h1 className="mx-auto w-max text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-l from-[#CB00FF] to-[#fafe06]">What can I do?</h1>
             <div className="w-full flex gap-6 lg:gap-10 justify-between flex-col md:flex-row gap-y-10 mb-10 mt-4">
                 <m.div
@@ -36,7 +36,7 @@ export default function Service(){
                 viewport={{ once: true }}>
                     <h1 className="text-2xl font-bold mb-6">Experiences in Development</h1>
 
-                    <div className="service max-w-[500px]">
+                    <div className="animate-cursor-hovered max-w-[500px]">
                         <TabButtons 
                         data={tabButtonsData} 
                         onChange={data => setDevelopmentActiveTab(data.id)} />
@@ -75,7 +75,7 @@ export default function Service(){
                 className="flex-1 flex flex-col items-end">
                     <h1 className="text-right text-2xl font-bold mb-6">Experiences in Design</h1>
 
-                    <div className="service max-w-[500px] w-full">
+                    <div className="animate-cursor-hovered max-w-[500px] w-full">
                         <TabButtons 
                         data={tabButtonsData} 
                         indexButtonActive={1}

@@ -128,7 +128,7 @@ export const servicesDesign = [
 export const navigations = [
     { title: 'Home', id: 'home', isPage: false },
     { title: 'Services', id: 'service', isPage: false },
-    { title: 'Portfolio', id: 'portfolio', isPage: true, href: '/portfolio' },
+    { title: 'Portfolio', id: 'portfolio', isPage: false },
     { title: 'Clients', id: 'client', isPage: false },
     { title: 'About', id: 'about', isPage: false },
     { title: 'Contact Me', id: 'contact', isPage: false },
