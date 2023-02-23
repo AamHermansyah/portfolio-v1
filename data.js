@@ -246,7 +246,12 @@ export const tabDataAbout = {
         {
             time: "October 2022 - Now",
             title: "Member",
-            description: "Siliwangi Code Developer (Sicodev) member"
+            description: "Siliwangi Code Developer (Sicodev)"
+        },
+        {
+            time: "February 2023 - Now",
+            title: "Frontend Developer",
+            description: "Kode Giri Team"
         }
     ]
 }
