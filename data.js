@@ -222,36 +222,26 @@ export const tabDataAbout = {
             description: "Head of the Student Council (November 2020 - January 2022)"
         },
         {
-            time: "Agust 2022 - Now",
+            time: "August 2022 - Now",
             title: "Univercity of Universitas Siliwangi",
             description: "Student"
         },
     ],
     experiences: [
         {
-            time: "2017 - 2018",
-            title: "Student Council Secretary",
-            description: "Junior high school of SMPN 1 Talegong KJ"
-        },
-        {
             time: "November 2020 - January 2022",
             title: "Head of the Student Council",
             description: "High school of SMAN 21 Garut"
         },
         {
-            time: "October 2020 - December 2021",
-            title: "Scout extracurricular",
-            description: "High school of SMAN 21 Garut"
+            time: "02 February 2023 - 02 March 2023",
+            title: "Frontend Developer (Gramedia.com)",
+            description: "Kode Giri Team"
         },
         {
             time: "October 2022 - Now",
             title: "Member",
             description: "Siliwangi Code Developer (Sicodev)"
         },
-        {
-            time: "February 2023 - Now",
-            title: "Frontend Developer",
-            description: "Kode Giri Team"
-        }
     ]
 }
