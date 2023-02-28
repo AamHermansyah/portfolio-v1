@@ -58,7 +58,7 @@ export default function Home(){
                         transition={{ duration: .3, delay: .3 }}
                         className="flex flex-wrap gap-x-4"
                         >
-                            <Link href="https://drive.google.com/uc?export=view&id=1neDoNiIvIDs28XudPxK267cFb-4OSxUL" target="_blank" rel="noreferrer"
+                            <Link href="https://drive.google.com/uc?export=view&id=1FSffvr42VoD49lG0_-sJpowAsHdmvWl2" target="_blank" rel="noreferrer"
                             className="flex gap-2 items-center mt-4 py-3 px-6 bg-primary text-white font-bold font-primary w-max rounded-full">
                                 Download CV
                                 <m.div animate={{ x: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1 }}>
