@@ -12,7 +12,7 @@
   }
 
   body {
-      @apply bg-light dark:bg-dark max-w-[1500px] font-primary text-base overflow-x-hidden mx-auto;
+      @apply relative bg-light dark:bg-dark max-w-[1500px] font-primary text-base overflow-x-hidden mx-auto;
   }
 }
 

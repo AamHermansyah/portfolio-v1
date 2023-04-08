@@ -36,7 +36,7 @@ function Navbar() {
     return (
         <header 
         ref={navbarRef}
-        className="fixed w-full top-0 flex items-center justify-between py-4 px-6 sm:px-8 z-10 transition-colors duration-200 ease-in-out">
+        className="fixed max-w-[1500px] w-full top-0 flex items-center justify-between py-4 px-6 sm:px-8 z-10 transition-colors duration-200 ease-in-out">
             <div className="flex gap-6 items-center">
                 <Link href="/" className="font-extrabold tracking-wider text-gray-800 dark:text-primary text-2xl">ATwoM H</Link>
                 <DarkModeToggle />

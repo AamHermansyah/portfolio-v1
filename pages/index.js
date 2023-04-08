@@ -17,43 +17,43 @@ function HomePage() {
   // loading page settings
   const { loading } = useLoadingPageSettings()
 
-  if(loading) return null
+  if (loading) return null
 
   return (
-      <>
-        <FollowingCursor />
-        <SocialMediaFixed />
-        
-        <Navbar />
+    <>
+      <FollowingCursor />
+      <SocialMediaFixed />
 
-        <div className="relative overflow-x-clip">
-          <div className="hidden dark:block gradient-03 z-[0]" />
-          <Home />
-        </div>
+      <Navbar />
 
-        <Service />
+      <div className="relative overflow-x-clip">
+        <div className="hidden dark:block gradient-03 z-[0]" />
+        <Home />
+      </div>
 
-        <div className="relative overflow-x-clip">
-          <div className="hidden dark:block gradient-02 z-[0]" />
-          <Portfolio />
-        </div>
+      <Service />
 
-        <Client />
-        <Testimonials />
-        <About />
+      <div className="relative overflow-x-clip">
+        <div className="hidden dark:block gradient-02 z-[0]" />
+        <Portfolio />
+      </div>
 
-        <div className="relative overflow-x-clip">
-          <div className="hidden dark:block gradient-01 z-[0]" />
-          <Certifications />
-        </div>
+      <Client />
+      <Testimonials />
+      <About />
 
-        <div className="relative overflow-x-clip">
-          <div className="hidden dark:block gradient-02 z-[0]" />
-          <Contact />
-        </div>
-        
-        <Footer />
-      </>
+      <div className="relative overflow-x-clip">
+        <div className="hidden dark:block gradient-01 z-[0]" />
+        <Certifications />
+      </div>
+
+      <div className="relative overflow-x-clip">
+        <div className="hidden dark:block gradient-02 z-[0]" />
+        <Contact />
+      </div>
+
+      <Footer />
+    </>
   )
 }
 
