@@ -18,8 +18,10 @@ const breakpoints = {
     750: 1
 }
 
-function Certifications() {
-    const { data, loading} = useInfinitePagination("certifications");
+function Certifications({ isPage }) {
+    const { data, loading } = useInfinitePagination(
+        "certifications", isPage ? undefined : 1, isPage ? undefined : 3
+    );
 
     // loading page settings
     const { onEventClick } = useLoadingPageSettings()
@@ -34,12 +36,12 @@ function Certifications() {
                     </Link>
                 )}
             </div>
-            <m.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: .5, delay: .5 }}>
+            <m.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: .5, delay: .5 }}>
                 <Masonry className="flex gap-2 md:gap-4" breakpointCols={breakpoints}>
-                    {!loading && data &&  data.map((certification, index) => (
+                    {!loading && data && data.map((certification, index) => (
                         <Card key={index} data={certification} />
                     ))}
 
@@ -47,6 +49,13 @@ function Certifications() {
                     {loading && <CardSkeleton key='loading-2' />}
                     {loading && <CardSkeleton key='loading-3' />}
                 </Masonry>
+                {(!isPage && !loading && data.length > 2) && (
+                    <Link
+                        href="/certifications"
+                        className="animate-cursor-hovered block w-max mx-auto mt-4 py-2 px-4 rounded-md bg-gradient-to-tr from-[#CB00FF] to-[#fafe06] text-white text-center disabled:cursor-not-allowed">
+                        See more
+                    </Link>
+                )}
             </m.div>
         </section>
     )
