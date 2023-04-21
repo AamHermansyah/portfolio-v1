@@ -178,6 +178,7 @@ export const options = [
     { label: 'Vite', value: 'Vite'},
     { label: 'Sanity', value: 'Sanity'},
     { label: 'Framer Motion', value: 'Framer Motion'},
+    { label: 'Daisy UI', value: 'Daisy UI'},
     { label: 'Redux Toolkit', value: 'Redux Toolkit'},
     { label: 'Infinity Design', value: 'Infinity Design'},
     { label: 'Affinity Design', value: 'Affinity Design'},
