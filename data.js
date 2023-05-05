@@ -157,7 +157,7 @@ export const socialMedia = [
     },
     {
         title: 'Whatsapp',
-        link: 'https://wa.me/6282316126449',
+        link: 'https://wa.me/6283131193229',
         icon: <RiWhatsappFill />
     }
 ]
