@@ -180,6 +180,7 @@ export const options = [
     { label: 'Framer Motion', value: 'Framer Motion'},
     { label: 'Daisy UI', value: 'Daisy UI'},
     { label: 'Redux Toolkit', value: 'Redux Toolkit'},
+    { label: 'API', value: 'API'},
     { label: 'Infinity Design', value: 'Infinity Design'},
     { label: 'Affinity Design', value: 'Affinity Design'},
     { label: 'Pixel Art App', value: 'Pixel Art App'},
