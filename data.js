@@ -187,7 +187,10 @@ export const options = [
 ]
 
 export const categories = [
-    { label: 'Frontend', value: 'Frontend' },
+    { label: 'Frontend (Integrate & Slicing)', value: 'Frontend (Integrate & Slicing)' },
+    { label: 'Frontend (Slicing)', value: 'Frontend (Slicing)' },|
+    { label: 'Frontend (Integrate)', value: 'Frontend (Integrate)' },
+    { label: 'Frontend (Convert)', value: 'Frontend (Convert)' },
     { label: 'Backend', value: 'Backend' },
     { label: 'Fullstack', value: 'Fullstack' },
     { label: 'Pixel', value: 'Pixel' },
