@@ -1,4 +1,4 @@
-import { SiAffinity, SiNextdotjs, SiRedux, SiSemanticuireact, SiTailwindcss } from "react-icons/si"
+import { SiAffinity, SiNextdotjs, SiRedux, SiSemanticuireact, SiTailwindcss, SiTypescript, SiJquery } from "react-icons/si"
 import { RiFacebookFill, RiHtml5Fill, RiInstagramFill, RiNpmjsLine, RiReactjsLine, RiWhatsappFill } from "react-icons/ri"
 import { IoLogoCss3, IoLogoJavascript, IoMdBrush } from "react-icons/io"
 import { TbSquaresFilled, TbVector } from "react-icons/tb"
@@ -88,6 +88,20 @@ export const servicesDevelopment = [
         progressColor: "#F0DB4F"
     },
     {
+        title: 'Typescript',
+        started_at: convertDateFromMomentJs("20230101"),
+        icon: <SiTypescript color="#2F74C0" fontSize={28} />,
+        progress: 60,
+        progressColor: "#2F74C0"
+    },
+    {
+        title: 'JQuery',
+        started_at: convertDateFromMomentJs("20220701"),
+        icon: <SiJquery color="#0769AD" fontSize={28} />,
+        progress: 80,
+        progressColor: "#0769AD"
+    },
+    {
         title: 'Redux Toolkit',
         started_at: convertDateFromMomentJs("20220407"),
         icon: <SiRedux color="#764ABC" fontSize={28} />,
@@ -172,6 +186,8 @@ export const clients = [
 export const options = [
     { label: 'HTML', value: 'HTML'},
     { label: 'CSS', value: 'CSS'},
+    { label: 'JQuery', value: 'JQuery'},
+    { label: 'Typescript', value: 'Typescript'},
     { label: 'React.js', value: 'React.js'},
     { label: 'Next.js', value: 'Next.js'},
     { label: 'Tailwind', value: 'Tailwind'},
@@ -241,12 +257,17 @@ export const tabDataAbout = {
         {
             time: "02 February 2023 - 02 March 2023",
             title: "Frontend Developer (Gramedia.com)",
-            description: "Kode Giri Team"
+            description: "Dooha Team (Contract)"
         },
         {
             time: "October 2022 - Now",
             title: "Member",
             description: "Siliwangi Code Developer (Sicodev)"
+        },
+        {
+            time: "Now",
+            title: "Frontend Developer",
+            description: "Freelancer"
         },
     ]
 }
