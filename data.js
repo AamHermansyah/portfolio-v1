@@ -186,6 +186,7 @@ export const clients = [
 export const options = [
     { label: 'HTML', value: 'HTML'},
     { label: 'CSS', value: 'CSS'},
+    { label: 'Javascript', value: 'Javascript'},
     { label: 'JQuery', value: 'JQuery'},
     { label: 'Typescript', value: 'Typescript'},
     { label: 'React.js', value: 'React.js'},
