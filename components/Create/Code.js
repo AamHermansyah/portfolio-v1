@@ -17,7 +17,7 @@ const CreateMyCode = () => {
     const { onEventClick } = useLoadingPageSettings()
 
     useEffect(() => {
-        if(Cookies.get("user_token") === undefined){ 
+        if (Cookies.get("user_token") === undefined) {
             onEventClick()
             router.push('/')
         }
@@ -33,10 +33,10 @@ const CreateMyCode = () => {
         const description = descriptionRef.current.value.trim();
         const code = codeRef.current.value.trim();
 
-        if(title.length < 3) return setErrorMessageField('Title must be minimal 3 letters.');
-        if(code.length < 10) return setErrorMessageField('Code must be minimal 10 characters.');
-        if(tags.length === 0) return setErrorMessageField('Tags field  must be have one tag minimal.');
-        if(description.split(" ").length < 5) return setErrorMessageField('Description field must be minimal 5 words.');
+        if (title.length < 3) return setErrorMessageField('Title must be minimal 3 letters.');
+        if (code.length < 10) return setErrorMessageField('Code must be minimal 10 characters.');
+        if (tags.length === 0) return setErrorMessageField('Tags field  must be have one tag minimal.');
+        if (description.split(" ").length < 5) return setErrorMessageField('Description field must be minimal 5 words.');
 
         setErrorMessageField("")
         setLoading(true)
@@ -71,7 +71,7 @@ const CreateMyCode = () => {
 
             target.value = target.value.substring(0, start) + "\t" + target.value.substring(end);
             target.selectionStart = target.selectionEnd = start + 1;
-          }
+        }
     }
 
     return (
@@ -79,51 +79,58 @@ const CreateMyCode = () => {
             <h1 className="text-center text-2xl font-bold text-gray-800 dark:text-white">Create New Code</h1>
             <div className="w-full flex flex-col gap-4 sm:p-4 my-4">
                 <input
-                ref={titleRef}
-                type="text"
-                name="title"
-                id="title"
-                placeholder="Title"
-                className="w-full md:w-1/2 bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
+                    ref={titleRef}
+                    type="text"
+                    name="title"
+                    id="title"
+                    placeholder="Title"
+                    className="w-full md:w-1/2 bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
                 />
                 <div className="w-full h-[1000px] flex text-[.8rem] border border-gray-200 font-firaCode rounded overflow-hidden">
                     <textarea
-                    spellCheck={false}
-                    onKeyDown={handleTabInput}
-                    ref={codeRef}
-                    type="text"
-                    name="code"
-                    id="code"
-                    className="whitespace-pre w-full h-full bg-transparent resize-none focus:outline-none leading-4 p-3"
+                        spellCheck={false}
+                        onKeyDown={handleTabInput}
+                        ref={codeRef}
+                        type="text"
+                        name="code"
+                        id="code"
+                        className="whitespace-pre w-full h-full bg-transparent resize-none focus:outline-none leading-4 p-3"
                     />
                 </div>
 
-                <SelectCustomInput onChange={data => setTags(data)} data={tags} allow={true} />
+                <SelectCustomInput
+                    onChange={data => setTags(data)}
+                    data={tags}
+                    allow={true}
+                    title="Tags"
+                    label="tags input in here"
+                    placeholder="Example: react or algorithm,next,html"
+                />
 
                 <textarea
-                ref={descriptionRef}
-                type="text"
-                name="Description"
-                id="Description"
-                placeholder="Description"
-                className="w-full h-[150px] sm:h-[200px] resize-none bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
+                    ref={descriptionRef}
+                    type="text"
+                    name="Description"
+                    id="Description"
+                    placeholder="Description"
+                    className="w-full h-[150px] sm:h-[200px] resize-none bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
                 />
-                { errorMessageField && <p className="font-thin text-red-500">{errorMessageField}</p>}
+                {errorMessageField && <p className="font-thin text-red-500">{errorMessageField}</p>}
                 <div className="text-right">
-                    <button 
-                    type="button"
-                    onClick={() => {
-                        onEventClick()
-                        router.back()
-                    }}
-                    disabled={loading}
-                    className="w-[160px] mx-auto py-2 px-4 rounded-md text-primary dark:text-white border-2 border-primary dark:border-white text-center disabled:cursor-not-allowed">
+                    <button
+                        type="button"
+                        onClick={() => {
+                            onEventClick()
+                            router.back()
+                        }}
+                        disabled={loading}
+                        className="w-[160px] mx-auto py-2 px-4 rounded-md text-primary dark:text-white border-2 border-primary dark:border-white text-center disabled:cursor-not-allowed">
                         Back
                     </button>
-                    <button 
-                    onClick={postData}
-                    disabled={loading}
-                    className="w-[160px] mx-auto py-2 px-4 ml-4 rounded-md bg-primary border-2 border-primary text-white text-center disabled:cursor-not-allowed">
+                    <button
+                        onClick={postData}
+                        disabled={loading}
+                        className="w-[160px] mx-auto py-2 px-4 ml-4 rounded-md bg-primary border-2 border-primary text-white text-center disabled:cursor-not-allowed">
                         {loading ? <AiOutlineLoading3Quarters fontSize={24} color="#fff" className="animate-spin mx-auto" /> : 'Save'}
                     </button>
                 </div>

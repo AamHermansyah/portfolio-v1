@@ -9,6 +9,7 @@ import Cookies from 'js-cookie'
 import { categories, options } from '../../data'
 import Select from '../../components/Select'
 import useLoadingPageSettings from '../../hooks/useLoadingPageSettings'
+import SelectCustomInput from '../SelectCustomInput'
 
 function CreatePortfolio() {
     const [image_url, setImage_url] = useState('');
@@ -18,6 +19,7 @@ function CreatePortfolio() {
     const [errorMessageField, setErrorMessageField] = useState(false);
     const [isInputDesignMode, setIsInputDesignMode] = useState(false);
     const [technologies, setTechnologies] = useState([])
+    const [otherTechnologies, setOtherTechnologies] = useState([]);
 
     // loading settings
     const { onEventClick } = useLoadingPageSettings()
@@ -33,7 +35,7 @@ function CreatePortfolio() {
 
     const checkImageFromGD = (link) => {
         const image_url = handleGDImageId(link);
-        if(!image_url){
+        if (!image_url) {
             setErrorMessageCekImage('Please input the link with correctly!');
             return
         }
@@ -45,25 +47,25 @@ function CreatePortfolio() {
 
     const postData = () => {
         const isValidImage = image_url && typeof errorMessageCekImage === "boolean";
-        if(!isValidImage){
+        if (!isValidImage) {
             return setErrorMessageField('Please input the link photo from google drive with correctly!');
         }
-        
+
         const title = titleRef.current.value.trim();
         const category = categoryRef.current.value.trim();
         const type = typeRef.current.value.trim();
         const demo_url = type === 'development' ? demoRef.current.value.trim() : '';
         const code_url = type === 'development' ? codeRef.current.value.trim() : '';
 
-        if(title.length < 3){
+        if (title.length < 3) {
             return setErrorMessageField('Title must be minimal 3 letters.');
         }
 
-        if(category.length < 3){
+        if (category.length < 3) {
             return setErrorMessageField('Category must be minimal 3 letters.');
         }
 
-        if(technologies.length === 0){
+        if (technologies.length === 0) {
             return setErrorMessageField('Technologies field must be not empty.')
         }
 
@@ -77,7 +79,7 @@ function CreatePortfolio() {
             code_url,
             type,
             category,
-            technologies
+            technologies: [...technologies, ...otherTechnologies]
         }
 
         addDoc(collection(db, "works"), doc)
@@ -94,7 +96,7 @@ function CreatePortfolio() {
     }
 
     useEffect(() => {
-        if(Cookies.get("user_token") === undefined) {
+        if (Cookies.get("user_token") === undefined) {
             onEventClick()
             router.push('/')
         }
@@ -114,14 +116,14 @@ function CreatePortfolio() {
                         )}
 
                         {typeof errorMessageCekImage === 'boolean' ? (
-                            <Image 
-                            src={`/api/imageproxy?url=${encodeURIComponent(image_url)}`} 
-                            alt="Portfolio photo"
-                            layout="fill" 
-                            objectFit="contain" 
-                            onError={e => setErrorMessageCekImage('Error link, image cannot be loaded:(')}
-                            onLoad={e => setCekImageStatus(false)}
-                            /> ) : (
+                            <Image
+                                src={`/api/imageproxy?url=${encodeURIComponent(image_url)}`}
+                                alt="Portfolio photo"
+                                layout="fill"
+                                objectFit="contain"
+                                onError={e => setErrorMessageCekImage('Error link, image cannot be loaded:(')}
+                                onLoad={e => setCekImageStatus(false)}
+                            />) : (
                             <p className="text-red-500 text-center text-base sm:text-lg">{errorMessageCekImage}</p>
                         )}
                     </div>
@@ -129,56 +131,70 @@ function CreatePortfolio() {
 
                 <div className="flex flex-1 flex-col gap-6 lg:pl-5 mt-5 md:mt-0 w-full">
                     <input
-                    type="text"
-                    name="destination"
-                    id="destination"
-                    onChange={(e) => {
-                        checkImageFromGD(e.target.value);
-                    }}
-                    placeholder="Paste your link from Google Drive"
-                    className="w-full bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
+                        type="text"
+                        name="destination"
+                        id="destination"
+                        onChange={(e) => {
+                            checkImageFromGD(e.target.value);
+                        }}
+                        placeholder="Paste your link from Google Drive"
+                        className="w-full bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
                     />
 
                     <input
-                    ref={titleRef}
-                    type="text"
-                    name="title"
-                    id="title"
-                    placeholder="Title your portfolio"
-                    className="w-full bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
+                        ref={titleRef}
+                        type="text"
+                        name="title"
+                        id="title"
+                        placeholder="Title your portfolio"
+                        className="w-full bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
                     />
 
                     {!isInputDesignMode && (
                         <>
                             <input
-                            ref={demoRef}
-                            type="text"
-                            name="demo"
-                            id="demo"
-                            placeholder="Demo url (optional)"
-                            className="w-full bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
+                                ref={demoRef}
+                                type="text"
+                                name="demo"
+                                id="demo"
+                                placeholder="Demo url (optional)"
+                                className="w-full bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
                             />
                             <input
-                            ref={codeRef}
-                            type="text"
-                            name="code"
-                            id="code"
-                            placeholder="Code url source (optional)"
-                            className="w-full bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
+                                ref={codeRef}
+                                type="text"
+                                name="code"
+                                id="code"
+                                placeholder="Code url source (optional)"
+                                className="w-full bg-gray-100 border border-gray-200 rounded py-2 px-4 block focus:outline-none text-gray-700"
                             />
                         </>
                     )}
 
-                    <Select options={options} value={technologies} label="Select technology used" onChange={input => setTechnologies(input)} />
+                    <Select
+                        options={options}
+                        value={technologies}
+                        label="Select technology used"
+                        onChange={input => setTechnologies(input)}
+                    />
+
+                    <SelectCustomInput
+                        onChange={data => setOtherTechnologies(data)}
+                        data={otherTechnologies}
+                        allow={true}
+                        title="Other Technologies (Optional)"
+                        label="Empty..."
+                        placeholder="Example: react or algorithm,next,html"
+                    />
 
                     <div className="flex flex-col">
                         <div>
                             <p className="mb-2 font-semibold text-lg sm:text-xl text-gray-800 dark:text-white">Category</p>
                             <select
-                            name="category"
-                            id="category"
-                            ref={categoryRef}
-                            className="outline-none w-full bg-gray-100 border border-gray-200 rounded py-3 px-4 block focus:outline-none text-gray-700 cursor-pointer"
+                                name="category"
+                                id="category"
+                                ref={categoryRef}
+                                className="outline-none w-full bg-gray-100 border border-gray-200 rounded py-3 px-4 block focus:outline-none text-gray-700 cursor-pointer"
                             >
                                 {categories.map(category => (
                                     <option key={category.value} value={category.value} className="bg-white">{category.label}</option>
@@ -188,35 +204,35 @@ function CreatePortfolio() {
                         <div className="mt-6">
                             <p className="mb-2 font-semibold text-lg sm:text-xl text-gray-800 dark:text-white">Select type your portfolio</p>
                             <select
-                            onChange={e => {
-                                if(e.target.value === 'development') setIsInputDesignMode(false);
-                                else setIsInputDesignMode(true);
-                            }}
-                            ref={typeRef}
-                            name="type"
-                            id="type"
-                            className="outline-none w-full bg-gray-100 border border-gray-200 rounded py-3 px-4 block focus:outline-none text-gray-700 cursor-pointer"
+                                onChange={e => {
+                                    if (e.target.value === 'development') setIsInputDesignMode(false);
+                                    else setIsInputDesignMode(true);
+                                }}
+                                ref={typeRef}
+                                name="type"
+                                id="type"
+                                className="outline-none w-full bg-gray-100 border border-gray-200 rounded py-3 px-4 block focus:outline-none text-gray-700 cursor-pointer"
                             >
                                 <option value="development" className="bg-white">Development</option>
                                 <option value="design" className="bg-white">Design</option>
                             </select>
                         </div>
-                        { errorMessageField && <p className="font-thin text-red-500 mt-2">{errorMessageField}</p>}
+                        {errorMessageField && <p className="font-thin text-red-500 mt-2">{errorMessageField}</p>}
                         <div className="text-right my-6">
-                            <button 
-                            type="button"
-                            onClick={() => {
-                                onEventClick()
-                                router.push('/portfolio')
-                            }}
-                            disabled={loading}
-                            className="w-[160px] mx-auto py-2 px-4 rounded-md text-primary dark:text-white border-2 border-primary dark:border-white text-center disabled:cursor-not-allowed">
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    onEventClick()
+                                    router.push('/portfolio')
+                                }}
+                                disabled={loading}
+                                className="w-[160px] mx-auto py-2 px-4 rounded-md text-primary dark:text-white border-2 border-primary dark:border-white text-center disabled:cursor-not-allowed">
                                 Back
                             </button>
-                            <button 
-                            onClick={postData}
-                            disabled={loading}
-                            className="w-[160px] mx-auto py-2 px-4 ml-4 rounded-md bg-primary border-2 border-primary text-white text-center disabled:cursor-not-allowed">
+                            <button
+                                onClick={postData}
+                                disabled={loading}
+                                className="w-[160px] mx-auto py-2 px-4 ml-4 rounded-md bg-primary border-2 border-primary text-white text-center disabled:cursor-not-allowed">
                                 {loading ? <AiOutlineLoading3Quarters fontSize={24} color="#fff" className="animate-spin mx-auto" /> : 'Add portfolio'}
                             </button>
                         </div>
