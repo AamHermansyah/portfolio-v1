@@ -1,7 +1,6 @@
 import React from 'react'
 import About from '../components/About'
 import Certifications from '../components/Certifications'
-import Client from '../components/Client'
 import Contact from '../components/Contact'
 import FollowingCursor from '../components/FollowingCursor'
 import Footer from '../components/Footer'
@@ -38,7 +37,6 @@ function HomePage() {
         <Portfolio />
       </div>
 
-      <Client />
       <Testimonials />
       <About />
 

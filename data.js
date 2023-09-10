@@ -176,31 +176,24 @@ export const socialMedia = [
     }
 ]
 
-export const clients = [
-    {
-        title: "untitled.blend",
-        image_url: "https://drive.google.com/uc?export=view&id=19VJmJBUfLgRLjJwWpQMVEnNWzv76mQ8O"
-    }
-]
-
 export const options = [
-    { label: 'HTML', value: 'HTML'},
-    { label: 'CSS', value: 'CSS'},
-    { label: 'Javascript', value: 'Javascript'},
-    { label: 'JQuery', value: 'JQuery'},
-    { label: 'Typescript', value: 'Typescript'},
-    { label: 'React.js', value: 'React.js'},
-    { label: 'Next.js', value: 'Next.js'},
-    { label: 'Tailwind', value: 'Tailwind'},
-    { label: 'Vite', value: 'Vite'},
-    { label: 'Sanity', value: 'Sanity'},
-    { label: 'Framer Motion', value: 'Framer Motion'},
-    { label: 'Daisy UI', value: 'Daisy UI'},
-    { label: 'Redux Toolkit', value: 'Redux Toolkit'},
-    { label: 'API', value: 'API'},
-    { label: 'Infinity Design', value: 'Infinity Design'},
-    { label: 'Affinity Design', value: 'Affinity Design'},
-    { label: 'Pixel Art App', value: 'Pixel Art App'},
+    { label: 'HTML', value: 'HTML' },
+    { label: 'CSS', value: 'CSS' },
+    { label: 'Javascript', value: 'Javascript' },
+    { label: 'JQuery', value: 'JQuery' },
+    { label: 'Typescript', value: 'Typescript' },
+    { label: 'React.js', value: 'React.js' },
+    { label: 'Next.js', value: 'Next.js' },
+    { label: 'Tailwind', value: 'Tailwind' },
+    { label: 'Vite', value: 'Vite' },
+    { label: 'Sanity', value: 'Sanity' },
+    { label: 'Framer Motion', value: 'Framer Motion' },
+    { label: 'Daisy UI', value: 'Daisy UI' },
+    { label: 'Redux Toolkit', value: 'Redux Toolkit' },
+    { label: 'API', value: 'API' },
+    { label: 'Infinity Design', value: 'Infinity Design' },
+    { label: 'Affinity Design', value: 'Affinity Design' },
+    { label: 'Pixel Art App', value: 'Pixel Art App' },
 ]
 
 export const categories = [
@@ -254,18 +247,18 @@ export const tabDataAbout = {
         },
         {
             time: "02 February 2023 - 02 March 2023",
-            title: "Frontend Developer (Gramedia.com)",
+            title: "Gramedia Affiliate (Frontend)",
             description: "Dooha Team (Contract)"
         },
         {
-            time: "October 2022 - Now",
-            title: "Member",
-            description: "Siliwangi Code Developer (Sicodev)"
+            time: "11 Juny - 06 August",
+            title: "Gramedia Affiliate (Frontend)",
+            description: "Dooha Team (Contract)"
         },
         {
             time: "Now",
-            title: "Frontend Developer",
-            description: "Freelancer"
+            title: "Fullstack Developer",
+            description: "Fiverr Freelancer"
         },
     ]
 }

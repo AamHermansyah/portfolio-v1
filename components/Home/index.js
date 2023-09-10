@@ -37,9 +37,9 @@ export default function Home() {
                         animate={{ x: "0%" }}
                         transition={{ duration: .3, delay: .2 }}
                         className="font-extrabold text-gray-800 dark:text-white">
-                        <h1 className="animate-cursor-hovered w-max text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-secondary to-primary">
+                        <h1 className="animate-cursor-hovered w-max text-5xl md:text-6xl font-extrabold">
                             Hii.. I am <br />
-                            <span className="text-4xl md:text-5xl mt-2">Aam Hermansyah</span>
+                            <span className="block text-5xl md:text-7xl mt-2 sm:mt-4 leading-[125%] text-transparent bg-clip-text bg-gradient-to-l from-[#CB00FF] to-[#fafe06]">Aam <br className="block sm:hidden" /> Hermansyah</span>
                         </h1>
                         <h2 className="text-3xl md:text-4xl mt-2 md:mt-4 text-primary">
                             <Typewriter
