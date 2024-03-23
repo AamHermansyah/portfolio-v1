@@ -1,4 +1,3 @@
-import Image from "next/legacy/image"
 import Typewriter from "typewriter-effect"
 import { motion as m } from "framer-motion"
 import Link from "next/link"
@@ -47,7 +46,7 @@ export default function Home() {
                                 onInit={typewriter => {
                                     typewriter
                                         .pauseFor(2000)
-                                        .typeString('Javascript Developer')
+                                        .typeString('JS/TS Developer')
                                         .pauseFor(1000)
                                         .deleteAll()
                                         .typeString('& Graphic Designer')

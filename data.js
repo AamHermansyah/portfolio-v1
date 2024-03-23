@@ -1,9 +1,10 @@
 import { SiAffinity, SiNextdotjs, SiRedux, SiSemanticuireact, SiTailwindcss, SiTypescript, SiJquery } from "react-icons/si"
-import { RiFacebookFill, RiHtml5Fill, RiInstagramFill, RiNpmjsLine, RiReactjsLine, RiWhatsappFill } from "react-icons/ri"
+import { RiHtml5Fill, RiInstagramFill, RiNpmjsLine, RiReactjsLine, RiWhatsappFill } from "react-icons/ri"
 import { IoLogoCss3, IoLogoJavascript, IoMdBrush } from "react-icons/io"
 import { TbSquaresFilled, TbVector } from "react-icons/tb"
 import { BiGitBranch } from "react-icons/bi"
-import { FaNode, FaTelegramPlane } from "react-icons/fa"
+import { FaNode } from "react-icons/fa"
+import { TbBrandFiverr } from "react-icons/tb"
 import { FiFramer } from "react-icons/fi"
 import { AiFillGithub } from "react-icons/ai"
 import { convertDateFromMomentJs } from "./utils/formatDate"
@@ -150,24 +151,19 @@ export const navigations = [
 
 export const socialMedia = [
     {
-        title: 'Facebook',
-        link: 'https://facebook.com/aam.hermansyah.79',
-        icon: <RiFacebookFill />
+        title: 'Fiverr',
+        link: 'https://www.fiverr.com/aam_hermansyah',
+        icon: <TbBrandFiverr />
     },
     {
         title: 'Instagram',
-        link: 'https://instagram.com/aamhrmnsyah',
+        link: 'https://instagram.com/maahersyah',
         icon: <RiInstagramFill />
     },
     {
         title: 'Github',
         link: 'https://github.com/AamHermansyah',
         icon: <AiFillGithub />
-    },
-    {
-        title: 'Telegram',
-        link: 'https://t.me/AamHermansyah',
-        icon: <FaTelegramPlane />
     },
     {
         title: 'Whatsapp',
